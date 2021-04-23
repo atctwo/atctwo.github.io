@@ -1,0 +1,103 @@
+<html>
+
+    
+    
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../style.css">
+        <link rel="stylesheet" type="text/css" href="chase.css">
+
+        <title>The Chase</title>
+
+    </head>
+
+    <body>
+
+        <div id="main-menu" class="menu" style="padding-bottom: 35px;">
+
+            <h1 style="color: white; display: block;">The Chase</h1>
+			
+            <button class="menu-button" onclick="beginTheChase();">Face the Chaser</button>
+            <button class="menu-button" onclick="aboutMenu(false);">About</button><br>
+            <input type="checkbox" id="chkbox_sound" name="chkbox_sound" checked>
+            <label for="chkbox_sounds">Enable sounds</label>
+			
+			<div style="position: absolute; left:5; bottom: 5;">ver. 1.1</div>
+
+        </div>
+
+        <div id="about-menu" class="menu" style="display: none; opacity: 0;">
+
+            <span>
+                An online game based on the ITV programme <a href="https://en.wikipedia.org/wiki/The_Chase_(British_game_show)">The Chase</a><br><br>
+
+                This game only focuses on the head to head parts of the show.  That is, there is no Cash Builder or Final Chase.  There is a table with seven
+                steps.  You and the Chaser have to answer a multiple choice question.  Once either person picks an answer, the other person has five seconds
+                to pick their answer, otherwise they will be locked out, and unable to answer.  If you get the answer right, you move down the table ("closer to home").
+                How far you are is shown in <span style="color: cyan;">cyan</span>.  If the Chaser gets the question right, they move closer to you.  The 
+                Chaser's steps are shown in <span style="color: red;">red</span>.  If you make it down the whole table, you beat the Chaser, and you win.  If
+                the Chaser catches up with you, you lose.<br><br>
+                
+                In this game, the Chaser's decisions are randomly chosen, but the outcome is still weighted.  The Chaser has a high chance of getting the 
+                answer right.<br><br>
+
+                The game is written entirely in HTML, CSS, and vanilla JS.  Functions to generate random stuff are from <a href="https://chancejs.com/">Chance.js</a>.
+                The questions are fetched from the <a href="https://opentdb.com/">Open Trivia Database</a> using XMLHttpRequests.  The audio was downloaded from
+				<a href="https://www.sounds-resource.com/mobile/thechase/sound/6064/">The Sounds Resource</a>.<br><br>
+
+                This was developed in three days, and wasn't designed to look <em>exactly</em> like The Chase, so it might not be very visually appealing.  It was
+                developed on a desktop computer, so it probably won't look very good on a mobile device.<br><br>
+
+                Have fun!<br><br><br>
+				
+				
+				<b>Update 1.1</b><br>
+				<ul>
+					<li>Adjusted audio files to be the same-ish volume</li>
+					<li>Added money indicator to table</li>
+					<li>Updated game win and lose conditions to match the TV show</li>
+				</ul>
+            </span>
+            <button class="menu-button" onclick="aboutMenu(true);">Return to main menu</button>
+
+        </div>
+
+        <div id="chase-table">
+
+            <div id="pos1" class="chase-table-pos chase-table-top"></div>
+            <div id="pos2" class="chase-table-pos"></div>
+            <div id="pos3" class="chase-table-pos"></div>
+            <div id="pos4" class="chase-table-pos"></div>
+            <div id="pos5" class="chase-table-pos"></div>
+            <div id="pos6" class="chase-table-pos"></div>
+            <div id="pos7" class="chase-table-pos chase-table-bottom"></div>
+
+        </div>
+
+        <div id="qthing" class="qcontainer">
+            <div id="name_player" class="name">
+                <span class="vertical-aligned-span">
+                    YOU
+                </span>
+            </div>
+            <div id="name_chaser" class="name">
+                <span class="vertical-aligned-span">
+                    CHASER
+                </span>
+            </div>
+            <div id="qbox" class="qbox"></div>
+            <div id="ans1" class="question qleft"></div>
+            <div id="ans2" class="question"></div>
+            <div id="ans3" class="question qright"></div>
+        </div>
+
+    </body>
+
+    <script src="chance.js"></script>
+    <script src="questions.js"></script>
+    <script src="thechase.js"></script>
+
+</html>

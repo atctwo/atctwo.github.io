@@ -1,0 +1,67 @@
+<html>
+
+	<head>
+		<title>Generator thing</title>
+		<link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	
+	<body>
+		<h2>Generator thing</h2>
+		<p>Version 2.</p>
+		<button onclick="location.href='../index.html'">Back to projects</button>
+		<p>This tool allows you to generate a random string from "sets" of predetermined words.  For example, if you wanted a phrase 
+		to be generated that said "Bob", "Joe", or "Steve", followed by "is cool" or "is uncool", you can use this tool to randomly 
+		select words and put them together.</p>
+		<p>Small bug: you have to drag and drop something at least once for this to work.</p>
+		
+		<button class="accordion">Show help</button>
+		<div class="panel">
+			<p>The tool works on the concept of "generators" and "conjunctives".  Generators tell the program to pick one phrase from a list
+			of phrases randomly.  Conjunctives tell the program to use one set phase.  The program joins up the phrases in a set order, with spaces
+			between each phrase.  You can drag and drop generators and conjunctives to rearrange the order in which resultant phrases are 
+			assembled.  You can remove a generator or conjunctive entirely by pressing the "Remove generator/conjunctive" button.</p>
+			<p>If you want to save a setup or configuration to a local file, and load it at a later data, the "Save config" button allows you
+			to save your configuration as a file.  The "Load config" button allows you to upload a config that was saved earlier.</p>
+			<p>Please avoid using commas (,) and colons (:) in phrases.  However, it is fine to use these if you have no intention of saving your config.</p>
+		</div>
+		<br>
+		<br>
+		
+		<input id="file-input" type="file" name="name" style="display: none;" onchange="configLoad();" />
+		<button onclick="addNewGenerator()">Add new <b>generator</b></button>
+		<button onclick="addNewConjunctive()">Add new <b>conjunctive</b></button>
+		<button onclick="configSave()">Save config</button>
+		<button onclick="document.getElementById('file-input').click()">Load config</button>
+		<br>
+		<div id="generators"></div>
+		<br>
+		<button onclick="generateUsingGenerators()">Generate!</button>
+		<p id="gentext"></p>
+		
+		<script src="Sortable.js"></script>
+		<script src="gen.js"></script>
+		<script>
+			//stolen from https://www.w3schools.com/howto/howto_js_accordion.asp
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function() {
+					/* Toggle between adding and removing the "active" class,
+					to highlight the button that controls the panel */
+					this.classList.toggle("active");
+
+					/* Toggle between hiding and showing the active panel */
+					var panel = this.nextElementSibling;
+					if (panel.style.display === "block") {
+						panel.style.display = "none";
+					} else {
+						panel.style.display = "block";
+					}
+				});
+			}
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,7 @@
+for each player
+	
+	as many questions in one minute, 1k for each correct answer
+	
+	they face the chaser - 7 spots
+	
+final chase
