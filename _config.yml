@@ -46,7 +46,12 @@ minima:
   social_links:
     twitter: atctwo
     github: atctwo
-  skin: classic
+  skin: dark
+
+
+# tagging settings
+tag_page_layout: tag_page
+tag_page_dir: tags
 
 # Exclude from processing.
 # The following items will not be processed, by default.
