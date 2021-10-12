@@ -5,5 +5,4 @@
 layout: home
 ---
 
-# Hello
 This is my website with not very much on it yet.  You'll find stuff at my [Github](https://github.com/atctwo) or on the [Projects page](/projects).

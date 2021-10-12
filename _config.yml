@@ -33,6 +33,11 @@ author:
   twitter: atctwo
 show_excerpts: true
 
+header_pages:
+  - index.markdown
+  - about.markdown
+  - projects.markdown
+
 # Build settings
 theme: minima
 plugins:
