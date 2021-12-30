@@ -3,7 +3,7 @@ layout: page
 permalink: /rubbish/
 ---
 
-# Rubbish
+# Doodles
 
 Welcome to an assortment of really random useless stuff
 
