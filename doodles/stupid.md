@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /rubbish/togami
+permalink: /doodles/togami
 ---
 
 
