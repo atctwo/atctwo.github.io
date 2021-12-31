@@ -1,0 +1,102 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+}
+
+*.dark-mode {
+    color: white;
+}
+
+body.dark-mode
+{
+    background-color: rgb(33, 33, 37);
+}
+
+h1 {
+    font-size: 3em;
+    font-style: italic;
+    font-weight: 1000;
+}
+
+#main {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+}
+
+#current-letter {
+    font-size: 2em;
+}
+
+#current-letter.e {
+
+    filter: drop-shadow(3px 3px 3px gray);
+    transform: scale(6);
+
+}
+
+#input-container {
+
+    width: 50%;
+    height: 40px;
+    margin: auto;
+
+}
+
+#input {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 75%;
+    height: 100%;
+    float: left;
+
+    text-align: center;
+    font-size: 2em;
+    line-height: 40px;
+}
+
+#input.dark-mode {
+    border-color: white;
+}
+
+#btn-backspace {
+    width: 15%;
+    height: 100%;
+    line-height: 40px;
+    display: inline-block;
+}
+
+button {
+    background-color: rgb(236, 236, 236);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+.morse-input {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    font-size: 2em;
+    vertical-align: middle;
+}
+
+.morse-character {
+    font-size: 4em;
+}
+
+.shuffle {
+    font-size: 1em;
+    padding: 10px;
+}
+
+#btn-dark-mode {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
