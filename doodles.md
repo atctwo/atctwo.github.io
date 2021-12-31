@@ -11,10 +11,11 @@ Welcome to an assortment of really random useless stuff
 - [Make entire webpage editable](javascript:var c=document.body.children;for(var i=0;i<c.length-1;i++){c.item(i).contentEditable=true})
     - recreation of something I found in the comments of a YouTube video, but I could never find again
     - this is designed to be used as a bookmarklet (you should be able to use it on any website)
-- [teapot](/rubbish/teapot/index.html)
-- [EIIRP](/rubbish/eiirp.html)
-- [cmd.txt](/rubbish/cmd.txt)
-- [Byakuya Togami](/rubbish/togami)
+- [teapot](/doodles/teapot/index.html)
+- [EIIRP](/doodles/eiirp.html)
+- [cmd.txt](/doodles/cmd.txt)
+- [Byakuya Togami](/doodles/togami)
+- [>30 Minute Morse Code](/doodles/30-minute-morse//index.html)
 
 <body>
     <span id="notice"></span>
