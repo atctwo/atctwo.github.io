@@ -230,7 +230,7 @@
                 document.getElementById("connection-status").innerText = "Connecting..."
                 document.getElementById("connection-button").innerText = "Disconnect"
                 
-                tv_socket = new WebSocket("ws://lgwebostv:3000")
+                tv_socket = new WebSocket("ws://lgwebostv:3001")
                 window.tv_socket = tv_socket;
                 
                 tv_socket.addEventListener("open", event => {
