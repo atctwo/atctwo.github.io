@@ -1,0 +1,3 @@
+[submodule "projects/pinout"]
+	path = projects/pinout
+	url = https://github.com/atctwo/pinout

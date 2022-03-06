@@ -12,6 +12,10 @@ Most of the big projects that I have worked on can be found at my [Github](githu
 
 Here are a few small projects I made spontaneously.
 
+
+### [Raspberry Pi CM4 Pinout](/projects/pinout/index.html)
+an interactive pinout for the Pi CM4.  source can be found on [github](https://github.com/atctwo/pinout)
+
 ### [Quiz Game](/projects/quiz/index.html)
 a minimal quiz game.  questions are taken from the [Open Trivia Database](https://opentdb.com/)
 
