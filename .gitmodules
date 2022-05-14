@@ -1,3 +1,6 @@
 [submodule "projects/pinout"]
 	path = projects/pinout
 	url = https://github.com/atctwo/pinout
+[submodule "projects/esp32-partition-editor"]
+	path = projects/esp32-partition-editor
+	url = https://github.com/atctwo/esp32-partition-editor.git
