@@ -17,6 +17,7 @@ Welcome to an assortment of really random useless stuff
 - [Byakuya Togami](/doodles/togami)
 - [>30 Minute Morse Code](/doodles/30-minute-morse//index.html)
 - [LG TV Web Remote](/doodles/lg_remote.html)
+- [Prompt Generator](/doodles/words)
 
 <body>
     <span id="notice"></span>
