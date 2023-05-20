@@ -1,0 +1,181 @@
+- section_name: Utilities
+  projects:
+  - name: Raspberry Pi CM4 Pinout
+    description: An interactive pinout for the Raspberry Pi Compute Module 4
+    image: /assets/images/projects/cm4.png
+    image_alt: Screenshot of the pinout tool
+    link: /projects/pinout/index.html
+    github: https://github.com/atctwo/pinout
+    updated: March 2022
+
+  - name: ESP32 Partition Editor
+    description: A graphical editor for ESP32 flash partition files
+    image: /assets/images/projects/esp32_partition.png
+    image_alt: Screenshot of the partition editor
+    link: /projects/esp32-partition-editor/
+    github: https://github.com/atctwo/esp32-partition-editor
+    updated: August 2022
+
+  - name: Authenticator
+    description: A chrome extension to generate TOTP codes and automatically insert them into websites
+    image: /assets/images/projects/authenticator.png
+    image_alt: Screenshot of the authenticator
+    github: https://github.com/atctwo/authenticator
+    updated: September 2022
+
+- section_name: Electronics Projects
+  projects:
+  - name: watch2
+    description: A custom ESP32-based smartwatch
+    image: /assets/images/projects/watch2.jpeg
+    image_alt: Picture of the watch
+    github: https://github.com/atctwo/watch-II
+    updated: September 2021
+
+  - name: assorted-breakouts
+    description: An assortment of simple breakout boards made with KiCad
+    image: /assets/images/projects/assorted_breakouts.png
+    image_alt: Collage of 3D renders of some of the breakout boards
+    github: https://github.com/atctwo/assorted-breakouts
+    updated: January 2021
+
+- section_name: Code Libraries
+  projects:
+  - name: rebind.js
+    description: A JavaScript library to dynamically bind/unbind keyboard keys and gamepad buttons to functions
+    image: /assets/images/projects/rebind.js.png
+    image_alt: Screenshot of some code showing usage of rebind.js
+    github: https://github.com/atctwo/rebind.js
+    updated: November 2021
+  - name: libtris
+    description: A C++ library for creating Tetris clones
+    image: /assets/images/projects/libtris.png
+    image_alt: Screenshot of some code showing usage of libtris
+    github: https://github.com/atctwo/libtris
+    updated: June 2021
+  - name: snake-game
+    description: A C++ library for creating Snake clones
+    image: /assets/images/projects/snek.png
+    image_alt: Screenshot of some code showing usage of snake-game
+    github: https://github.com/atctwo/snake-game
+    updated: July 2021
+
+- section_name: Games
+  projects:
+  - name: Quiz Game
+    description: A simple quiz game.  Questions taken from the <a href="https://opentdb.com/">Open Trivia Database</a>
+    image: /assets/images/projects/quiz_game.png
+    image_alt: Screenshot of the quiz game
+    link: /projects/quiz/index.html
+    updated: April 2021
+
+  - name: The Chase
+    description: Another quiz game, made to play like the TV show <a href="https://en.wikipedia.org/wiki/The_Chase_(British_game_show)">The Chase</a>.  Questions taken from the <a href="https://opentdb.com/">Open Trivia Database</a>
+    image: /assets/images/projects/the_chase.png
+    image_alt: Screenshot of the game
+    link: /projects/thechase/index.html
+    updated: 2019
+
+  - name: Breakout
+    description: An old breakout clone I made in GameMaker
+    image: /assets/images/projects/breakout.png
+    image_alt: Screenshot of the game
+    link: /projects/breakout/index.html
+    updated: 2016
+
+- section_name: Other
+  projects:
+  - name: atctwo.net
+    description: This website!
+    image: /assets/images/projects/atctwo.net.png
+    image_alt: Screenshot of the home page of this website
+    link: /
+    github: https://github.com/atctwo/atctwo.github.io/tree/web4
+    updated: May 2023
+
+  - name: atctheme
+    description: The Jekyll theme that this site runs on
+    image: /assets/images/projects/atctheme.png
+    image_alt: Screenshot of a default Jekyll post being rendered with this Jekyll theme
+    github: https://github.com/atctwo/atctheme
+    updated: May 2023
+
+  - name: transterminal
+    description: A <strong>proof of concept</strong> for an simultaneous multi-user remote terminal
+    image: /assets/images/projects/transterminal.png
+    image_alt: Screenshot of transterminal being used to update a Linux system
+    github: https://github.com/atctwo/transterminal
+    updated: January 2021
+
+  - name: Generator
+    description: A tool to create random sentances from pre-specified lists of words
+    image: /assets/images/projects/generator.png
+    image_alt: Screenshot of the generator being used
+    link: /projects/generator/index.html
+    updated: 2018 - 2019
+
+  - name: File to Colour Processor
+    description: A thingy that turns the bytes of files into colourful squares
+    image: /assets/images/projects/file_to_colour.png
+    image_alt: A grid of colours, produced by running a text file through this tool
+    link: /projects/colour-idk/index.html
+    updated: 2019
+
+  - name: Doodles
+    description: A collection of small software sketches
+    image: /assets/images/projects/doodles.png
+    image_alt: A screenshot of the 'teapot' doodle - a grid of 3D teapots rendered using normal mapping
+    link: /doodles
+    updated: 2019
+
+  - name: Website Version 1
+    description: An archive of the first version of this website
+    image: /assets/images/projects/web2.png
+    image_alt: A screenshot of the first version of this site
+    link: /projects/web2/index.html
+    updated: 2019 - 2020
+
+  - name: Website Version 2
+    description: An archive of the second version of this website
+    image: /assets/images/projects/web3.png
+    image_alt: A screenshot of the second version of this site
+    link: /projects/web3/index.html
+    updated: 2021
+
+# - section_name: eeby deeby
+#   projects:
+#     - name: test
+#       description: A test project :/
+#       image: /assets/images/projects/kirby.jpg
+#       link: https://www.youtube.com/watch?v=DI6vNfHIqIg&ab_channel=1hourforlowconnection
+#       github: https://github.com/
+#       updated: May 2023
+#       created: at the dawn of time
+
+#     - name: Alice
+#       description: this is my mii she is neat
+#       image: /assets/images/projects/alice_v2_1.png
+#       link: https://studio.mii.nintendo.com/
+#       updated: sometime in 2022
+
+#     - name: Eurovision
+#       description: Pan-European Broadcast System
+#       image: /assets/images/projects/eurovision.gif
+#       link: https://www.eurovision.net/
+#       created: 1954
+
+#     - name: amogus
+#       description: kinda sus
+#       image: /assets/images/projects/amogus.gif
+#       link: https://www.innersloth.com/games/among-us/
+
+#     - name: Tears of the Kingdom
+#       description: AAAAH it's out on friday!!!! omg i can't believe its finally here!  what happens if i make this a really really long run-on sentance?
+#       image: /assets/images/projects/totk.jpg
+
+#     - name: atctwo.net
+#       description: my stupid websiite
+#       image: /assets/images/projects/website.png
+#       link: https://atctwo.net
+#       github: https://github.com/atctwo/atctwo.github.io
+#       updated: {{site.time}}

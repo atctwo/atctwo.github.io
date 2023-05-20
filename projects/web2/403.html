@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<title>403</title>
+		<link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+	</head>
+	
+	<body style="overflow-x: hidden;">
+	
+		<h1 id="error">403</h1>
+		<span><em>forbidden</em></span>
+		<button onclick="location.href='index.html'">Back to homepage</button>
+		<br><br>
+		<p>
+			you are not authorized to view the file you were looking for (sorry)
+		</p>
+	</body>
+	
+	<script>
+	
+		var title = document.getElementById("error");
+		var screen_width = screen.width;
+		title.innerText = "";
+		
+		var text = document.createElement("span");
+		text.style.color = "#008000";
+		text.innerText = "403";
+		title.appendChild(text);
+		
+		var error_width = text.offsetWidth + 1;
+		var no_errors = Math.ceil(screen_width / error_width) + 1;
+		
+		for (var i = 0; i < no_errors - 1; i++)
+		{
+			var text = document.createElement("span");
+			text.style.color = (i == 0) ? "#00ced1" : "#008000";
+			text.innerText = "403";
+			title.appendChild(text);
+		}
+		
+		title.style.transform = "transform: translateX(-63px);";
+		//title.style.transform = "rotate(10deg)";
+		//console.log("translate(-" + (error_width / 2) + ", 0)");
+	
+	</script>
+</html>

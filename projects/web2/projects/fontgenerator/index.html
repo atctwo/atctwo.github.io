@@ -1,0 +1,55 @@
+<html>
+
+	<head>
+	
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+		<title>fonts!</title>
+		
+	</head>
+	
+	<body>
+	
+		<h2>Font Generator</h2>
+		
+		<div id="part1">
+		
+			<span>Part 1: <b>Fill out font template</b></span>
+			
+			<input id="template-file" type="file">
+			<button onclick="p2();">Next</button>
+		
+		</div>
+		
+		<div id="part2" style="width: 100%; display: none;">
+		
+			<span style="display: block;"> Part 2: <b>Posterise</b></span>
+			
+			<input id="threshold" type="number" min="0" max="255" value="10" style="display: block;">
+			<canvas id="preview-canvas" style="max-width: 50%"></canvas>
+		
+		</div>
+	
+	</body>
+	
+	<script src="imagetracer_v1.2.5.js"></script>
+	<script src="font.js"></script>
+	
+	<script>
+	
+		function p2()
+		{
+			loadimg(function() {
+			
+				document.getElementById("part1").style.display = "none";
+				document.getElementById("part2").style.display = "block";
+			
+			});
+		}
+	
+	
+	</script>
+
+</html>

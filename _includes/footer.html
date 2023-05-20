@@ -1,39 +1,34 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+<div id="site-footer">
+    <p id="site-footer-license" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <span property="dct:title">The contents of this site</span> are licensed under 
+        <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="Creative Commons Logo">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="Creative Commons Attribution Icon">
+        </a>
+    </p>
 
-  <div class="wrapper">
+    <!-- <div class="site-footer-break"></div> -->
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col">
-        <p class="feed-subscribe">
-          <a href="{{ 'feed.xml' | relative_url }}">
-            <svg class="svg-icon orange">
-              <use xlink:href="{{ 'assets/minima-social-icons.svg#rss' | relative_url }}"></use>
-            </svg><span>Subscribe</span>
-          </a>
-        </p>
-      <!--
-      {%- if site.author %}
-        <ul class="contact-list">
-          {% if site.author.name -%}
-            <li class="p-name">{{ site.author.name | escape }}</li>
-          {% endif -%}
-          {% if site.author.email -%}
-            <li><a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-          {%- endif %}
-        </ul>
-      {%- endif %}
-      -->
-      </div>
-      <div class="footer-col">
-        <p>{{ site.description | escape }}</p>
-      </div>
+    <img src="/assets/images/trans_button.gif" style="image-rendering: pixelated;" alt="Button saying 'This website supports trans rights'"">
+    <img id="netscape-cube" onclick="netscape_cube();" style="image-rendering: pixelated;" src="https://dans-things.com/wp-content/uploads/2018/10/SpinningNetscape.gif" alt="Spinning Netscape logo cube">
+    <!-- <a href="https://twitter.com/npc_alyx/status/1522679980127227905" target="_blank"><img height="60" src="https://inconspicuousbucket.s3.us-west-2.amazonaws.com/e2v2.gif"></a> -->
+    <div>
+        <table>
+            {% if site.github_username %}
+            <tr>
+                <td><i class="bi bi-github"></i>&nbsp;
+            </td>
+            <td><a href="https://github.com/{{site.github_username}}/">{{site.github_username}}</td>
+            </tr>
+            {% endif %}
+            {% if site.twitter_username %}
+            <tr>
+                <td><i class="bi bi-twitter"></i>&nbsp;
+                </td>
+                <td><a href="https://twitter.com/{{site.twitter_username}}">@{{site.twitter_username}}</td>
+            </tr>
+            {% endif %}
+        </table>
     </div>
-
-    <div class="social-links">
-      {%- include social.html -%}
-    </div>
-
-  </div>
-
-</footer>
+</div>
+<!-- <div id="site-footer-flex-margin">&nbsp;</div> -->

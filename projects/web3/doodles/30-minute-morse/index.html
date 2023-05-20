@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>>30 Minute Morse Code</title>
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div id="main">
+            <h1>>30 Minute Morse</h1>
+            <p>Please type &nbsp;<strong><span id="current-letter">A</span></strong>&nbsp; in morse code.</p>
+            <div id="input-container">
+                <div id="input"></div>
+                <button id="btn-backspace" onclick="input_backspace();">←</button>
+            </div>
+            <br>
+
+            <button class="morse-input morse-character" onclick="add_morse_character(true);">·</button>
+            <button class="morse-input morse-character" onclick="add_morse_character(false);">-</button>
+            <button class="morse-input" onclick="check_morse();">OK</button>
+
+            <p id="answer-status"> &nbsp;</p>
+            <button class="shuffle" onclick="reset_letter();">Shuffle</button>
+            <button class="shuffle" onclick="reveal_answer();">Answer</button>
+
+        </div>
+        <button id="btn-dark-mode" onclick="toggle_dark_mode();">☼</button>
+    </body>
+
+    <script src="main.js"></script>
+
+</html>

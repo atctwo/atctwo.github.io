@@ -1,0 +1,8 @@
+//Custom 403 errors
+ErrorDocument 403 403.html
+
+//Custom 404 errors
+ErrorDocument 404 404.html
+ 
+Options +ExecCGI 
+AddHandler cgi-script .py 

@@ -1,0 +1,276 @@
+<html>
+
+	<head>
+
+		<title>YouTube Playlist Shuffler</title>
+
+		<script src="https://apis.google.com/js/client.js"></script>
+
+		<link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+		<script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+
+	<style>
+	
+		#yt-playlist-video-thing
+		{
+			float: left;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			background-color: #696969; 
+			padding: 5px; 
+			box-sizing: border-box;
+			width: 30%;
+			height: 490px;
+		}
+		
+		#yt-player
+		{
+			overflow: hidden;
+			width: 65%;
+			float: left;
+			background-color: teal; 
+			padding: 5px;
+			box-sizing: border-box;
+			max-height: 100%;
+		}
+		
+		@media screen and (max-width: 600px) {
+			#yt-playlist-video-thing
+			{
+				width: 100%;
+				height: 30%;
+				margin-right: 0px;
+				margin-bottom: 10px;
+			}
+			
+			#yt-player
+			{
+				width: 100%;
+				margin-right: 0px;
+				margin-bottom: 10px;
+			}
+		}
+	
+	</style>
+
+	<body>
+
+		<h3>YouTube Playlist Shuffler</h3>
+		<span>v0.1</span><br>
+		<span><a href=../../projects.html>Back to projects</a></span><br>
+		<br>
+		<input style="width: 90%; height: 3%;" id="yt-playlist-field" placeholder="YouTube Playlist URL">
+		<button style="min-width: 5%; height: 3%" onclick="playPlaylist();"><i class="fas fa-play"></i></button>
+
+		<br><br>
+		
+		<span id="yt-status"></span><br><br>
+
+		<table style="width: 300px; display: none;">
+			<tr>
+				<td><span>Playlist title</span></td>
+				<td><span id="yt-title"></span></td>
+			</tr>
+			<tr>
+				<td><span>Description</span></td>
+				<td><span id="yt-desc"></span></td>
+			</tr>
+			<tr>
+				<td><span>Curated by</span></td>
+				<td><span id="yt-author"></span></td>
+			</tr>
+			<tr>
+				<td><span>Number of videos</span></td>
+				<td><span id="yt-videos"></span></td>
+			</tr>
+		<table>
+			
+		<div style="width: 100%; overflow: hidden;">
+		
+			<div id="yt-playlist-video-thing" style="display:flex; flex-direction:column;">
+				<span style="font-size: 2em"><b>My iPod is dead.</b></span><br>
+				<span>by <b>alice</b></span>
+				<div id="yt-playlist-video-container" style="width: 100%; height: 100%; flex:1; overflow-y: scroll; overflow-x: hidden; box-sizing: border-box" data-simplebar>
+				
+				</div>
+			</div>
+			
+			<div id="yt-player">
+				<iframe id="ytplayer" type="text/html" width=640 height=480 style="max-width: 100%!important; width:100%;";
+				src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=0"
+				frameborder="0"></iframe> 
+			</div>
+		
+		</div>
+
+	</body>
+
+
+
+	<script>
+
+		//new SimpleBar( document.getElementById("yt-playlist-video-container"), {
+		//	autoHide: true
+		//});
+
+		window.gapi_onload = function()
+		{
+			gapi.client.setApiKey('AIzaSyD0nsFVswErPVQGTR29wUTj6P-PAh0cCXk');
+            gapi.client.load('youtube', 'v3', function() {
+				console.log(gapi);
+
+
+
+            });
+		}
+
+		gapi.load("client", gapi_onload);
+
+		function playPlaylist()
+		{
+
+			var playlist_url = document.getElementById("yt-playlist-field").value;
+			
+			if (!youtube_validate(playlist_url))
+			{
+				console.log("Invalid YouTube Playlist URL");
+				document.getElementById("yt-status").innerText = "Invalid YouTube Playlist URL";
+				document.getElementById("yt-status").style.color = "red";
+				return;
+			}
+			
+			document.getElementById("yt-status").innerText = "Processing...";
+			document.getElementById("yt-status").style.color = "yellow";
+			
+			var playlist_id = youtube_playlist_parser(playlist_url);
+			
+			var request_playlist = gapi.client.youtube.playlists.list({
+				part:	"contentDetails,snippet",
+				id:		playlist_id
+			});
+
+			request_playlist.execute( function(res_playlist) {
+
+				console.log(res_playlist);
+
+				document.getElementById("yt-title").innerText = res_playlist.result.items[0].snippet.title;
+				document.getElementById("yt-author").innerText = res_playlist.result.items[0].snippet.channelTitle;
+				document.getElementById("yt-desc").innerText = res_playlist.result.items[0].snippet.description;
+				document.getElementById("yt-videos").innerText = res_playlist.result.items[0].contentDetails.itemCount;
+
+				var page = 0;
+
+				var req_items = function(nextPage = null)
+				{
+
+					page++;
+					console.log("Page " + page.toString());
+
+					var request_items_object = {
+						part:			"contentDetails,snippet",
+						playlistId:		playlist_id,
+						maxResults:		50
+					};
+					
+					console.log(nextPage);
+					if (nextPage != null) request_items_object.pageToken = nextPage;
+
+					var request_items = gapi.client.youtube.playlistItems.list(request_items_object);
+
+					request_items.execute( function(res_items) {
+
+						if ("nextPageToken" in res_items)
+						{
+							res_items.items.forEach( function(item) {
+								addVideoToPlaylistThing(item.snippet);
+							});
+							console.dir(res_items);
+							req_items(res_items.nextPageToken);
+						}
+						else
+						{
+							console.log("No more pages");
+							document.getElementById("yt-status").innerText = "Loaded";
+							document.getElementById("yt-status").style.color = "green";
+						}
+
+
+
+					});
+				}
+				req_items();
+
+			});
+
+		}
+		
+		
+		
+		function addVideoToPlaylistThing(videoSnippet)
+		{
+		
+			var request_playlist = gapi.client.youtube.videos.list({
+				part:	"snippet",
+				id:		videoSnippet.resourceId.videoId
+			});
+
+			request_playlist.execute( function(res_playlist) {
+		
+				var container = document.createElement("div");
+				container.style.width = "100%";
+				container.style.backgroundColor = "#808080";
+				container.style.margin = "5px";
+				container.style.padding = "3px";
+				
+				var span_video_title = document.createElement("span");
+				span_video_title.innerText = videoSnippet.title + "\n";
+				container.appendChild(span_video_title);
+				
+				var span_video_author = document.createElement("span");
+				span_video_author.innerText = res_playlist.items[0].snippet.channelTitle;
+				container.appendChild(span_video_author);
+				
+				document.getElementById("yt-playlist-video-container").appendChild(container);
+				
+				console.log(res_playlist);
+				
+			});
+		}
+		
+		
+		
+		
+		//following two functions stolen from
+		//https://stackoverflow.com/questions/16868181/how-to-retrieve-a-youtube-playlist-id-using-regex-and-js
+		
+		function youtube_validate(url) {
+
+			var regExp = /^(?:https?:\/\/)?(?:www\.)?youtube\.com(?:\S+)?$/;
+			return url.match(regExp)&&url.match(regExp).length>0;
+
+		}
+		
+		
+		//get playlist id from url
+		function youtube_playlist_parser(url){
+
+			var reg = new RegExp("[&?]list=([a-z0-9_]+)","i");
+			var match = reg.exec(url);
+
+			if (match&&match[1].length>0&&youtube_validate(url)){
+				return match[1];
+			}else{
+				return "nope";
+			}
+
+		}  
+
+	</script>
+
+</html>

@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  
+body { margin: 0; padding: 0; }
+  
+/* Create a two-column layout */
+.column {
+    float: left;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+
+
+
+
+#title-bar {
+    width: 100%;
+    height: 40px;
+    margin-top: 0;
+
+    color: white;
+    background-color: #009052;
+    text-align: center;
+    line-height: 40px;
+}
+
+#sidebar-toggle {
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: transparent;
+
+    width: 32px;
+    height: 32px;
+
+    position: absolute;
+    top: 3px;
+    left: 5px;
+}
+#sidebar-toggle:hover {
+    border-color: lightgray;
+}
+
+
+#pinout-container {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: flex-start;
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.table-container {
+
+    height: 100%;
+    overflow-y: scroll;
+
+    /* flex stuff for children */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    /* flex stuff for self */
+    flex: 1;
+}
+
+#sidebar {
+    width: 20%;
+    height: 100%;
+    /* border-right: 1px solid black; */
+    text-align: center;
+    padding: 5px;
+    overflow-y: scroll;
+    position: sticky;
+}
+
+@media screen and (max-width: 900px) {
+    #sidebar {
+        display: none;
+        width: 350px;
+    }
+
+    .table-container {
+        justify-content: space-between;
+    }
+}
+
+.pin-header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pin-number {
+    text-align: center;
+    width: 3em;
+}
+
+table, td, th {
+    padding: 2px;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 5px;
+}
+
+#function-filter {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    table-layout: fixed;
+}
+
+#controller-filter {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    table-layout: fixed;
+}
+
+#controller-filter-container {
+    display: none;
+}
+
+/* h2 {
+    margin: 2px;
+} */
+
+
+
+
+#signal-search {
+    width: 80%;
+    height: 25px;
+}
+#signal-search-btn {
+    width: 15%;
+    height: 25px;
+}
+
+#selected-pin-details {
+    text-align: left;
+}
+
+#alt-function-container {
+    display: none;
+}
+
+#alt-function-table {
+    width: 90%;
+    margin: auto;
+}
+
+
+
+*[class^="pin-class-"], *[class*=" pin-class-"] {
+    cursor: pointer;
+}
+
+.pin-name:hover {
+    filter: brightness(150%);
+}
+
+.pin-class-hide {
+    opacity: 0.2;
+}
+
+.pin-class-gnd {
+    color: white;
+    background-color: black;
+}
+
+.pin-class-power {
+    color: white;
+    background-color: red;
+}
+
+.pin-class-gpio {
+    color: black;
+    background-color: aliceblue;
+}
+
+.pin-class-gpclk {
+    color: black;
+    background-color: #00FFFF;
+}
+
+.pin-class-ethernet {
+    color: white;
+    background-color: green;
+}
+
+.pin-class-i2c {
+    color: black;
+    background-color: #FF00FF;
+}
+
+.pin-class-i2c.hat-i2c {
+    color: black;
+    background-color: orange;
+}
+
+.pin-class-spi {
+    color: black;
+    background-color: #FF99CC;
+}
+
+.pin-class-usb {
+    color: white;
+    background: linear-gradient(90deg, rgba(239,54,62,1) 0%, rgba(0,80,148,1) 100%);;
+}
+
+.pin-class-pwm {
+    color: black;
+    background-color: #99CCFF;
+}
+
+.pin-class-pcm {
+    color: black;
+    background-color: #99CC00;
+}
+
+.pin-class-smi {
+    color: white;
+    background-color: #3265FF;
+}
+
+.pin-class-uart {
+    color: white;
+    background-color: #FF0000;
+}
+
+.pin-class-pcie {
+    color: white;
+    background-color: rgb(0, 0, 77);
+}
+
+.pin-class-rpi {
+    color: white;
+    background-color: #C95767;
+}
+
+.pin-class-jtag {
+    color: black;
+    background-color: #BFBFBF;
+}
+
+.pin-class-dpi {
+    color: black;
+    background-color: #FFFF00;
+}
+
+.pin-class-dsi {
+    color: black;
+    background-color: lightgreen;
+}
+
+.pin-class-hdmi {
+    color: white;
+    background-color: purple;
+}
+
+.pin-class-tv {
+    color: black;
+    background-color: #ffff92;
+}
+
+.pin-class-sdio {
+    color: black;
+    background-color: #32CCCC;
+}
+
+.pin-class-csi {
+    color: black;
+    background-color: lightpink;
+}
+
+.pin-class-reserved {
+    color: black;
+    background-color: #4F6227;
+}
+

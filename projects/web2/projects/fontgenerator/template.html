@@ -1,0 +1,116 @@
+<html>
+
+	<head>
+	
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+		<title>Font Template</title>
+	
+	</head>
+	
+	<style>
+	
+		* {
+			color: black !important;
+		}
+	
+	</style>
+	
+	<body style="background-color: aliceblue;">
+	
+		<h2>Font Template Generator</h2>
+		<table>
+			<tr>
+				<td>Page width</td>
+				<td><input id="page-width" type="number" step="1" value="2100"></td>
+				<td><span>The width of the page in pixels</span></td>
+			</tr>
+			<tr>
+				<td>Page height</td>
+				<td><input id="page-height" type="number" step="1" value="2970"></td>
+				<td><span>The height of the page in pixels</span></td>
+			</tr>
+			<tr>
+				<td>Page margin</td>
+				<td><input id="page-margin" type="number" step="1" value="100"></td>
+				<td><span>How much space to add between the edge of the page and the grid (in pixels)</span></td>
+			</tr>
+		</table>
+		<button onclick="generate();">Generate</button>
+		<canvas style="display:none;" id="template" width="2100" height="2970"></canvas>
+	
+	</body>
+	
+	<script>
+	
+		function generate()
+		{
+	
+			const glyphs = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+		
+			var canvas = document.getElementById("template");
+			var ctx = canvas.getContext("2d");
+			
+			canvas.style.display = "block";
+			canvas.width = document.getElementById("page-width").value;
+			canvas.height = document.getElementById("page-height").value;
+			
+			var thing_margin = parseInt(document.getElementById("page-margin").value);
+			var rows = 10;
+			var cols = 10;
+			
+			var thing_width = canvas.width - (thing_margin * 2);
+			var thing_height = canvas.height - (thing_margin * 2);
+			
+			var letter_width = thing_width / cols;
+			var letter_height = thing_height / rows;
+			var small_letter_height = letter_height * 0.3;
+			var large_letter_height = letter_height * 0.7;
+			
+			
+			ctx.fillStyle = "white";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			
+			ctx.strokeStyle = "black";
+			ctx.lineWidth = 10;
+			ctx.strokeRect(thing_margin, thing_margin, thing_width, thing_height);
+			
+			for (var c = 0; c < cols; c++)
+			{
+				for (var r = 0; r < rows; r++)
+				{
+					ctx.strokeRect(
+						thing_margin + (c * letter_width),
+						thing_margin + (r * letter_height),
+						letter_width,
+						small_letter_height
+					);
+					
+					ctx.fillStyle = "black";
+					ctx.font = Math.floor(small_letter_height * 0.8).toString() + "px sans-serif";
+					var index = c + (r * cols);
+					if ( index < glyphs.length ) 
+					{
+						console.log(glyphs[index]);
+						ctx.fillText(
+							glyphs[index],
+							thing_margin + (c * letter_width) + 5,
+							thing_margin + (r * letter_height) + (small_letter_height * 0.8)
+						);
+					}
+					
+					ctx.strokeRect(
+						thing_margin + (c * letter_width),
+						thing_margin + (r * letter_height) + small_letter_height,
+						letter_width,
+						large_letter_height
+					);
+				}
+			}
+		}
+	
+	</script>
+
+</html>

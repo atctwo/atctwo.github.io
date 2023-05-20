@@ -1,0 +1,186 @@
+
+.menu
+{
+    border: 5px solid gray;
+    border-radius: 10px;
+    background-color: #696969;
+
+    text-align: center;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    
+    transition: opacity 0.5s;
+
+    justify-content:center;
+    align-items:center;
+	position: relative;
+}
+
+.menu-button
+{
+    border: 2px solid gray;
+    font-size: 1rem;
+    width: 75%;
+}
+
+.menu-button:hover
+{
+    border: 2px solid #6600ff;
+}
+
+#chase-table
+{
+    margin: auto;
+    border-radius: 20px;
+    background-color: grey;
+    padding: 5% 5%;
+
+    width: 20%;
+    height: 50%;
+
+    transition: opacity 1s;
+    opacity: 0;
+
+    display: none; /*normally grid*/
+    gap: 0px;
+    row-gap: 0px;
+    min-height: 0;
+    min-width: 0;
+}
+
+.chase-table-pos
+{
+    border-color: black;
+    border-style: solid;
+    border-width: 2.5px 5px;
+    transition: background-color 1s;
+
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    overflow: hidden;  /* NEW */
+    min-width: 0;      /* NEW; needed for Firefox */
+}
+
+.chase-table-top
+{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-width: 5px;
+}
+
+.chase-table-bottom
+{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-width: 5px;
+}
+
+.qcontainer
+{
+    position: absolute;
+    bottom: 5%;
+    top: 70%;
+    left: 10%;
+    right: 10%;
+
+    transition: opacity 1s;
+    opacity: 0;
+
+    display: none; /*normally grid*/
+    gap: 0px;
+    row-gap: 0px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 30% 51% 39%;
+}
+
+.qbox
+{
+    border: 10px solid gray;
+    border-bottom-width: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: darkblue;
+
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+
+}
+
+.name
+{
+    border: 10px solid gray;
+    border-bottom-width: 5px;
+    border-radius: 10px;
+    background-color: darkblue;
+    width: 50%;
+
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    line-height: 100%;
+
+    visibility: hidden; 
+}
+
+#name_chaser
+{
+    background-color: red;
+    margin-left: auto;
+    margin-right: 0;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.question
+{
+    border: 5px solid gray;
+    border-bottom-width: 10px;
+    background-color: #155467;
+
+    transition: background-color 0.25s, border-color 0.25s;
+
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+.qleft
+{
+    border-bottom-left-radius: 10px;
+    border-left-width: 10px;
+}
+
+.qright
+{
+    border-bottom-right-radius: 10px;
+    border-right-width: 10px;
+}
+
+.vertical-aligned-span
+{
+    vertical-align: middle;
+    display: inline-block;
+    line-height: normal;
+}
+
+.centre
+{
+    position: absolute;
+    /*top: 50%;*/
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+@keyframes backgroundcolour
+{
+    50% {background-color: white;}
+}

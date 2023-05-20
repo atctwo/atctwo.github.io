@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LG TV Remote</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>LG TV Remote</h1>
+        <p>Protocol reverse engineered from <a href="https://github.com/msloth/lgtv.js">lgtv.js</a></p>
+        <button id="connection-button" onclick="connect()">Connect</button>
+        <span id="connection-status"></span>
+        <br>
+        <span id="client-key-message" style="display: none;">Please see the TV to complete authentication.</span>
+ 
+        
+        <h2>Commands</h2>
+        
+        <button onclick="send_command('get_audio_status')">Get Audio Status</button>
+        <button onclick="toggle_mute()">Mute</button>
+        <button onclick="volume_down()">Volume Down</button>
+        <span id="current-volume">0</span>
+        <button onclick="volume_up()">Volume Up</button>
+        
+        <br>
+        
+        <button onclick="send_command('turn_off');">Power</button>
+        <button onclick="send_command('play');">Play</button>
+        <button onclick="send_command('pause');">Pause</button>
+        <button onclick="send_command('stop');">Stop</button>
+        <button onclick="send_command('rewind');">Rewind</button>
+        <button onclick="send_command('fast_forward');">Fast Forward</button>
+        <button onclick="send_command('channel_up');">Channel Up</button>
+        <button onclick="send_command('channel_down');">Channel Down</button>
+        <button onclick="send_command('3d_on');">3D On</button>
+        <button onclick="send_command('3d_off');">3D Off</button>
+        
+        <table id="commands">
+            <tr>
+                <td>Send Toast</td>
+                <td><input id="toast" placeholder="On-screen popup"></td>
+                <td><button onclick="send_command('toast', {message: document.getElementById('toast').value})">Send</button></td>
+            </tr>
+            <tr>
+                <td>Open URL</td>
+                <td><input id="url" placeholder="http:// or https://"></td>
+                <td><button onclick="send_command('open_browser', {target: document.getElementById('url').value})">Send</button></td>
+            </tr>
+        </table>
+        
+        <h2>Channels</h2>
+        <button onclick="send_command('get_channels')">Get Channels</button>
+        <div id="channel-buttons"></div>
+        
+        <h2>Inputs</h2>
+        <button onclick="send_command('get_inputs')">Get Inputs</button>
+        <div id="input-buttons"></div>
+        
+        <h2>Apps</h2>
+        <button onclick="send_command('get_apps')">Get Apps</button>
+        <table id="app-buttons"></table>
+        
+        <h2>Software Info</h2>
+        <button onclick="send_command('get_sw_info')">Get Software Info</button>
+        <table>
+            <tr>
+                <td>Country</td>
+                <td><span id="sw-info-country"></td>
+            </tr>
+            <tr>
+                <td>MAC address</td>
+                <td><span id="sw-info-mac"></td>
+            </tr>
+            <tr>
+                <td>Major Ver</td>
+                <td><span id="sw-info-major-ver"></td>
+            </tr>
+            <tr>
+                <td>Minor Ver</td>
+                <td><span id="sw-info-minor-ver"></td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td><span id="sw-info-model"></td>
+            </tr>
+            <tr>
+                <td>Platform</td>
+                <td><span id="sw-info-platform"></td>
+            </tr>
+        </table>
+        
+    </body>
+    <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .app-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        button {
+            margin: 3px;
+            padding: 2px;
+            border: 1px solid gray;
+            border-radius: 2px;
+        }
+    </style>
+    <script>
+        
+        // handshake commands - from https://github.com/msloth/lgtv.js
+        
+        // handshake - ask tv to send new client key
+        const hello = "{\"type\":\"register\",\"id\":\"register_0\",\"payload\":{\"forcePairing\":false,\"pairingType\":\"PROMPT\",\"manifest\":{\"manifestVersion\":1,\"appVersion\":\"1.1\",\"signed\":{\"created\":\"20140509\",\"appId\":\"com.lge.test\",\"vendorId\":\"com.lge\",\"localizedAppNames\":{\"\":\"LG Remote App\",\"ko-KR\":\"리모컨 앱\",\"zxx-XX\":\"ЛГ Rэмotэ AПП\"},\"localizedVendorNames\":{\"\":\"LG Electronics\"},\"permissions\":[\"TEST_SECURE\",\"CONTROL_INPUT_TEXT\",\"CONTROL_MOUSE_AND_KEYBOARD\",\"READ_INSTALLED_APPS\",\"READ_LGE_SDX\",\"READ_NOTIFICATIONS\",\"SEARCH\",\"WRITE_SETTINGS\",\"WRITE_NOTIFICATION_ALERT\",\"CONTROL_POWER\",\"READ_CURRENT_CHANNEL\",\"READ_RUNNING_APPS\",\"READ_UPDATE_INFO\",\"UPDATE_FROM_REMOTE_APP\",\"READ_LGE_TV_INPUT_EVENTS\",\"READ_TV_CURRENT_TIME\"],\"serial\":\"2f930e2d2cfe083771f68e4fe7bb07\"},\"permissions\":[\"LAUNCH\",\"LAUNCH_WEBAPP\",\"APP_TO_APP\",\"CLOSE\",\"TEST_OPEN\",\"TEST_PROTECTED\",\"CONTROL_AUDIO\",\"CONTROL_DISPLAY\",\"CONTROL_INPUT_JOYSTICK\",\"CONTROL_INPUT_MEDIA_RECORDING\",\"CONTROL_INPUT_MEDIA_PLAYBACK\",\"CONTROL_INPUT_TV\",\"CONTROL_POWER\",\"READ_APP_STATUS\",\"READ_CURRENT_CHANNEL\",\"READ_INPUT_DEVICE_LIST\",\"READ_NETWORK_STATE\",\"READ_RUNNING_APPS\",\"READ_TV_CHANNEL_LIST\",\"WRITE_NOTIFICATION_TOAST\",\"READ_POWER_STATE\",\"READ_COUNTRY_INFO\"],\"signatures\":[{\"signatureVersion\":1,\"signature\":\"eyJhbGdvcml0aG0iOiJSU0EtU0hBMjU2Iiwia2V5SWQiOiJ0ZXN0LXNpZ25pbmctY2VydCIsInNpZ25hdHVyZVZlcnNpb24iOjF9.hrVRgjCwXVvE2OOSpDZ58hR+59aFNwYDyjQgKk3auukd7pcegmE2CzPCa0bJ0ZsRAcKkCTJrWo5iDzNhMBWRyaMOv5zWSrthlf7G128qvIlpMT0YNY+n/FaOHE73uLrS/g7swl3/qH/BGFG2Hu4RlL48eb3lLKqTt2xKHdCs6Cd4RMfJPYnzgvI4BNrFUKsjkcu+WD4OO2A27Pq1n50cMchmcaXadJhGrOqH5YmHdOCj5NSHzJYrsW0HPlpuAx/ECMeIZYDh6RMqaFM2DXzdKX9NmmyqzJ3o/0lkk/N97gfVRLW5hA29yeAwaCViZNCP8iC9aO0q9fQojoa7NQnAtw==\"}]}}}";
+
+        // handshake with client key, for subsequent connections
+        const hello_w_key = "{\"type\":\"register\",\"id\":\"register_0\",\"payload\":{\"forcePairing\":false,\"pairingType\":\"PROMPT\",\"client-key\":\"CLIENTKEYGOESHERE\",\"manifest\":{\"manifestVersion\":1,\"appVersion\":\"1.1\",\"signed\":{\"created\":\"20140509\",\"appId\":\"com.lge.test\",\"vendorId\":\"com.lge\",\"localizedAppNames\":{\"\":\"LG Remote App\",\"ko-KR\":\"리모컨 앱\",\"zxx-XX\":\"ЛГ Rэмotэ AПП\"},\"localizedVendorNames\":{\"\":\"LG Electronics\"},\"permissions\":[\"TEST_SECURE\",\"CONTROL_INPUT_TEXT\",\"CONTROL_MOUSE_AND_KEYBOARD\",\"READ_INSTALLED_APPS\",\"READ_LGE_SDX\",\"READ_NOTIFICATIONS\",\"SEARCH\",\"WRITE_SETTINGS\",\"WRITE_NOTIFICATION_ALERT\",\"CONTROL_POWER\",\"READ_CURRENT_CHANNEL\",\"READ_RUNNING_APPS\",\"READ_UPDATE_INFO\",\"UPDATE_FROM_REMOTE_APP\",\"READ_LGE_TV_INPUT_EVENTS\",\"READ_TV_CURRENT_TIME\"],\"serial\":\"2f930e2d2cfe083771f68e4fe7bb07\"},\"permissions\":[\"LAUNCH\",\"LAUNCH_WEBAPP\",\"APP_TO_APP\",\"CLOSE\",\"TEST_OPEN\",\"TEST_PROTECTED\",\"CONTROL_AUDIO\",\"CONTROL_DISPLAY\",\"CONTROL_INPUT_JOYSTICK\",\"CONTROL_INPUT_MEDIA_RECORDING\",\"CONTROL_INPUT_MEDIA_PLAYBACK\",\"CONTROL_INPUT_TV\",\"CONTROL_POWER\",\"READ_APP_STATUS\",\"READ_CURRENT_CHANNEL\",\"READ_INPUT_DEVICE_LIST\",\"READ_NETWORK_STATE\",\"READ_RUNNING_APPS\",\"READ_TV_CHANNEL_LIST\",\"WRITE_NOTIFICATION_TOAST\",\"READ_POWER_STATE\",\"READ_COUNTRY_INFO\"],\"signatures\":[{\"signatureVersion\":1,\"signature\":\"eyJhbGdvcml0aG0iOiJSU0EtU0hBMjU2Iiwia2V5SWQiOiJ0ZXN0LXNpZ25pbmctY2VydCIsInNpZ25hdHVyZVZlcnNpb24iOjF9.hrVRgjCwXVvE2OOSpDZ58hR+59aFNwYDyjQgKk3auukd7pcegmE2CzPCa0bJ0ZsRAcKkCTJrWo5iDzNhMBWRyaMOv5zWSrthlf7G128qvIlpMT0YNY+n/FaOHE73uLrS/g7swl3/qH/BGFG2Hu4RlL48eb3lLKqTt2xKHdCs6Cd4RMfJPYnzgvI4BNrFUKsjkcu+WD4OO2A27Pq1n50cMchmcaXadJhGrOqH5YmHdOCj5NSHzJYrsW0HPlpuAx/ECMeIZYDh6RMqaFM2DXzdKX9NmmyqzJ3o/0lkk/N97gfVRLW5hA29yeAwaCViZNCP8iC9aO0q9fQojoa7NQnAtw==\"}]}}}";
+
+        // command URIs
+        commands = {
+            
+            /* turn the tv off */
+            "turn_off": "ssap://system/turnOff",
+            
+            /* set the mute status 
+            mute: set to true to mute the tv
+            */
+            "set_mute": "ssap://audio/setMute",
+            
+            /* set the volume (0 - 100, or -1 if muted)
+            volume: what to set the volume to
+            */
+            "set_volume": "ssap://audio/setVolume",
+            
+            /* get the current volume */
+            "get_volume": "ssap://audio/getVolume",
+            
+            /* get the audio status status */
+            "get_audio_status": "ssap://audio/getStatus",
+            
+            /* show a popup toast on the screen
+            message: the message to show
+            */
+            "toast": "ssap://system.notifications/createToast",
+            
+            /* open the on-screen browser at a certain URL
+            target: the URL to open
+            */
+            "open_browser": "ssap://system.launcher/open",
+            
+            /* get a list of DTV channels */
+            "get_channels": "ssap://tv/getChannelList",
+            
+            /* get the current channel */
+            "get_channel": "ssap://tv/getCurrentChannel",
+            
+            /* set channel 
+            channelId: the id of the channel to switch to
+            */
+            "set_channel": "ssap://tv/openChannel",
+            
+            /* get a list of inputs */
+            "get_inputs": "ssap://tv/getExternalInputList",
+            
+            /* get the current input */
+            "get_input": "",
+            
+            /* set the input 
+            inputId: the id of the input to switch to
+            */
+            "set_input": "ssap://tv/switchInput",
+            
+            "play": "ssap://media.controls/play",
+            "stop": "ssap://media.controls/stop",
+            "pause": "ssap://media.controls/pause",
+            "rewind": "ssap://media.controls/rewind",
+            "fast_forward": "ssap://media.controls/fastForward",
+            "channel_up": "ssap://tv/channelUp",
+            "channel_down": "ssap://tv/channelDown",
+            "3d_on": "ssap://com.webos.service.tv.display/set3DOn",
+            "3d_off": "ssap://com.webos.service.tv.display/set3DOff",
+            
+            /* get a list of apps */
+            "get_apps": "ssap://com.webos.applicationManager/listLaunchPoints",
+            
+            /* start an app
+            id: the id of the app to launch
+            */
+            "start_app": "ssap://system.launcher/launch",
+            
+            /* close an open app
+            id: the id of the app to close
+            */
+            "close_app": "ssap://system.launcher/close",
+            
+            /* get a list of services */
+            "get_services": "ssap://api/getServiceList",
+            
+            /* get info about the current input / app */
+            "get_foreground_app_info": "ssap://com.webos.applicationManager/getForegroundAppInfo",
+            
+            /* get current software info */
+            "get_sw_info": "ssap://com.webos.service.update/getCurrentSWInformation"
+        }
+
+        // client key
+        var client_key = null
+        
+        // websocket connection
+        var tv_socket = null;
+        
+        // command count
+        var command_count = 0;
+        
+        // request store
+        var sent_requests = []
+        
+        // connect on page load?
+        var connect_on_page_load = true
+        
+        if (connect_on_page_load)
+        {
+            connect()
+        }
+        
+        function connect()
+        {
+            if (tv_socket == null)
+            {
+                document.getElementById("connection-status").innerText = "Connecting..."
+                document.getElementById("connection-button").innerText = "Disconnect"
+                
+                tv_socket = new WebSocket("wss://lgwebostv:3001")
+                window.tv_socket = tv_socket;
+                
+                tv_socket.addEventListener("open", event => {
+                    console.log("websocket opened", event)
+                    document.getElementById("connection-status").innerText = "Connected"
+                    document.getElementById("connection-button").innerText = "Disconnect"
+                    
+                    if (!client_key) {
+                        
+                        // if client id is stored in LocalStorage
+                        var local_client_key = localStorage.getItem("client_key")
+                        if (local_client_key) 
+                        {
+                            console.log("handshaking with key from localstorage")
+                            client_key = local_client_key
+                            tv_socket.send(hello_w_key.replace("CLIENTKEYGOESHERE", client_key))
+                        }
+                        else 
+                        {
+                            // send client key request
+                            console.log("handshaking - request key")
+                            tv_socket.send(hello)
+                            document.getElementById("client-key-message").display = "block";
+                        }
+                        
+                    }
+                    else
+                    {
+                        console.log("handshaking with existing key in memory")
+                        tv_socket.send(hello_w_key.replace("CLIENTKEYGOESHERE", client_key))
+                    }
+                })
+                
+                tv_socket.addEventListener("message", event => {
+                    
+                    data = JSON.parse(event.data)
+                    console.log(`message from server - ${data.type}`, event, data)
+                    
+                    switch(data.type)
+                    {
+                        case "registered":
+                        
+                            console.log("handshook")
+                            
+                            client_key = data.payload["client-key"]
+                            localStorage.setItem("client_key", client_key)
+                            console.log("client key is", client_key)
+                            
+                            if (connect_on_page_load)
+                            {
+                                send_command("get_channels")
+                                send_command("get_inputs")
+                                send_command("get_apps")
+                                send_command("get_audio_status")
+                                send_command("get_sw_info")
+                            }
+                            
+                            break;
+                            
+                        case "response":
+                        
+                            // get request type
+                            var request = sent_requests[data.id]
+                            
+                            // call callback
+                            if (request.callback) request.callback(data)
+                            
+                            // handle response based on command that caused it
+                            console.log("response to", request.message.command_name)
+                            switch(request.message.command_name)
+                            {
+                                
+                                case "get_audio_status":
+                                    // set volume label
+                                    document.getElementById("current-volume").innerText = data.payload.volume
+                                    break;
+                                    
+                                case "get_volume":
+                                    // set volume label
+                                    document.getElementById("current-volume").innerText = data.payload.volume
+                                    break;
+                                    
+                                case "get_apps":
+                                
+                                    // remove existing app buttons
+                                    var button_container = document.getElementById("app-buttons");
+                                    while(button_container.childElementCount > 0) button_container.remove(button_container.firstChild)
+                                
+                                    var apps = data.payload.launchPoints;
+                                    apps.forEach((app, id) => {
+                                        
+                                        // insert row
+                                        var row = button_container.insertRow(-1)
+                                        
+                                        // insert icon
+                                        var icon_cell = row.insertCell(-1)
+                                        var icon = document.createElement("img")
+                                        icon.classList.add("app-icon")
+                                        icon.src = app.icon
+                                        icon_cell.appendChild(icon)
+                                        
+                                        // insert app name
+                                        var app_name_cell = row.insertCell(-1)
+                                        var app_name = document.createElement("span")
+                                        app_name.innerText = app.title
+                                        app_name_cell.appendChild(app_name)
+                                        
+                                        // create start button
+                                        var app_btn_cell = row.insertCell(-1)
+                                        var app_btn = document.createElement("button")
+                                        app_btn.classList.add("app-button")
+                                        app_btn.innerText = "Start"
+                                        app_btn.id = `app-btn-${app.id}`
+                                        app_btn.dataset.appId = app.id
+                                        
+                                        // set app onclick
+                                        app_btn.onclick = () => {
+                                            send_command("start_app", {id: app.id})
+                                        }
+                                        
+                                        // add button to screen
+                                        app_btn_cell.appendChild(app_btn)
+                                        
+                                        // create close button
+                                        var close_btn_cell = row.insertCell(-1)
+                                        var close_btn = document.createElement("button")
+                                        close_btn.classList.add("app-button")
+                                        close_btn.innerText = "Close"
+                                        close_btn.id = `app-btn-${app.id}`
+                                        close_btn.dataset.appId = app.id
+                                        
+                                        // set app onclick
+                                        close_btn.onclick = () => {
+                                            send_command("close_app", {id: app.id})
+                                        }
+                                        
+                                        // add button to screen
+                                        close_btn_cell.appendChild(close_btn)
+                                        
+                                    })
+                                
+                                    break;
+                                
+                                case "set_input":
+                                    // send_command("get_input")
+                                    break;
+                                    
+                                case "get_inputs":
+                                
+                                    // remove existing input buttons
+                                    var button_container = document.getElementById("input-buttons");
+                                    while(button_container.childElementCount > 0) button_container.remove(button_container.firstChild)
+                                
+                                    var inputs = data.payload.devices;
+                                    inputs.forEach((input, id) => {
+                                        
+                                        // create button
+                                        var input_btn = document.createElement("button")
+                                        
+                                        // set button CSS class
+                                        input_btn.classList.add("input-button")
+                                        
+                                        // set button text
+                                        input_btn.innerText = input.label
+                                        
+                                        // set input id
+                                        input_btn.id = `input-btn-${input.id}`
+                                        input_btn.dataset.inputId = input.id
+                                        
+                                        // set input onclick
+                                        input_btn.onclick = () => {
+                                            send_command("set_input", {inputId: input.id})
+                                        }
+                                        
+                                        // add button to screen
+                                        button_container.appendChild(input_btn)
+                                        
+                                    })
+                                
+                                    break;
+                                    
+                                case "get_input":
+                                    break;
+                                
+                                
+                                
+                                
+                                
+                                case "set_channel":
+                                    send_command("get_channel")
+                                    break;
+                                
+                                case "get_channels":
+                                
+                                    // remove existing channel buttons
+                                    var button_container = document.getElementById("channel-buttons");
+                                    while(button_container.childElementCount > 0) button_container.remove(button_container.firstChild)
+                                
+                                    // for each channel
+                                    var channels = data.payload.channelList;
+                                    var image_url = data.payload.channelLogoServerUrl;
+                                    channels.forEach((channel, id) => {
+                                        
+                                        // create button
+                                        var channel_btn = document.createElement("button")
+                                        
+                                        // set button CSS class
+                                        channel_btn.classList.add("channel-button")
+                                        
+                                        // set button text
+                                        channel_btn.innerText = channel.channelName
+                                        
+                                        // set channel id
+                                        channel_btn.id = `channel-btn-${channel.channelId}`
+                                        channel_btn.dataset.channelId = channel.channelId
+                                        
+                                        // set channel onclick
+                                        channel_btn.onclick = () => {
+                                            send_command("set_channel", {channelId: channel.channelId})
+                                        }
+                                        
+                                        // add button to screen
+                                        button_container.appendChild(channel_btn)
+                                        
+                                    })
+                                    
+                                    // get current channel
+                                    send_command("get_channel")
+                                
+                                    break;
+                                    
+                                case "get_channel":
+                                
+                                    // set selected channel button colour
+                                    var button_container = document.getElementById("channel-buttons");
+                                    for (var i = 0; i < button_container.childElementCount; i++)
+                                    {
+                                        var button = button_container.children[i];
+                                        if (data.payload.channelId == button.dataset.channelId)
+                                        {
+                                            button.style.backgroundColor = "lightblue";
+                                        }
+                                        else
+                                        {
+                                            button.style.backgroundColor = "rgb(239, 239, 239)";
+                                        }
+                                    }
+                                    
+                                    break;
+                                    
+                                case "get_sw_info":
+                                    document.getElementById("sw-info-country").innerText = data.payload.country
+                                    document.getElementById("sw-info-mac").innerText = data.payload.device_id
+                                    document.getElementById("sw-info-major-ver").innerText = data.payload.major_ver
+                                    document.getElementById("sw-info-minor-ver").innerText = data.payload.minor_ver
+                                    document.getElementById("sw-info-model").innerText = data.payload.model_name
+                                    document.getElementById("sw-info-platform").innerText = data.payload.product_name
+                                    break;
+                            }
+                            
+                            break;
+                            
+                        case "error":
+                        
+                            console.error(`command error: ${data.payload.errorText}${data.error}`)
+                            break;
+                    }
+                })
+                
+                tv_socket.addEventListener("close", event => {
+                    tv_socket = null
+                    console.log("websocket closed", event)
+                    document.getElementById("connection-status").innerText = `Disconnected (code ${event.code})`
+                    document.getElementById("connection-button").innerText = "Connect"
+                })
+                
+                tv_socket.addEventListener("error", event => {
+                    console.error("websocket error", error)
+                    document.getElementById("connection-status").innerText = "Error connecting to TV: " + event;
+                    document.getElementById("connection-button").innerText = "Connect";
+                })
+            }
+            else {
+                tv_socket.close()
+            }
+        }
+        
+        function send_command(cmd_name, payload=null, callback=null)
+        {
+            if (client_key)
+            {
+                command_count++;
+                message = {
+                    id: `watch2_${command_count}`,
+                    command_name: cmd_name,
+                    type: "request",
+                    uri: commands[cmd_name]
+                }
+                
+                if (payload) message.payload = JSON.stringify(payload)
+                
+                console.log(`Sending command ${cmd_name}`, message)
+                tv_socket.send(JSON.stringify(message))
+                sent_requests[`watch2_${command_count}`] = {
+                    message,
+                    callback
+                }
+            }
+            else {
+                alert("Not connected to TV")
+            }
+        }
+        
+        function toggle_mute()
+        {
+            send_command("get_audio_status", null, (data) => {
+                send_command("set_mute", {mute: !data.payload.mute})
+            })
+        }
+        
+        function volume_up()
+        {
+            send_command("get_volume", null, (data) => {
+                send_command("set_volume", {volume: data.payload.volume + 1}, (data) => {
+                    send_command("get_volume")
+                })
+            })
+        }
+        
+        function volume_down()
+        {
+            send_command("get_volume", null, (data) => {
+                send_command("set_volume", {volume: data.payload.volume - 1}, (data) => {
+                    send_command("get_volume")
+                })
+            })
+        }
+        
+    </script>
+</html>
