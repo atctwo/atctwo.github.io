@@ -138,7 +138,7 @@ autopages:
     permalink: '/posts/tags/:tag/'
     silent: false
     slugify:
-      mode: 'default'   # :tag is slugified.
+      mode: 'pretty'   # :tag is slugified.
       case: false
 
 
