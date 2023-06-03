@@ -23,6 +23,14 @@
     github: https://github.com/atctwo/authenticator
     updated: September 2022
 
+  - name: Media Streamer
+    description: A thingy for streaming media from devices and displays in a web browser
+    image: /assets/images/projects/mediastream.png
+    image_alt: Screenshot of the Media Stream tool showing the source selector UI
+    github: https://github.com/atctwo/mediastream
+    link: /projects/mediastream/
+    updated: June 2023
+
 - section_name: Electronics Projects
   projects:
   - name: watch2

@@ -4,3 +4,6 @@
 [submodule "projects/esp32-partition-editor"]
 	path = projects/esp32-partition-editor
 	url = https://github.com/atctwo/esp32-partition-editor.git
+[submodule "projects/mediastream"]
+	path = projects/mediastream
+	url = https://github.com/atctwo/mediastream.git
