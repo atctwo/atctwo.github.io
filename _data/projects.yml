@@ -23,6 +23,14 @@
     github: https://github.com/atctwo/authenticator
     updated: September 2022
 
+  - name: lstty
+    description: A simple terminal tool to list serial ports
+    image: /assets/images/projects/lstty.png
+    image_alt: A screenshot of the output of lstty, showing the serial ports at the time of writing
+    github: https://github.com/atctwo/lstty
+    crates: https://crates.io/crates/lstty
+    updated: December 2023
+
   - name: Media Streamer
     description: A thingy for streaming media from devices and displays in a web browser
     image: /assets/images/projects/mediastream.png
