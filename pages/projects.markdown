@@ -57,6 +57,9 @@ it would be good to bring them together in one page (including some that don't h
             {% if project.link %}
                 <a href="{{project.link}}" class="btn btn-primary project-card-link-btn" aria-label="Link to {{project.name}}"><i class="bi bi-link-45deg"></i> Link</a>
             {% endif %}
+            {% if project.crates %}
+                <a href="{{project.crates}}" class="btn btn-primary project-card-link-btn" aria-label="Crates.io page for {{project.name}}"><i class="bi bi-box-seam"></i> Crates.io</a>
+            {% endif %}
             {% if project.github %}
                 <a href="{{project.github}}" class="btn btn-primary" aria-label="GitHub repository for {{project.name}}"><i class="bi bi-github"></i> GitHub</a>
             {% endif %}
