@@ -21,7 +21,7 @@
     image: /assets/images/projects/authenticator.png
     image_alt: Screenshot of the authenticator
     github: https://github.com/atctwo/authenticator
-    updated: September 2022
+    updated: January 2024
 
   - name: lstty
     description: A simple terminal tool to list serial ports
