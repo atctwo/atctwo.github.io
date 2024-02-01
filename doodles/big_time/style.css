@@ -1,0 +1,68 @@
+
+@font-face {
+    font-family: Nunito;
+    src: url("fonts/Nunito-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: Varela;
+    src: url("fonts/VarelaRound-Regular.ttf");
+}
+
+html, body {
+    height: 100%;
+    background-color: black;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#time {
+    font-size: 19vw;
+    font-family: "Varela";
+    color: white;
+}
+
+#date {
+    font-size: 8vw;
+    font-family: "Nunito";
+    color: white;
+}
+
+/* from https://w3bits.com/rainbow-text/ */
+.rainbow-text {
+    background-image: repeating-linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    /* background-size: 800%; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 10s linear infinite;
+}
+
+.rainbow-text2 {
+    animation: rainbow2 360s linear infinite;
+}
+
+@keyframes rainbow {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 100%;
+    }
+}
+
+
+@keyframes rainbow2 {
+    0%   { color: red; }
+    15%  { color: orange; }
+    30%  { color: yellow; }
+    45%  { color: green; }
+    60%  { color: cyan; }
+    75%  { color: blue; }
+    90% { color: indigo; }
+    100% { color: red; }
+}
