@@ -25,7 +25,7 @@ function update() {
 }
 
 // update every half second
-// setInterval(update, 500);
+setInterval(update, 500);
 
 // initial update on page load
 update();
