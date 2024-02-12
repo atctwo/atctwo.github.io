@@ -1,0 +1,21 @@
+- name: GitHub
+  link: https://github.com/atctwo
+  # icon: <i class="bi bi-github"></i>
+  icon: <img class="social-icon" src="https://cdn.simpleicons.org/GitHub" />
+
+- name: Twitter
+  link: https://twitter.com/atctwo
+  # icon: <i class="bi bi-twitter"></i>
+  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Twitter" />
+
+- name: Tumblr
+  link: https://www.tumblr.com/blog/atctwo
+  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Tumblr" />
+
+- name: Bluesky
+  link: https://bsky.app/profile/atctwo.net
+  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Bluesky" />
+
+- name: cohost!
+  link: https://cohost.org/atctwo
+  icon: <img class="social-icon" src="/assets/images/cohost.svg" />
