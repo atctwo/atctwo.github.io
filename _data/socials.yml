@@ -19,3 +19,7 @@
 - name: cohost!
   link: https://cohost.org/atctwo
   icon: <img class="social-icon" src="/assets/images/cohost.svg" />
+
+- name: Steam
+  link: https://steamcommunity.com/profiles/76561198122859930
+  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Steam" />
