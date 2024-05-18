@@ -41,6 +41,13 @@
 
 - section_name: Electronics Projects
   projects:
+  - name: clock25
+    description: A funky digital clock based on an ESP32 and an RGB LED matrix
+    image: /assets/images/projects/clock25.png
+    image_alt: Picture of the front of the clock
+    github: https://github.com/atctwo/clock25
+    updated: May 2024
+
   - name: watch2
     description: A custom ESP32-based smartwatch
     image: /assets/images/projects/watch2.jpeg
