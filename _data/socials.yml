@@ -23,3 +23,7 @@
 - name: Steam
   link: https://steamcommunity.com/profiles/76561198122859930
   icon: <img class="social-icon" src="https://cdn.simpleicons.org/Steam" />
+
+- name: Backloggd
+  link: https://www.backloggd.com/u/atctwo/
+  icon: <img class="social-icon" src="/assets/images/backloggd.webp" />
