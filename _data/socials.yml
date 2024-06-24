@@ -1,29 +1,29 @@
 - name: GitHub
   link: https://github.com/atctwo
   # icon: <i class="bi bi-github"></i>
-  icon: <img class="social-icon" src="https://cdn.simpleicons.org/GitHub" />
+  icon: <img class="social-icon" src="/assets/images/socials/GitHub.svg" />
 
 - name: Twitter
   link: https://twitter.com/atctwo
   # icon: <i class="bi bi-twitter"></i>
-  icon: <img class="social-icon" src="/assets/images/Logo_of_Twitter.svg" />
+  icon: <img class="social-icon" src="/assets/images/socials/Logo_of_Twitter.svg" />
 
 - name: Tumblr
   link: https://www.tumblr.com/blog/atctwo
-  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Tumblr" />
+  icon: <img class="social-icon" src="/assets/images/socials/Tumblr.svg" />
 
 - name: Bluesky
   link: https://bsky.app/profile/atctwo.net
-  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Bluesky" />
+  icon: <img class="social-icon" src="/assets/images/socials/Bluesky.svg" />
 
 - name: cohost!
   link: https://cohost.org/atctwo
-  icon: <img class="social-icon" src="/assets/images/cohost.svg" />
+  icon: <img class="social-icon" src="/assets/images/socials/cohost.svg" />
 
 - name: Steam
   link: https://steamcommunity.com/profiles/76561198122859930
-  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Steam" />
+  icon: <img class="social-icon" src="/assets/images/socials/Steam.svg" />
 
 - name: Backloggd
   link: https://www.backloggd.com/u/atctwo/
-  icon: <img class="social-icon" src="/assets/images/backloggd.webp" />
+  icon: <img class="social-icon" src="/assets/images/socials/backloggd.webp" />
