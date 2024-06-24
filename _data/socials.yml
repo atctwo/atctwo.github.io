@@ -6,7 +6,7 @@
 - name: Twitter
   link: https://twitter.com/atctwo
   # icon: <i class="bi bi-twitter"></i>
-  icon: <img class="social-icon" src="https://cdn.simpleicons.org/Twitter" />
+  icon: <img class="social-icon" src="/assets/images/Logo_of_Twitter.svg" />
 
 - name: Tumblr
   link: https://www.tumblr.com/blog/atctwo
