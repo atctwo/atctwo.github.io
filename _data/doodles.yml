@@ -1,0 +1,55 @@
+- name: Random Adafruit Product
+  link: javascript:open("https://www.adafruit.com/product/" + Math.floor(Math.random() * 5980), "_self");
+  icon: /assets/images/doodles/adafruit.png
+
+- name: Make entire webpage editable
+  link: javascript:var c=document.body.children;for(var i=0;i<c.length-1;i++){c.item(i).contentEditable=true}
+  icon: /assets/images/doodles/edit.png
+
+- name: cmd.txt
+  link: /doodles/cmd.txt
+  icon: /assets/images/doodles/cmd.png
+
+- name: Byakuya Togami
+  link: /doodles/togami
+  icon: /assets/images/doodles/togami.png
+
+- name: EIIRP
+  link: /doodles/eiirp.html
+  date: March 2018
+  icon: /assets/images/doodles/eiirp.png
+
+- name: teapot
+  link: /doodles/teapot/index.html
+  date: Early 2020
+  icon: /assets/images/doodles/teapot.png
+
+- name: <30 Minute Morse
+  link: /doodles/30-minute-morse/index.html
+  date: December 2021
+  icon: /assets/images/doodles/morse.png
+
+- name: LG Remote
+  link: /doodles/lg_remote.html
+  date: March 2022
+  icon: /assets/images/doodles/lgtvremote.png
+
+- name: Prompt Generator
+  link: /doodles/words
+  date: May 2023
+  icon: /assets/images/doodles/words.png
+
+- name: Text Box
+  link: /doodles/textbox
+  date: February 2024
+  icon: /assets/images/doodles/textbox.png
+
+- name: Big Time
+  link: /doodles/big_time
+  date: January 2024
+  icon: /assets/images/doodles/bigtime.png
+
+- name: Leafeon Demo
+  link: /doodles/leafeon
+  date: June 2024
+  icon: leafeon/leafeon.webp

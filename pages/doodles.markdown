@@ -4,19 +4,44 @@ permalink: /doodles/
 title: Doodles
 ---
 
-Welcome to an assortment of really random useless stuff
+<style>
+    .doodle-icon-container {
+        width: 64px;
+        height: 64px;
+    }
+    .doodle-icon {
+        object-fit: contain;
+        padding: 0.1rem;
+    }
+</style>
 
-- <a href='javascript:open("https://www.adafruit.com/product/" + Math.floor(Math.random() * 5882), "_self");'>Random Adafruit Product</a>
-- [Make entire webpage editable](javascript:var c=document.body.children;for(var i=0;i<c.length-1;i++){c.item(i).contentEditable=true})
-- [teapot](/doodles/teapot/index.html)
-- [EIIRP](/doodles/eiirp.html)
-- [cmd.txt](/doodles/cmd.txt)
-- [Byakuya Togami](/doodles/togami)
-- [>30 Minute Morse Code](/doodles/30-minute-morse//index.html)
-- [LG TV Web Remote](/doodles/lg_remote.html)
-- [Prompt Generator](/doodles/words)
-- [Text Box](/doodles/textbox)
-- [Big Time](/doodles/big_time)
+Welcome to an assortment of really random useless stuff.  Most of the things here are short sketches that I thought would be worth hosting on the internet.  They're not very high effort but hopefully you find them useful or fun!
+
+<table class="post-table">
+    {% for doodle in site.data.doodles %}
+
+        <tr>
+            {% if doodle.icon %}
+                <td class="doodle-icon-container">
+                    <a href='{{doodle.link}}'>
+                        <img src="{{doodle.icon}}" class="doodle-icon img-thumbnail">
+                    </a>
+                </td>
+            {% else %}
+                <td class="doodle-icon-container"></td>
+            {% endif %}
+
+            <td><a href='{{doodle.link}}'>{{doodle.name}}</a></td>
+            
+            {% if doodle.date %}
+                <td class="text-body-tertiary">{{doodle.date}}</td>
+            {% else %}
+                <td class="text-body-tertiary">Unknown Date</td>
+            {% endif %}
+        </tr>
+
+    {% endfor %}
+</table><br>
 
 <body>
     <span id="notice"></span>
