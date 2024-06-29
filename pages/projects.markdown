@@ -2,14 +2,22 @@
 layout: page
 title: Projects
 permalink: /projects/
+main_content_class: ""
+hide_title: true
 ---
 
-Here you'll find a collection of most of my projects.  While most of my projects have a repository on my <a href="https://github.com/atctwo">GitHub</a>, I thought
-it would be good to bring them together in one page (including some that don't have GitHub repos).
-
 <style>
+    .projects-container-outer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .projects-container-outer > * {
+        width: 80%;
+    }
+
     .project-card-container {
-        width: 100%;
+        /* width: 100%; */
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
@@ -34,6 +42,16 @@ it would be good to bring them together in one page (including some that don't h
         margin-bottom: 16px;
     } */
 </style>
+
+<div class="projects-container-outer">
+
+<h1 class="page-title">{{ page.title }}</h1>
+
+<div style="margin-bottom: 20px;">
+    Here you'll find a collection of most of my projects.  While most of my projects have a repository on my <a href="https://github.com/atctwo">GitHub</a>, I thought it would be good to bring them together in one page (including some that don't have GitHub repos).
+</div>
+
+<div class="projects-container-inner">
 
 {% for project_section in site.data.projects %}
 
@@ -86,3 +104,6 @@ it would be good to bring them together in one page (including some that don't h
 <br>
 
 {% endfor %}
+
+</div>
+</div>
