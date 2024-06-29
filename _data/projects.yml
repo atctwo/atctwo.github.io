@@ -114,14 +114,14 @@
     image_alt: Screenshot of the home page of this website
     link: /
     github: https://github.com/atctwo/atctwo.github.io/tree/web4
-    updated: February 2024
+    updated: June 2024
 
   - name: atctheme
     description: The Jekyll theme that this site runs on
     image: /assets/images/projects/atctheme.png
     image_alt: Screenshot of a default Jekyll post being rendered with this Jekyll theme
     github: https://github.com/atctwo/atctheme
-    updated: May 2023
+    updated: June 2024
 
   - name: transterminal
     description: A <strong>proof of concept</strong> for an simultaneous multi-user remote terminal
