@@ -7,3 +7,9 @@ This site uses Jekyll to build the static website, and is hosted using GitHub Pa
 ```
 jekyll serve -H 0.0.0.0 -P 8000
 ```
+
+# Credits and Inspiration
+The design of this website was inspired by a number of other websites, from personal blogs to organisation sites.  Here is a non-exhaustive list of sites that inspired this one:
+- [Stargirl Flowers](https://thea.codes/)
+- [Julia Evans](https://jvns.ca/)
+- [foosel.net](https://foosel.net/blog/)
