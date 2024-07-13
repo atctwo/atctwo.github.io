@@ -7,6 +7,7 @@ tags: programming c++
 author: "atctwo"
 image: /assets/images/posts/cpp-std-map-strings-as-keys/thumbnail2.png
 toc: true
+enable_comments: true
 ---
 
 Recently, I was working on some C++ code, using [`std::map`](https://en.cppreference.com/w/cpp/container/map)s to map setting names (as strings) to their configured values (also as strings).  Initially, all the key names were either specified using string literals, or variables assigned to literals, and it worked fine.  Then I tried to access mappings using strings loaded from a drive at runtime as keys, but it was accessing different values than expected.  This post will explain what happened, and how to resolve it!
