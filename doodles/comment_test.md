@@ -16,7 +16,7 @@ aah!  you found the secret comment test page, where I was testing the comment bo
         components: ['embed', 'last-comments'],
         max_shown_comments: 100,
         theme: 'dark',
-        page_title: {{page.title}},
+        // page_title: {{page.title}},
         locale: 'en',
         show_email_subscription: true,
         simple_view: false
