@@ -41,6 +41,15 @@ hide_title: true
     /* .project-card-link-btn {
         margin-bottom: 16px;
     } */
+
+    .project-card {
+        width: 18rem;
+    }
+
+    /* .project-card:hover {
+        width: 19rem;
+    } */
+
 </style>
 
 <div class="projects-container-outer">
@@ -62,7 +71,7 @@ hide_title: true
 
 {% for project in project_section.projects %}
 
-    <div class="card" style="width: 18rem;">
+    <div class="card project-card">
 
         {% if project.image %}
             <img src="{{project.image}}" class="card-img-top" alt="{{project.name}}" alt="{{project.image_alt}}">
@@ -73,13 +82,13 @@ hide_title: true
             <p class="card-text">{{project.description}}</p>
 
             {% if project.link %}
-                <a href="{{project.link}}" class="btn btn-primary project-card-link-btn" aria-label="Link to {{project.name}}"><i class="bi bi-link-45deg"></i> Link</a>
+                <a href="{{project.link}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="Link to {{project.name}}"><i class="bi bi-link-45deg"></i> Link</a>
             {% endif %}
             {% if project.crates %}
-                <a href="{{project.crates}}" class="btn btn-primary project-card-link-btn" aria-label="Crates.io page for {{project.name}}"><i class="bi bi-box-seam"></i> Crates.io</a>
+                <a href="{{project.crates}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="Crates.io page for {{project.name}}"><i class="bi bi-box-seam"></i> Crates.io</a>
             {% endif %}
             {% if project.github %}
-                <a href="{{project.github}}" class="btn btn-primary" aria-label="GitHub repository for {{project.name}}"><i class="bi bi-github"></i> GitHub</a>
+                <a href="{{project.github}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="GitHub repository for {{project.name}}"><i class="bi bi-github"></i> GitHub</a>
             {% endif %}
         </div>
         
