@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Reverse Engineering a Thermal Label Printer"
-date:   2024-07-09
+date:   2024-07-16
 categories: posts
 tags: [reverse engineering, thermal printer, embedded]
 author: "atctwo"
