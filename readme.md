@@ -1,5 +1,7 @@
 # atctwo's site
 
+[![Deploy Jekyll site to Pages](https://github.com/atctwo/atctwo.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/atctwo/atctwo.github.io/actions/workflows/jekyll.yml)
+
 This repository has the source for my website.  The theme for the website is called [atctheme](https://github.com/atctwo/atctheme).
 
 # Building
