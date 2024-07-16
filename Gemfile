@@ -27,6 +27,8 @@ group :jekyll_plugins do
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-toc", "~> 0.18.0"
   gem "jekyll-remote-theme", "~> 0.4.3"
+  gem 'jekyll-tagging-related_posts'
+  # gem 'jekyll_picture_tag', '~> 2.0'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -46,4 +48,4 @@ gem "http_parser.rb", "~> 0.6.1", :platforms => [:jruby]
 gem "webrick", "~> 1.8"
 
 # gem for custom theme - used for local development
-# gem "atctheme", :path => "/home/alice/gdrive/programming/atctheme/"
+# gem "atctheme", :path => "/run/media/alice/AliceStuff/programming/web4/atctheme"

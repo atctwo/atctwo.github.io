@@ -46,6 +46,7 @@ plugins:
 markdown: kramdown
 highlighter: rouge
 remote_theme: https://github.com/atctwo/atctheme
+# theme: atctheme
 
 kramdown:
   syntax_highlighter: rouge
@@ -141,6 +142,10 @@ autopages:
       mode: 'pretty'   # :tag is slugified.
       case: false
 
+# picture:
+#   source: "assets/images"
+#   output: "assets/images/generated"
+#   suppress_warnings: false
 
 atctheme:
   home_image: /assets/images/mii_v4.png
