@@ -1,0 +1,64 @@
+image_path: /assets/images/technologies/
+
+javascript:
+  icon: Javascript.svg
+  name: JavaScript
+  colour: "#F7DF1E"
+
+bootstrap:
+  icon: Bootstrap.svg
+  name: Bootstrap
+  colour: "#7952B3"
+  url: https://getbootstrap.com/
+
+arduino:
+  icon: Arduino.svg
+  name: Arduino
+  colour: "00878F"
+  url: https://www.arduino.cc/
+
+c:
+  icon: C.svg
+  name: C
+  colour: "#A8B9CC"
+
+cpp:
+  icon: C++.svg
+  name: C++
+  colour: "#00599C"
+
+gamemaker:
+  icon: GameMaker.png
+  name: GameMaker Studio
+  colour: "#000000"
+  url: https://gamemaker.io/en
+
+jekyll:
+  icon: Jekyll.svg
+  name: Jekyll
+  colour: "#CC0000"
+  url: https://jekyllrb.com/
+
+kicad:
+  icon: KiCad.svg
+  name: KiCad
+  colour: "#314CB0"
+  url: https://www.kicad.org/
+
+python:
+  icon: Python2.svg
+  name: Python
+  colour: "#3776AB"
+  url: https://www.python.org/
+
+rust:
+  icon: Rust.svg
+  name: Rust
+  colour: "#000000"
+  url: https://www.rust-lang.org/
+
+threejs:
+  icon: Threejs.svg
+  name: Three.js
+  colour: "#000000"
+  url: https://threejs.org/

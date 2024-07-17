@@ -44,11 +44,36 @@ hide_title: true
 
     .project-card {
         width: 18rem;
+        height: 450px;
     }
 
     /* .project-card:hover {
         width: 19rem;
     } */
+
+    .project-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .project-card-technology {
+        width: 18px;
+        margin: 2px;
+        transition: width 0.25s;
+    }
+    .project-card-technology:hover {
+        width: 32px;
+    }
+    .project-card-technology-container {
+        margin-left: auto;
+    }
+
+    .project-card-footer {
+        display: flex;
+        align-items: center;
+        /* margin-top: 14px; */
+    }
 
 </style>
 
@@ -77,23 +102,25 @@ hide_title: true
             <img src="{{project.image}}" class="card-img-top" alt="{{project.name}}" alt="{{project.image_alt}}">
         {% endif %}
 
-        <div class="card-body">
+        <div class="card-body project-card-body">
             <h5 class="card-title">{{project.name}}</h5>
             <p class="card-text">{{project.description}}</p>
 
-            {% if project.link %}
-                <a href="{{project.link}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="Link to {{project.name}}"><i class="bi bi-link-45deg"></i> Link</a>
-            {% endif %}
-            {% if project.crates %}
-                <a href="{{project.crates}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="Crates.io page for {{project.name}}"><i class="bi bi-box-seam"></i> Crates.io</a>
-            {% endif %}
-            {% if project.github %}
-                <a href="{{project.github}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="GitHub repository for {{project.name}}"><i class="bi bi-github"></i> GitHub</a>
-            {% endif %}
+            <div class="project-card-links">
+                {% if project.link %}
+                    <a href="{{project.link}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="Link to {{project.name}}"><i class="bi bi-link-45deg"></i> Link</a>
+                {% endif %}
+                {% if project.crates %}
+                    <a href="{{project.crates}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="Crates.io page for {{project.name}}"><i class="bi bi-box-seam"></i> Crates.io</a>
+                {% endif %}
+                {% if project.github %}
+                    <a href="{{project.github}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="GitHub repository for {{project.name}}"><i class="bi bi-github"></i> GitHub</a>
+                {% endif %}
+            </div>
         </div>
         
+        <div class="card-footer project-card-footer">
         {% if project.created or project.updated %}
-            <div class="card-footer">
                 {% if project.created %}
                     <small class="text-body-secondary">Created {{project.created}}</small>
                 {% endif %}
@@ -101,8 +128,20 @@ hide_title: true
                 {% if project.updated %}
                     <small class="text-body-secondary">Updated {{project.updated}}</small>
                 {% endif %}
+            {% endif %}
+
+            <div class="project-card-technology-container">
+                {% assign img_path = site.data.technologies.image_path %}
+                {% for tech in project.technologies %}
+                    {% if site.data.technologies contains tech %}
+                        {% assign t = site.data.technologies[tech] %}
+                        {% if t.url %} <a href="{{t.url}}"> {% endif %}
+                            <img class="project-card-technology" src="{{img_path}}/{{t.icon}}" title="{{t.name}}" style="fill: {{t.colour}};">
+                        {% if t.url %} </a> {% endif %}
+                    {% endif %}
+                {% endfor %}
             </div>
-        {% endif %}
+        </div>
     </div>
     
 {% endfor %}

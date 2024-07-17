@@ -7,6 +7,7 @@
     link: /projects/pinout/index.html
     github: https://github.com/atctwo/pinout
     updated: March 2022
+    technologies: [javascript]
 
   - name: ESP32 Partition Editor
     description: A graphical editor for ESP32 flash partition files
@@ -15,6 +16,7 @@
     link: /projects/esp32-partition-editor/
     github: https://github.com/atctwo/esp32-partition-editor
     updated: August 2022
+    technologies: [javascript, bootstrap]
 
   - name: Authenticator
     description: A chrome extension to generate TOTP codes and automatically insert them into websites
@@ -22,6 +24,7 @@
     image_alt: Screenshot of the authenticator
     github: https://github.com/atctwo/authenticator
     updated: January 2024
+    technologies: [javascript, web_extension]
 
   - name: lstty
     description: A simple terminal tool to list serial ports
@@ -30,6 +33,7 @@
     github: https://github.com/atctwo/lstty
     crates: https://crates.io/crates/lstty
     updated: December 2023
+    technologies: [rust]
 
   - name: Media Streamer
     description: A thingy for streaming media from devices and displays in a web browser
@@ -38,6 +42,7 @@
     github: https://github.com/atctwo/mediastream
     link: /projects/mediastream/
     updated: June 2023
+    technologies: [javascript, bootstrap]
 
 - section_name: Electronics Projects
   projects:
@@ -47,6 +52,7 @@
     image_alt: Picture of the front of the clock
     github: https://github.com/atctwo/clock25
     updated: May 2024
+    technologies: [arduino, cpp, kicad, openscad]
 
   - name: watch2
     description: A custom ESP32-based smartwatch
@@ -54,6 +60,7 @@
     image_alt: Picture of the watch
     github: https://github.com/atctwo/watch-II
     updated: September 2021
+    technologies: [arduino, cpp, esp32, kicad, openscad]
 
   - name: assorted-breakouts
     description: An assortment of simple breakout boards made with KiCad
@@ -61,6 +68,7 @@
     image_alt: Collage of 3D renders of some of the breakout boards
     github: https://github.com/atctwo/assorted-breakouts
     updated: February 2024
+    technologies: [kicad]
 
 - section_name: Code Libraries
   projects:
@@ -70,27 +78,33 @@
     image_alt: Screenshot of some code showing usage of rebind.js
     github: https://github.com/atctwo/rebind.js
     updated: November 2021
+    technologies: [javascript]
+
   - name: libtris
     description: A C++ library for creating Tetris clones
     image: /assets/images/projects/libtris.png
     image_alt: Screenshot of some code showing usage of libtris
     github: https://github.com/atctwo/libtris
     updated: June 2021
+    technologies: [cpp]
+
   - name: snake-game
     description: A C++ library for creating Snake clones
     image: /assets/images/projects/snek.png
     image_alt: Screenshot of some code showing usage of snake-game
     github: https://github.com/atctwo/snake-game
     updated: July 2021
+    technologies: [cpp]
 
 - section_name: Games
   projects:
   - name: Quiz Game
     description: A simple quiz game.  Questions taken from the <a href="https://opentdb.com/">Open Trivia Database</a>
-    image: /assets/images/projects/quiz_game.png
+    image: /assets/images/projects/quiz_game2.png
     image_alt: Screenshot of the quiz game
     link: /projects/quiz/index.html
     updated: April 2021
+    technologies: [javascript]
 
   - name: The Chase
     description: Another quiz game, made to play like the TV show <a href="https://en.wikipedia.org/wiki/The_Chase_(British_game_show)">The Chase</a>.  Questions taken from the <a href="https://opentdb.com/">Open Trivia Database</a>
@@ -98,6 +112,7 @@
     image_alt: Screenshot of the game
     link: /projects/thechase/index.html
     updated: 2019
+    technologies: [javascript]
 
   - name: Breakout
     description: An old breakout clone I made in GameMaker
@@ -105,6 +120,7 @@
     image_alt: Screenshot of the game
     link: /projects/breakout/index.html
     updated: 2016
+    technologies: [gamemaker]
 
 - section_name: Other
   projects:
@@ -114,14 +130,16 @@
     image_alt: Screenshot of the home page of this website
     link: /
     github: https://github.com/atctwo/atctwo.github.io/tree/web4
-    updated: June 2024
+    updated: July 2024
+    technologies: [javascript, bootstrap, jekyll]
 
   - name: atctheme
     description: The Jekyll theme that this site runs on
     image: /assets/images/projects/atctheme.png
     image_alt: Screenshot of a default Jekyll post being rendered with this Jekyll theme
     github: https://github.com/atctwo/atctheme
-    updated: June 2024
+    updated: July 2024
+    technologies: [javascript, bootstrap, jekyll]
 
   - name: transterminal
     description: A <strong>proof of concept</strong> for an simultaneous multi-user remote terminal
@@ -129,6 +147,7 @@
     image_alt: Screenshot of transterminal being used to update a Linux system
     github: https://github.com/atctwo/transterminal
     updated: January 2021
+    technologies: [python]
 
   - name: Generator
     description: A tool to create random sentances from pre-specified lists of words
@@ -136,6 +155,7 @@
     image_alt: Screenshot of the generator being used
     link: /projects/generator/index.html
     updated: 2018 - 2019
+    technologies: [javascript]
 
   - name: File to Colour Processor
     description: A thingy that turns the bytes of files into colourful squares
@@ -143,6 +163,7 @@
     image_alt: A grid of colours, produced by running a text file through this tool
     link: /projects/colour-idk/index.html
     updated: 2019
+    technologies: [javascript]
 
   - name: Doodles
     description: A collection of small software sketches
@@ -150,6 +171,7 @@
     image_alt: A screenshot of the 'teapot' doodle - a grid of 3D teapots rendered using normal mapping
     link: /doodles
     updated: 2024
+    technologies: [javascript, threejs]
 
   - name: Website Version 1
     description: An archive of the first version of this website
@@ -157,6 +179,7 @@
     image_alt: A screenshot of the first version of this site
     link: /projects/web2/index.html
     updated: 2019 - 2020
+    technologies: [javascript]
 
   - name: Website Version 2
     description: An archive of the second version of this website
@@ -164,6 +187,7 @@
     image_alt: A screenshot of the second version of this site
     link: /projects/web3/index.html
     updated: 2021
+    technologies: [javascript]
 
 # - section_name: eeby deeby
 #   projects:
