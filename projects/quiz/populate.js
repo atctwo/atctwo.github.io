@@ -65,7 +65,7 @@ function populateQuestionBox()
                     answer_btn.onclick = function(event) {
 
                         // set the background colour of the selected button
-                        var element = event.path[0];
+                        var element = event.composedPath()[0];
                         var thing = element.id.substr( element.id.length - 1 );
                         window.selected_ans = parseInt(thing);
                         if (thing == "0") element.style.backgroundColor = "#028090";
