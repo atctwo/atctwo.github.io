@@ -14,6 +14,7 @@ jekyll serve -H 0.0.0.0 -P 8000
 This website uses a number of assets created by other people.  Since most assets are part of atctheme, check out [its credit section](https://github.com/atctwo/atctheme?tab=readme-ov-file#credits) for full credits!  For this site specifically though:
 - Social icons and most technology icons were provided by [Simple Icons](https://simpleicons.org/)
 - Comments for blog posts are implemented using [Remark42](https://remark42.com/)
+- Favicons were generated using [Real Favicon Generator](https://realfavicongenerator.net/)
 
 The design of this website was inspired by a number of other websites, from personal blogs to organisation sites.  Here is a non-exhaustive list of sites that inspired this one:
 - [Stargirl Flowers](https://thea.codes/)
