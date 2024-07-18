@@ -136,7 +136,14 @@ hide_title: true
                     {% if site.data.technologies contains tech %}
                         {% assign t = site.data.technologies[tech] %}
                         {% if t.url %} <a href="{{t.url}}"> {% endif %}
-                            <img class="project-card-technology" src="{{img_path}}/{{t.icon}}" title="{{t.name}}" style="fill: {{t.colour}};">
+                            <img 
+                                class="project-card-technology" 
+                                src="{{img_path}}/{{t.icon}}" 
+                                {% comment %} title="{{t.name}}" {% endcomment %}
+                                title="{{t.name}}"
+                                data-bs-toggle="tooltip"
+                                data-bs-offset="0,20"
+                            >
                         {% if t.url %} </a> {% endif %}
                     {% endif %}
                 {% endfor %}
