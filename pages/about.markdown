@@ -55,9 +55,13 @@ I hope you enjoy your stay here!
 ## Computer Specs
 In case anyone is interested, my PC is called Lucy.
 - CPU: **Intel i7-13700KF**
-- RAM: **64GB DDR5**
-- GPU: **Nvidia GeForce 1080 Ti** and **AMD Radeon RX550**
-- Storage: **1 x 1TB SSD** and **2 x 2TB HDD in RAID 1**
+- RAM: **Corsair Vengeance 64GB 4800MHz DDR5 (2x32GB kit)**
+- GPU: 
+  - **Nvidia GeForce 1080 Ti** (with broken video ports)
+  - **AMD Radeon RX550** (with working video ports)
+- Storage: 
+  - **WD Black SN770 1TB SSD** boot drive
+  - **2 x Seagate Barracuda (ST2000DM008) 2TB HDD** in RAID 1 for long term storage
 - Motherboard: **ASUS Z960-P WiFi**
 - Cooling: **Corsair iCUE H100i Elite Capellix AIO**
 - Case: **Corsair 4000X**
