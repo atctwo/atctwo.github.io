@@ -143,6 +143,7 @@ hide_title: true
                                 title="{{t.name}}"
                                 data-bs-toggle="tooltip"
                                 data-bs-offset="0,20"
+                                data-bs-delay='{"show": 500, "hide":50}'
                             >
                         {% if t.url %} </a> {% endif %}
                     {% endif %}
