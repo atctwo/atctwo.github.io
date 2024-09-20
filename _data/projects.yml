@@ -1,5 +1,13 @@
-- section_name: Utilities
+- section_name: Software Projects
   projects:
+  - name: bbrx!
+    description: RC receiver controlled using Bluetooth gamepads 
+    image: /assets/images/projects/bbrx.png
+    image_alt: diagram showing multiple bluetooth controllers sending data to bbrx, which then sends data to an electronic speed controller, which is driving a motor
+    github: https://github.com/atctwo/bbrx
+    updated: September 2024
+    technologies: [arduino, cpp]
+
   - name: Raspberry Pi CM4 Pinout
     description: An interactive pinout for the Raspberry Pi Compute Module 4
     image: /assets/images/projects/cm4.png
