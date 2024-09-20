@@ -1,6 +1,7 @@
 # atctwo's site
 
-[![Deploy Jekyll site to Pages](https://github.com/atctwo/atctwo.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/atctwo/atctwo.github.io/actions/workflows/jekyll.yml)
+[![Status of Action for Deploying Jekyll site to Pages](https://github.com/atctwo/atctwo.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/atctwo/atctwo.github.io/actions/workflows/jekyll.yml)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/atctwo/atctwo.github.io?label=repo%20size)
 
 This repository has the source code for my website [atctwo.net](https://atctwo.net)!  It's built using HTML5, Bootstrap, and a little bit of JavaScript.  It's a static site generated using Jekyll, hosted on GitHub Pages, and uses a custom Jekyll theme called [atctheme](https://github.com/atctwo/atctheme).  Most of the website's functionality is implemented in this theme but some atctwo.net-specific parts are implemented here.
 
