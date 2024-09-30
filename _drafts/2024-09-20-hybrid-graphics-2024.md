@@ -6,7 +6,7 @@ categories: posts
 tags: [computers, linux, graphics]
 author: "atctwo"
 description: After two-ish years of avoiding (external) hybrid graphics in Linux, I finally turned on my eGPU enclosure...
-image: /assets/images/posts/thermal-printer/egg.jpg
+image: /assets/images/posts/hybrid-graphics-2024/thumb.jpg
 toc: true
 enable_comments: true
 enable_related: true
