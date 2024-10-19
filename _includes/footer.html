@@ -1,3 +1,10 @@
+<style>
+.social-icon {
+    width: 18px;
+    height: 18px;
+}
+</style>
+
 <div id="site-footer">
     <p id="site-footer-license" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
         <span property="dct:title">The contents of this site</span> are licensed under 
@@ -22,9 +29,16 @@
         <table>
             {% if site.github_username %}
             <tr>
-                <td><i class="bi bi-github"></i>&nbsp;
+                <td><img class="social-icon" src="/assets/images/socials/GitHub.svg" />&nbsp;
             </td>
             <td><a href="https://github.com/{{site.github_username}}/">{{site.github_username}}</a></td>
+            </tr>
+            {% endif %}
+            {% if site.bsky_username %}
+            <tr>
+                <td><img class="social-icon" src="/assets/images/socials/Bluesky.svg" />&nbsp;
+                </td>
+                <td><a href="https://bsky.app/profile/{{site.bsky_username}}">@{{site.bsky_username}}</td>
             </tr>
             {% endif %}
             {% if site.twitter_username %}

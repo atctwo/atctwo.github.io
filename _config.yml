@@ -27,7 +27,7 @@ tagline:
   this is atctwo's website, where she puts things sometimes
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://atctwo.net/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: atctwo
+bsky_username: atctwo.net
 github_username:  atctwo
 
 # Build settings
