@@ -1,0 +1,79 @@
+---
+layout: page
+---
+
+<style>
+    .album-thumb-container {
+        width: 100%;
+        height: 150px;
+        container-type: inline-size;
+        overflow: hidden;
+    }
+    
+    .album-thumb-container-inner {
+        display: inline-flex;
+        flex-direction: row;
+        width: max-content;
+        /* overflow-x: hidden; */
+        animation: album-thumb-scroll 200s linear infinite alternate;
+        transform: translateX(calc(-100% + 100cqw));
+    }
+    
+    .album-thumb {
+        /* width: 200px; */
+        height: 150px;
+        border-radius: 0 !important;
+    }
+
+    @keyframes album-thumb-scroll {
+        0%   { transform: translateX(0%);   }
+        100% { transform: translateX(calc(-100% + 100cqw)); }
+    }
+</style>
+
+<p>Recently I got a new camera!  I've been taking pictures when out and about, as well as trying to learn basic photo editing.  I thought it would be cool to put my favourite pictures online somewhere, so I decided to make this little section on my website.</p>
+
+<p>I hope you enjoy them!</p>
+
+{% for album in page.albums %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{album["title"]}}</h3>
+            <p  class="card-text">{{album["description"]}}</p>
+        </div>
+        <a href="/photos/{{album['title'] | slugify}}" class="stretched-link"></a>
+
+        <div class="card-img-bottom album-thumb-container">
+            <div class="album-thumb-container-inner">
+                {% for image in album.images %}
+                    <img src="{{image[1].sizes.400}}" class="album-thumb">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+
+<script>
+
+    // code to shuffle thumbnail order
+    // adapted from https://stackoverflow.com/a/11972692
+    let thumb_containers = document.querySelectorAll('.album-thumb-container-inner');
+    for (let j = 0; j < thumb_containers.length; j++) {
+        let container = thumb_containers[j];
+        let total_width = 0;
+        for (let i = container.children.length; i >= 0; i--) {
+
+            let e = container.children[Math.random() * i | 0];
+            // e.addEventListener("load", event => {
+                container.appendChild(e);
+            // });
+            
+            // e.src = e.dataset.src;
+
+            // total_width += 200; // approximate width
+            // if (total_width > 2000) break;
+        }
+    }
+
+</script>

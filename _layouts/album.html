@@ -1,0 +1,538 @@
+---
+layout: page
+main_content_class: ""
+hide_title: true
+---
+
+<style>
+
+    #photos-container-outer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    #photos-container-outer > * {
+        width: 80%;
+    }
+
+    #photos-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    /* #photos-container > * {
+        width: 70%;
+    } */
+
+    .thumb-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .thumb {
+        height: 200px;
+        transition: transform 0.2s;
+        cursor: pointer;
+        object-fit: cover;
+    }
+
+    .thumb:hover {
+        transform: scale(1.1);
+    }
+
+    .date-thumb {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        color: var(--bs-secondary-color);
+        background-color: var(--bs-secondary-bg);
+        font-size: x-large;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 200px;
+    }
+    .date-thumb > span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+    }
+
+    .big-image {
+        width: 100%;
+        border-top-left-radius:  var(--bs-modal-border-radius);
+        border-top-right-radius: var(--bs-modal-border-radius);
+    }
+
+    .lightbox-close {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+    }
+
+    .lightbox-nav {
+        background: transparent !important;
+        border: 0;
+        position: absolute;
+        font-size: 26px;
+    }
+    .lightbox-nav-prev {
+        left: 32px;
+        top: 50%;
+    }
+    .lightbox-nav-next {
+        right: 32px;
+        top: 50%;
+    }
+
+    .lightbox-header {
+        padding: 0px;
+        border-top-left-radius:  var(--bs-modal-border-radius);
+        border-top-right-radius: var(--bs-modal-border-radius);
+        position: relative;
+    }
+
+    .column {
+        padding: 16px;
+        flex: 1;
+    }
+
+    #column-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    @media (min-width: 992px) {
+        .column:not(.hidden) + .column:not(.hidden) {
+            border-left: 1px solid var(--bs-modal-color);
+        }
+    }
+    
+    @media (max-width: 992px) {
+        #column-container {
+            flex-direction: column;
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #exif-table {
+        font-size: large;
+    }
+
+    #exif-table td {
+        padding-left: 10px;
+    }
+
+    .exif-value {
+        font-weight: bold
+    }
+
+    #lightbox-map {
+        width: 100%;
+        height: 250px;
+        border-radius: 10px;
+    }
+
+</style>
+
+<div id="photos-container-outer">
+    
+    <h1>{{page.album_title}}</h1>
+    <p><a href="/photos"><em>Back to album index</em></a></p>
+    <p>{{page.album_desc}}</p>
+    
+    
+    <div id="photos-container">
+
+        {% for date in page.dates %}
+
+            <div class="thumb-container">
+                <div class="date-thumb">
+                    <span>{{ date[0] | date: '%A,<br>%B %d %Y' }}</span>
+                </div>
+                {% for image in date[1] %}
+                    <img class="thumb image photo" src="{{page.images[image].sizes.400}}" 
+                        data-image='{{image}}'
+                        onclick="reset_lightbox('{{image}}');"
+                    >
+                {% endfor %}
+            </div>
+
+        {% else %}
+            <p>This album doesn't have any images.  So if you're seeing this then something's gone wrong 🤔</p>
+            <p>Could you let me know by raising an issue on this site's <a href="https://github.com/atctwo/atctwo.github.io">GitHub</a> repo?  Thank you!!!</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- 
+    modal to display the images in
+-->
+<div class="modal fade" tabindex="-1" id="lightbox-modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header lightbox-header">
+                <img class="big-image" id="lightbox-image">
+                <button type="button" class="btn-close lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close lightbox-nav lightbox-nav-prev" onclick="prev_image();" aria-label="Previous"><i class="bi bi-arrow-left"></i></button>
+                <button type="button" class="btn-close lightbox-nav lightbox-nav-next" onclick="next_image();" aria-label="Next"><i class="bi bi-arrow-right"></i></button>
+            </div>
+
+            <div class="modal-body">
+                <div id="column-container">
+                    <div class="column" id="lightbox-col-info">
+                        <h2 id="lightbox-img-title">Image Title</h2>
+                        <p id="lightbox-img-comment">This is a comment for the image</p>
+                        <div id="lightbox-map-container">
+                            <h3>Capture Location</h3>
+                            <div id="lightbox-map"></div>
+                        </div>
+                    </div>
+                    <div class="column" id="lightbox-col-exif">
+                        <h3>Image Data</h3>
+                        <table id="exif-table">
+                            <tr id="exif-row-camera">
+                                <td class="exif-field">Camera</td>
+                                <td class="exif-value" id="exif-value-camera"></td>
+                            </tr>
+                            <tr id="exif-row-iso">
+                                <td class="exif-field">ISO</td>
+                                <td class="exif-value" id="exif-value-iso"></td>
+                            </tr>
+                            <tr id="exif-row-shutter">
+                                <td class="exif-field">Shutter Speed</td>
+                                <td class="exif-value" id="exif-value-shutter"></td>
+                            </tr>
+                            <tr id="exif-row-aperture">
+                                <td class="exif-field">Aperture</td>
+                                <td class="exif-value" id="exif-value-aperture"></td>
+                            </tr>
+                            <tr id="exif-row-focal-length">
+                                <td class="exif-field">Focal Length</td>
+                                <td class="exif-value" id="exif-value-focal-length"></td>
+                            </tr>
+                            <tr id="exif-row-focal-length-35">
+                                <td class="exif-field"><em>(35mm equivalent)</em></td>
+                                <td class="exif-value" id="exif-value-focal-length-35"></td>
+                            </tr>
+                            <tr id="exif-row-flash">
+                                <td class="exif-field">Flash</td>
+                                <td class="exif-value" id="exif-value-flash"></td>
+                            </tr>
+                            <tr id="exif-row-time">
+                                <td class="exif-field">Capture Time</td>
+                                <td class="exif-value" id="exif-value-time"></td>
+                            </tr>
+                            <tr id="exif-row-lat">
+                                <td class="exif-field">Latitude</td>
+                                <td class="exif-value" id="exif-value-lat"></td>
+                            </tr>
+                            <tr id="exif-row-long">
+                                <td class="exif-field">Longitude</td>
+                                <td class="exif-value" id="exif-value-long"></td>
+                            </tr>
+                        </table><br>
+                    </div>
+                </div>
+
+                <a type="button" target="_blank" class="btn btn-primary rainbow-background" id="lightbox-full-res-btn">Open full-res image</a>
+            </div>
+
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- 
+    javascript to populate the modal with image data before it opens
+-->
+<script>
+
+window.addEventListener("load", () => {
+
+    // store image data globally
+    window.images = JSON.parse('{{page.images}}'.replaceAll("=>", ":").replaceAll("'", '"'));
+
+    // enable XMP for image title and description
+    EXIF.enableXmp();
+
+    // handles to elements
+    const modal_lightbox_div = document.getElementById("lightbox-modal");
+    const lightbox_image = document.getElementById("lightbox-image");
+    const lightbox_frbtn = document.getElementById("lightbox-full-res-btn");
+    const lightbox_col_info = document.getElementById("lightbox-col-info");
+    const lightbox_col_exif = document.getElementById("lightbox-col-exif");
+    const lightbox_img_title =   document.getElementById("lightbox-img-title");
+    const lightbox_img_comment = document.getElementById("lightbox-img-comment");
+    const lightbox_map_div = document.getElementById("lightbox-map")
+    const lightbox_map_div_container = document.getElementById("lightbox-map-container")
+    const lightbox_map = L.map('lightbox-map');
+
+    const modal_lightbox = new bootstrap.Modal(modal_lightbox_div);
+    window.modal_lightbox = modal_lightbox;
+
+    let gps_marker = undefined;
+    let prev_image_id = "";
+    let next_image_id = "";
+    let reset_after_hide = null;
+
+    // thingy to reset the map's internal size when the map div is resized
+    const map_resize_observer = new ResizeObserver(entries => {
+
+        // force map to resize
+        lightbox_map.invalidateSize();
+
+    });
+    map_resize_observer.observe(lightbox_map_div);
+
+    // function to set the values of fields in the exif data table
+    function set_exif(id, value, value_func) {
+        
+        let el_row =   document.getElementById(`exif-row-${id}`);
+        let el_value = document.getElementById(`exif-value-${id}`);
+
+        console.log(id, value)
+
+        if (typeof value == "undefined") {
+            el_row.classList.add("hidden");
+        } else {
+            if (typeof value_func == "undefined") el_value.innerText = value;
+            else                                  el_value.innerText = value_func(value)
+            el_row.classList.remove("hidden");
+        }
+    }
+
+    // Speed up calls to hasOwnProperty
+    // from https://stackoverflow.com/a/4994244
+    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    function isEmpty(obj) {
+
+        // null and undefined are "empty"
+        if (obj == null) return true;
+
+        // Assume if it has a length property with a non-zero value
+        // that that property is correct.
+        if (obj.length > 0)    return false;
+        if (obj.length === 0)  return true;
+
+        // If it isn't an object at this point
+        // it is empty, but it can't be anything *but* empty
+        // Is it empty?  Depends on your application.
+        if (typeof obj !== "object") return true;
+
+        // Otherwise, does it have any properties of its own?
+        // Note that this doesn't handle
+        // toString and valueOf enumeration bugs in IE < 9
+        for (var key in obj) {
+            if (hasOwnProperty.call(obj, key)) return false;
+        }
+
+        return true;
+    }
+
+    // hide columns and setup image
+    function reset_lightbox(image_str) {
+
+        console.log("loading image", image_str);
+
+        // hide modal if it's open
+        // console.log("hiding modal")
+        // modal_lightbox.hide();
+
+        // parse hash string to json
+        let image = images[image_str];
+
+        // set image
+        lightbox_image.removeAttribute("src"); // unload previous image
+        lightbox_image.src = image.sizes["1080"];
+        
+        // set button link
+        lightbox_frbtn.href = image.sizes.original;
+
+        // hide info columns
+        lightbox_col_info.classList.add("hidden");
+        lightbox_col_exif.classList.add("hidden");
+
+        // hide image title and comment
+        lightbox_img_title.classList.add("hidden");
+        lightbox_img_comment.classList.add("hidden");
+
+        // set previous and next images
+        prev_image_id = image.prev;
+        next_image_id = image.next;
+
+        // if image title is available
+        if (image.title != "") {
+            lightbox_img_title.innerText = image.title;
+            lightbox_img_title.classList.remove("hidden");
+        }
+
+        // if image comment is available
+        if (image.description != "") {
+            lightbox_img_comment.innerText = image.description;
+            lightbox_img_comment.classList.remove("hidden");
+        }
+
+        // show the modal
+        modal_lightbox.show();
+    }
+    window.reset_lightbox = reset_lightbox;
+
+    // function to move to the previous image
+    function prev_image() {
+        if (prev_image_id != "") {
+            reset_after_hide = prev_image_id;
+            modal_lightbox.hide();
+        }
+    }
+    window.prev_image = prev_image;
+    
+    // function to move to the next image
+    function next_image() {
+        if (next_image_id != "") {
+            reset_after_hide = next_image_id;
+            modal_lightbox.hide();
+        }
+    }
+    window.next_image = next_image;
+
+    modal_lightbox_div.addEventListener("hidden.bs.modal", event => {
+        if (reset_after_hide != null) {
+            reset_lightbox(reset_after_hide);
+            reset_after_hide = null;
+        }
+    });
+
+    // callback to do stuff when the image loads
+    lightbox_image.addEventListener("load", event => {
+
+        
+        EXIF.getData(lightbox_image, function() {
+            if (!isEmpty(this.exifdata)) {
+                let exif = EXIF.getAllTags(this);
+                console.log(exif)
+
+                // populate dom with exif stuff
+                set_exif("camera", exif.Make, val => {
+                    return `${exif.Make} ${exif.Model}`
+                });
+                set_exif("iso", exif.ISOSpeedRatings);
+                set_exif("shutter", exif.ExposureTime, val => {
+                    return (val < 1.0) ? ("1 / " + (1 / val).toString()) : val.toString()
+                });
+                set_exif("aperture", exif.MaxApertureValue, val => {
+                    return `f/${Math.pow(2, val / 2).toFixed(1)}`; // convert to f number
+                });
+                set_exif("focal-length", exif.FocalLength, val => {
+                    return `${val} mm`
+                });
+                set_exif("focal-length-35", exif.FocalLengthIn35mmFilm, val => {
+                    return `${val} mm`
+                });
+                set_exif("time", exif.DateTimeOriginal);
+                set_exif("flash", exif.Flash);
+
+                // get GPS info
+                if ("GPSLatitude" in exif && "GPSLongitude" in exif) {
+
+                    // get latitude and longitude
+                    let lat_obj =  exif.GPSLatitude
+                    let long_obj = exif.GPSLongitude
+                    let lat =  (lat_obj[0] + (lat_obj[1] / 60) + (lat_obj[2] / 3600)) * (exif.GPSLatitudeRef == "N" ? 1 : -1);
+                    let long = (long_obj[0] + (long_obj[1] / 60) + (long_obj[2] / 3600)) * (exif.GPSLongitudeRef == "E" ? 1 : -1);
+
+                    // set fields in table
+                    set_exif("lat", lat);
+                    set_exif("long", long);
+
+                    // open map
+                    lightbox_map.setView([lat, long], 13);
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(lightbox_map);
+
+                    // remove marker if there is one
+                    if (typeof gps_marker != `undefined`) {
+                        gps_marker.remove();
+                        gps_marker = undefined;
+                    }
+
+                    // add new marker
+                    gps_marker = L.marker([lat, long]).addTo(lightbox_map)
+                        // .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+                        // .openPopup();
+            
+                    // show map
+                    lightbox_map_div_container.classList.remove("hidden");
+                    lightbox_col_info.classList.remove("hidden");
+                    
+                } else {
+                    
+                    // if no gps data is available, then hide the map and lat, long fields
+                    lightbox_map_div_container.classList.add("hidden");
+                    set_exif("lat", undefined);
+                    set_exif("long", undefined);
+
+                }
+                    
+                // show exif column
+                lightbox_col_exif.classList.remove("hidden");
+
+
+                // // if image title is available
+                // if ("ImageTitle" in exif) {
+                //     lightbox_img_title.innerText = exif.ImageTitle;
+                //     lightbox_img_title.classList.remove("hidden");
+                // }
+
+                // // if image comment is available
+                // if ("UserComment" in exif) {
+                //     lightbox_img_comment.innerText = exif.UserComment;
+                //     lightbox_img_comment.classList.remove("hidden");
+                // }
+
+            }
+
+            // finish up
+            delete this.exifdata;
+        });
+
+    })
+
+    // keyboard shortcuts
+    document.addEventListener("keydown", event => {
+
+        // nav left (left arrow)
+        if (event.keyCode == 37) {
+            prev_image();
+        }
+
+        // nav right (right arrow)
+        if (event.keyCode == 39) {
+            next_image();
+        }
+
+        // close (esc)
+        if (event.keyCode == 27) {
+            modal_lightbox.hide();
+        }
+
+    })
+
+})
+
+</script>

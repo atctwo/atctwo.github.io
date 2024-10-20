@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Photos
-permalink: /photos/
+permalink: /photos/test2
 main_content_class: ""
 hide_title: true
 ---
@@ -58,4 +58,7 @@ hide_title: true
 </div>
 
 {% endfor %}
+
+<p><em>This page was used to test the layouts on photo albums.  You can find the finished versions <a href="/photos">here</a>!</em></p>
+
 </div>

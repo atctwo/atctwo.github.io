@@ -1,23 +1,4 @@
-image_url: https://static.atctwo.net/photos
-proxy_url: https://img.atctwo.net
-# proxy_url: https://pixboost.com/api/2
-albums:
-    - id: belfast
-      name: Belfast
-      images:
-        - P1100288.jpg
-        - P1100289.jpg
-        - P1100295.jpg
-        - P1100296.jpg
-        - P1100313.jpg
-        - P1100342.jpg
-        - P1100352.jpg
-        - P1100373.jpg
-        - P1100378.jpg
-        - P1100383.jpg
-        - P1100384.jpg
-        - P1100385.jpg
-        - P1100399.jpg
-        - P1100405.jpg
-        - P1100435.jpg
-        - P1100512.jpg
+album_urls:
+# - https://static.atctwo.net/photos/test/album.json
+- https://static.atctwo.net/photos/belfast/album.json
+- https://static.atctwo.net/photos/belfast_harbour/album.json
