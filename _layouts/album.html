@@ -33,7 +33,6 @@ hide_title: true
     }
 
     .thumb {
-        height: 200px;
         transition: transform 0.2s;
         cursor: pointer;
         object-fit: cover;
@@ -58,6 +57,17 @@ hide_title: true
         display: inline-block;
         vertical-align: middle;
         line-height: normal;
+    }
+
+    @media (min-width: 992px) {
+        .thumb {
+            height: 200px;
+        }
+    }
+    @media (max-width: 992px) {
+        .date-thumb {
+            width: 100%;
+        }
     }
 
     .big-image {
