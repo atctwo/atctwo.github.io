@@ -2,3 +2,5 @@ album_urls:
 # - https://static.atctwo.net/photos/test/album.json
 - https://static.atctwo.net/photos/belfast/album.json
 - https://static.atctwo.net/photos/belfast_harbour/album.json
+- https://static.atctwo.net/photos/signs/album.json
+- https://static.atctwo.net/photos/misc/album.json
