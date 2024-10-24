@@ -156,27 +156,45 @@ hide_title: true
     <p><a href="/photos"><em>Back to album index</em></a></p>
     <p>{{page.album_desc}}</p>
     
-    
+    {% unless page.images %}
+        <p>This album doesn't have any images.  So if you're seeing this then something's gone wrong 🤔</p>
+        <p>Could you let me know by raising an issue on this site's <a href="https://github.com/atctwo/atctwo.github.io">GitHub</a> repo?  Thank you!!!</p>
+    {% endunless %}
+
     <div id="photos-container">
 
-        {% for date in page.dates %}
+        {% case page.sorting %}
 
-            <div class="thumb-container">
-                <div class="date-thumb">
-                    <span>{{ date[0] | date: '%A,<br>%B %d %Y' }}</span>
-                </div>
-                {% for image in date[1] %}
-                    <img class="thumb image photo" src="{{page.images[image].sizes.400}}" 
-                        data-image='{{image}}'
-                        onclick="reset_lightbox('{{image}}');"
-                    >
+            {% when "date" %}
+
+                {% for date in page.dates %}
+
+                    <div class="thumb-container">
+                        <div class="date-thumb">
+                            <span>{{ date[0] | date: '%A,<br>%B %d %Y' }}</span>
+                        </div>
+                        {% for image in date[1] %}
+                            <img class="thumb image photo" src="{{page.images[image].sizes.400}}" 
+                                data-image='{{image}}'
+                                onclick="reset_lightbox('{{image}}');"
+                            >
+                        {% endfor %}
+                    </div>
+
                 {% endfor %}
-            </div>
 
-        {% else %}
-            <p>This album doesn't have any images.  So if you're seeing this then something's gone wrong 🤔</p>
-            <p>Could you let me know by raising an issue on this site's <a href="https://github.com/atctwo/atctwo.github.io">GitHub</a> repo?  Thank you!!!</p>
-        {% endfor %}
+            {% else %}
+
+                <div class="thumb-container">
+                    {% for image in page.images %}
+                        <img class="thumb image photo" src="{{image[1].sizes.400}}" 
+                            data-image='{{image[0]}}'
+                            onclick="reset_lightbox('{{image[0]}}');"
+                        >
+                    {% endfor %}
+                </div>
+
+        {% endcase %}
     </div>
 
 </div>
@@ -503,17 +521,17 @@ window.addEventListener("load", () => {
                 lightbox_col_exif.classList.remove("hidden");
 
 
-                // // if image title is available
-                // if ("ImageTitle" in exif) {
-                //     lightbox_img_title.innerText = exif.ImageTitle;
-                //     lightbox_img_title.classList.remove("hidden");
-                // }
+                // if image title is available
+                if ("ImageTitle" in exif) {
+                    lightbox_img_title.innerText = exif.ImageTitle;
+                    lightbox_img_title.classList.remove("hidden");
+                }
 
-                // // if image comment is available
-                // if ("UserComment" in exif) {
-                //     lightbox_img_comment.innerText = exif.UserComment;
-                //     lightbox_img_comment.classList.remove("hidden");
-                // }
+                // if image comment is available
+                if ("ImageDescription" in exif) {
+                    lightbox_img_comment.innerText = exif.ImageDescription;
+                    lightbox_img_comment.classList.remove("hidden");
+                }
 
             }
 

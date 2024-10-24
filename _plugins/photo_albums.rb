@@ -67,6 +67,7 @@ module PhotoAlbums
                             "title"         => page_title,
                             "album_title"   => response["title"],
                             "album_desc"    => response["description"],
+                            "sorting"       => response["sorting"] || "date",
                             "images"        => response["images"],
                             "dates"         => response["dates"],
                             "hide_title"    => true,
