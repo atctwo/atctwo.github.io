@@ -43,7 +43,7 @@ layout: page
         </div>
         <a href="/photos/{{album['title'] | slugify}}" class="stretched-link"></a>
 
-        <div class="card-img-bottom album-thumb-container">
+        <div class="card-img-bottom album-thumb-container bg-secondary-subtle">
             <div class="album-thumb-container-inner">
                 {% for image in album.images %}
                     <img src="{{image[1].sizes.400}}" class="album-thumb">
