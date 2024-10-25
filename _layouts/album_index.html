@@ -7,6 +7,7 @@ layout: page
         width: 100%;
         height: 150px;
         container-type: inline-size;
+        container-name: thumb-outer;
         overflow: hidden;
     }
     
@@ -15,8 +16,13 @@ layout: page
         flex-direction: row;
         width: max-content;
         /* overflow-x: hidden; */
-        animation: album-thumb-scroll 200s linear infinite alternate;
         transform: translateX(calc(-100% + 100cqw));
+    }
+    
+    @container thumb-outer (width > 900px) {
+        .album-thumb-container-inner {
+            animation: album-thumb-scroll 200s linear infinite alternate;
+        }
     }
     
     .album-thumb {
@@ -40,13 +46,15 @@ layout: page
         <div class="card-body">
             <h3 class="card-title">{{album["title"]}}</h3>
             <p  class="card-text">{{album["description"]}}</p>
+            <a href="/photos/{{album['title'] | slugify}}" class="stretched-link"></a>
         </div>
-        <a href="/photos/{{album['title'] | slugify}}" class="stretched-link"></a>
 
         <div class="card-img-bottom album-thumb-container bg-secondary-subtle">
             <div class="album-thumb-container-inner">
                 {% for image in album.images %}
-                    <img src="{{image[1].sizes.400}}" class="album-thumb">
+                    <!-- <a href="/photos/{{album['title'] | slugify}}#{{image[0]}}"> -->
+                        <img src="{{image[1].sizes.400}}" class="album-thumb">
+                    <!-- </a> -->
                 {% endfor %}
             </div>
         </div>

@@ -174,10 +174,12 @@ hide_title: true
                             <span>{{ date[0] | date: '%A,<br>%B %d %Y' }}</span>
                         </div>
                         {% for image in date[1] %}
+                            <a id="{{image}}">
                             <img class="thumb image photo" src="{{page.images[image].sizes.400}}" 
                                 data-image='{{image}}'
                                 onclick="reset_lightbox('{{image}}');"
                             >
+                            </a>
                         {% endfor %}
                     </div>
 
@@ -187,10 +189,12 @@ hide_title: true
 
                 <div class="thumb-container">
                     {% for image in page.images %}
+                        <a id="{{image[0]}}">
                         <img class="thumb image photo" src="{{image[1].sizes.400}}" 
                             data-image='{{image[0]}}'
                             onclick="reset_lightbox('{{image[0]}}');"
                         >
+                        </a>
                     {% endfor %}
                 </div>
 
@@ -271,6 +275,7 @@ hide_title: true
                 </div>
 
                 <a type="button" target="_blank" class="btn btn-primary rainbow-background" id="lightbox-full-res-btn">Open full-res image</a>
+                <a type="button" target="_blank" class="btn btn-primary rainbow-background" id="lightbox-link-btn" data-link="" onclick="copy_img_link();">Copy link to image</a>
             </div>
 
             <!-- <div class="modal-footer">
@@ -302,6 +307,7 @@ window.addEventListener("load", () => {
     const modal_lightbox_div = document.getElementById("lightbox-modal");
     const lightbox_image = document.getElementById("lightbox-image");
     const lightbox_frbtn = document.getElementById("lightbox-full-res-btn");
+    const lightbox_linkbtn = document.getElementById("lightbox-link-btn");
     const lightbox_col_info = document.getElementById("lightbox-col-info");
     const lightbox_col_exif = document.getElementById("lightbox-col-exif");
     const lightbox_img_title =   document.getElementById("lightbox-img-title");
@@ -391,6 +397,9 @@ window.addEventListener("load", () => {
         // set button link
         lightbox_frbtn.href = image.sizes.original;
 
+        // set link to image
+        lightbox_linkbtn.dataset.link = location.protocol + '//' + location.host + location.pathname + '#' + image.filename;
+
         // hide info columns
         lightbox_col_info.classList.add("hidden");
         lightbox_col_exif.classList.add("hidden");
@@ -444,6 +453,20 @@ window.addEventListener("load", () => {
             reset_after_hide = null;
         }
     });
+
+    // function to copy link to image
+    async function copy_img_link() {
+
+        try {
+            let link = lightbox_linkbtn.dataset.link;
+            await navigator.clipboard.writeText(link);
+            console.log("copied link :)");
+        } catch (error) {
+            console.error("failed to write to clipboard:", error);
+        }
+
+    }
+    window.copy_img_link = copy_img_link;
 
     // callback to do stuff when the image loads
     lightbox_image.addEventListener("load", event => {
@@ -560,6 +583,19 @@ window.addEventListener("load", () => {
         }
 
     })
+
+
+    // little bit of code to open image if one is specified in url
+    let hash = window.location.hash;
+    if (hash != "") {
+        let image = hash.substring(1);
+        console.log("jumping to image", image);
+
+        // check if specified image is in this album
+        if (image in images) {
+            reset_lightbox(image);
+        }
+    }
 
 })
 
