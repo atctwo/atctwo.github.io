@@ -70,7 +70,7 @@ excerpt_separator: <!-- excerpt-end -->
 
 <!-- excerpt-start -->
 
-Last week while I was out shopping, I found a little soft-of-egg-shaped thermal label printer.  I didn't really need (another) label printer but I got it because the box said it supported Bluetooth and I really wanted to know how the "official app" communicated with it.  I spent the next three days going down a rabbit hole of learning very specific information about thermal printers, and discovered that the printer I had bought was both very similar and very different to existing thermal printers!
+Last week while I was out shopping, I found a little sort-of-egg-shaped thermal label printer.  I didn't really need (another) label printer but I got it because the box said it supported Bluetooth and I really wanted to know how the "official app" communicated with it.  I spent the next three days going down a rabbit hole of learning very specific information about thermal printers, and discovered that the printer I had bought was both very similar and very different to existing thermal printers!
 
 <!-- excerpt-end -->
 
