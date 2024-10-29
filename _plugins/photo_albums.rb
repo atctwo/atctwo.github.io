@@ -62,13 +62,13 @@ module PhotoAlbums
             # create album pages
             site.data["photos"]["album_urls"].each do |album_url|
 
-                puts "\tphoto_albums.rb: Creating album page for #{album_url}"
+                Jekyll.logger.info "photo_albums.rb:", "Creating album page for #{album_url}"
 
                 # perform http request
                 response_obj = fetch(album_url)
                 if response_obj.code != "200"
 
-                    puts "\t- problem fetching album.json, http code #{response_obj.code}"
+                    Jekyll.logger.warn "photo_albums.rb:", "- problem fetching album.json, http code #{response_obj.code}"
 
                 else
 
