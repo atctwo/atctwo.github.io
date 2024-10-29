@@ -1,6 +1,34 @@
+'''
+atctwo.net photo album generator!
+=================================
+
+this Jekyll plugin creates photo album pages, as well as an index page.
+it looks for a list of URLs in a site data file called `photos`.  these
+URLs should point to album.json files for each album to create pages for
+
+these json files are created for a directory of images by using the
+accompanying preprocessing script:
+    https://gist.github.com/atctwo/7ed41d155c6e9368b695ba185133e57f
+
+for each album, this plugin will create a page using the `album.html`
+layout, setting the page variable `images` to the hash of images
+contained within the album.json files
+
+for reference usage, check out the source code for atctwo.net:
+    https://github.com/atctwo/atctwo.github.io
+
+i made a writeup on how atctwo.nets photo section works, it includes
+a description of how this plugin is used in practice:
+    https://atctwo.net/2024/10/29/photography-section.html
+
+'''
+
+
 require 'net/http'
 require 'json'
 
+# fetch the contents of a file from it's URL (over HTTP)
+# specifically following redirects
 # from https://stackoverflow.com/a/6934503
 def fetch(uri_str, limit = 10)
     # You should choose better exception.
@@ -28,19 +56,19 @@ module PhotoAlbums
   
         def generate(site)
 
-            page_dir = "/photos/"
-            album_data = []
+            page_dir = "/photos/"   # base path for album pages
+            album_data = []         # thingy for creating album index later
 
             # create album pages
             site.data["photos"]["album_urls"].each do |album_url|
 
-                puts "Creating album page for #{album_url}"
+                puts "\tphoto_albums.rb: Creating album page for #{album_url}"
 
                 # perform http request
                 response_obj = fetch(album_url)
                 if response_obj.code != "200"
 
-                    puts "- http status #{response_obj.code}"
+                    puts "\t- problem fetching album.json, http code #{response_obj.code}"
 
                 else
 
@@ -58,7 +86,7 @@ module PhotoAlbums
                     # store album data for making index
                     album_data.append(response)
 
-                    # create page
+                    # create page, setting page variables
                     site.pages << Jekyll::PageWithoutAFile.new(site, site.source, page_dir, page_name).tap do |file|
                         file.content = page_content
                         file.data.merge!(
