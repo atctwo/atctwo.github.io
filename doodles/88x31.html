@@ -1,0 +1,70 @@
+---
+layout: page
+title: 88x31
+hide_title: true
+---
+
+<style>
+    .badge {
+        width: 88px;
+        height: 31px;
+        border: 1px solid rgb(24, 24, 24);
+        border-radius: 0px !important;
+        font-size: 20px;
+        font-family: "Varela Round";
+        line-height: calc(31px - (2 * 2px));
+        color: black;
+        
+        background: linear-gradient(90deg, 
+            rgb(170, 237, 143), rgb(252, 153, 122), rgb(245, 114, 206), rgb(234, 199, 115),  rgb(108, 194, 239), 
+            rgb(105, 231, 146), rgb(103, 239, 210), rgb(170, 237, 143), rgb(252, 153, 122), rgb(245, 114, 206)
+        );
+        background-size: 500% 100%;
+        animation: hello 10s linear infinite normal;
+    }
+    .badge-words {
+        position: relative;
+        top: -6px;
+        left: -4px;
+    }
+
+    @keyframes hello {
+        0%{background-position:0% 50%}
+        100%{background-position:100% 50%}
+    }
+</style>
+
+<div class="badge">
+    <span class="badge-words">atctwo</span>
+</div>
+
+<script>
+    function getPastelColor(){ 
+        return "hsl(" + 360 * Math.random() + ',' +
+                (70 + 30 * Math.random()) + '%,' + 
+                (65 + 10 * Math.random()) + '%)'
+    }
+
+    function generate_gradient_colours(n)
+    {
+        colours = "";
+
+        for (let i = 0; i < n; i++)
+        {
+            colours += getPastelColor();
+            if (i < n-1) colours += ", ";
+        }
+
+        return colours;
+    }
+
+    function header_set_gradient(element)
+    {
+        // add css rule for things with animated background
+        let style = document.createElement("style")
+        document.head.appendChild(style);
+        style.sheet.insertRule(`.badge {background: linear-gradient(90deg, ${generate_gradient_colours(10)}); }`)
+    }
+
+    // header_set_gradient(".badge");
+</script>   
