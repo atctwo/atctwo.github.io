@@ -149,9 +149,9 @@ autopages:
 #   output: "assets/images/generated"
 #   suppress_warnings: false
 
-# atctheme:
-#   home_image: /assets/images/mii_v4.png
-#   home_image_alt: A picture of my Mii
+atctheme:
+  home_image: /assets/images/mii_v4.png
+  home_image_alt: A picture of my Mii
 
 theme_debug: false
 
