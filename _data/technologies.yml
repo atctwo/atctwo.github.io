@@ -17,6 +17,12 @@ arduino:
   colour: "00878F"
   url: https://www.arduino.cc/
 
+platformio:
+  icon: PlatformIO.svg
+  name: PlatformIO
+  colour: "#F5822A"
+  url: https://platformio.org/
+
 c:
   icon: C.svg
   name: C
@@ -57,8 +63,103 @@ rust:
   colour: "#000000"
   url: https://www.rust-lang.org/
 
+nodejs:
+  icon: Node.svg
+  name: NodeJS
+  colour: "#5FA04E"
+  url: "https://nodejs.org/en"
+
+electron:
+  icon: Electron.svg
+  name: Electron
+  colour: "#47848F"
+  url: https://www.electronjs.org/
+
 threejs:
   icon: Threejs.svg
   name: Three.js
   colour: "#000000"
   url: https://threejs.org/
+
+sql:
+  name: SQL
+
+sqlite:
+  icon: SQLite.svg
+  name: SQLite
+  colour: "#003B57"
+  url: https://www.sqlite.org/index.html
+
+linux:
+  icon: TuxFlat.svg
+  name: Linux
+  colour: "#FCC624"
+
+sysadmin:
+  name: (Linux) Server Administration
+
+networks:
+  name: Computer Networking
+
+docker:
+  icon: Docker.svg
+  name: Docker
+  colour: "#2496ED"
+  url: https://www.docker.com/
+
+git:
+  icon: Git.svg
+  name: Git
+  colour: "#F05032"
+  url: https://git-scm.com/
+
+openscad:
+  icon: Openscad.svg
+  name: Openscad
+  colour: "#F9D72C"
+  url: https://openscad.org/
+
+3dprinting:
+  name: 3D Printing
+
+cura:
+  icon: cura.png
+  name: Cura
+  colour: "#186DF0"
+  url: https://ultimaker.com/software/ultimaker-cura/
+
+esp32:
+  icon: Espressif.svg
+  name: ESP32 devices
+  colour: "#E7352C"
+  url: https://www.espressif.com/en/products/socs/esp32
+
+stmicro:
+  icon: STMicroelectronics.svg
+  name: STmicro <abbr title="Microcontroller Units">MCUs</abbr>
+  colour: "#03234B"
+  url: https://www.st.com/content/st_com/en.html
+
+rpi_sbc:
+  icon: RaspberryPi.svg
+  name: Raspberry Pi <abbr title="Single Board Computers">SBCs</abbr>
+  colour: "#A22846"
+  url: https://www.raspberrypi.com/products/
+
+rpi_mcu:
+  icon: RaspberryPi.svg
+  name: Raspberry Pi <abbr title="Microcontroller Units">MCUs</abbr>
+  colour: "#A22846"
+  url: https://www.raspberrypi.com/products/
+
+electronics:
+  name: Electrical Engineering
+
+radio:
+  name: Radio Communication
+
+hamradio:
+  name: Amateur Radio
+
+soldering:
+  name: Soldering

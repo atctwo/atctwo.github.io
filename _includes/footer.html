@@ -3,6 +3,12 @@
     width: 18px;
     height: 18px;
 }
+html[data-bs-theme="light"] .social-dark {
+        display: none;
+    }
+    html[data-bs-theme="dark"] .social-light {
+        display: none;
+    }
 </style>
 
 <div id="site-footer">
@@ -29,9 +35,9 @@
         <table>
             {% if site.github_username %}
             <tr>
-                <td><img class="social-icon" src="/assets/images/socials/GitHub.svg" />&nbsp;
-            </td>
-            <td><a href="https://github.com/{{site.github_username}}/">{{site.github_username}}</a></td>
+                <td class="social-light"><img class="social-icon" src="/assets/images/socials/GitHub_Dark.svg" />&nbsp;</td>
+                <td class="social-dark"><img class="social-icon" src="/assets/images/socials/GitHub_Light.svg" />&nbsp;</td>
+                <td><a href="https://github.com/{{site.github_username}}/">{{site.github_username}}</a></td>
             </tr>
             {% endif %}
             {% if site.bsky_username %}

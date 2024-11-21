@@ -1,0 +1,10 @@
+<nav class="nav nav-pills nav-fill">
+    {% for about_page in site.pages %}
+        {% if about_page.dir == "/about/" %}
+            <a class="nav-link {%if about_page.url==page.url%}active rainbow-background{%endif%}" 
+                {%if about_page.url==page.url%}aria-current="page"{%endif%} 
+                href="{{about_page.url}}"
+            >{{about_page.title}}</a>
+        {% endif %}
+    {% endfor %}
+</nav><br>

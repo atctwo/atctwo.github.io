@@ -20,7 +20,7 @@
 
 title: atctwo
 author: atctwo
-email: atctwopointfive@gmail.com
+email: alex@atctwo.net
 description: >- # this means to ignore newlines until "baseurl:"
   this is atctwo's website, where she puts things sometimes
 tagline:
@@ -39,6 +39,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-remote-theme
+  - jekyll-git-hash
 
 # paginate: 10
 # paginate_path: "/posts/:num/"
@@ -63,6 +64,7 @@ twitter:
 social:
   name: atctwo
   links:
+    - https://bsky.app/profile/atctwo.net
     - https://twitter.com/atctwo
     - https://github.com/atctwo
 
@@ -147,9 +149,9 @@ autopages:
 #   output: "assets/images/generated"
 #   suppress_warnings: false
 
-atctheme:
-  home_image: /assets/images/mii_v4.png
-  home_image_alt: A picture of my Mii
+# atctheme:
+#   home_image: /assets/images/mii_v4.png
+#   home_image_alt: A picture of my Mii
 
 theme_debug: false
 

@@ -1,0 +1,17 @@
+exp_lv4: [
+  python, c, cpp, br,
+  javascript, bootstrap, jekyll, br,
+  linux, git, br,
+  arduino, platformio, br,
+  esp32, rpi_sbc, br,
+  electronics, kicad, soldering, br,
+  openscad, 3dprinting, cura
+]
+
+exp_lv3: [
+  rust, nodejs, electron, br,
+  sql, sqlite, br,
+  sysadmin, docker, networks, br,
+  rpi_mcu, stmicro, br,
+  radio, hamradio
+]
