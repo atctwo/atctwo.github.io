@@ -59,7 +59,7 @@ My main PC, a custom build I made in 2022.
         </table>
     </div>
     <div class="col-lg-6">
-        <img src="../../assets/images/posts/hybrid-graphics-2024/lucy.jpg" alt="A picture of Lucy.  Her case is white, and has a tempered glass side panel letting you see inside.  The name Lucy is visible at the bottom of the case in 3D printed lettering, above a sticker of a trans-flag themed Minecraft bee">
+        <img src="../../assets/images/about/lucy.jpg" alt="A picture of Lucy.  Her case is white, and has a tempered glass side panel letting you see inside.  The name Lucy is visible at the bottom of the case in 3D printed lettering, above a sticker of a trans-flag themed Minecraft bee">
     </div>
 </div>
 <br>
@@ -93,7 +93,7 @@ My current laptop, a Dell XPS 13 going strong since 2017.
         </table>
     </div>
     <div class="col-lg-6">
-        <img src="../../assets/images/posts/hybrid-graphics-2024/atc-xps.jpg" alt="A picture of my laptop, specifically the laptop lid when open.  It's almost completely covered in stickers, some development and programming stickers, but mostly queer-themed and video game stickers.">
+        <img src="../../assets/images/about/atc-xps.jpg" alt="A picture of my laptop, specifically the laptop lid when open.  It's almost completely covered in stickers, some development and programming stickers, but mostly queer-themed and video game stickers.">
     </div>
 </div>
 <br>
@@ -127,7 +127,7 @@ A little mini PC I use as my home server.
         </table>
     </div>
     <div class="col-lg-6">
-        <img src="../../assets/images/atc-xps.jpg" alt="A picture of the mini PC, with a Debian logo sticker on top in the middle, and a trans flag on top in the corner.">
+        <img src="../../assets/images/about/atc-server.jpg" alt="A picture of the mini PC, with a Debian logo sticker on top in the middle, and a trans flag on top in the corner.">
     </div>
 </div>
 <br>
