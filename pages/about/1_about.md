@@ -96,9 +96,9 @@ hide_title: true
 My projects are collated on the [Projects](/projects/) page, and the blog can be accessed on the [Posts](/posts/) page.
  -->
 
-I'm an engineer and maker interested in computing and electronics, particularly in mixing both to make embedded software and hardware.  I'm from [Belfast](https://en.wikipedia.org/wiki/Belfast) in Northern Ireland where I'm currently studying for a PhD in Electrical Engineering (specifically in radio antennae).  
+I'm an engineer and maker interested in computing and electronics, particularly in mixing both to make embedded software and hardware.  I'm from [Belfast](https://en.wikipedia.org/wiki/Belfast) in Northern Ireland where I'm currently studying for a PhD in Electrical Engineering (specifically in radio antennae) at Queen's University Belfast.  
 
-I graduated with my MEng in Computer Science in 2024, but most of my experience in computing and electronics have come from a series of self-led [projects](/projects/).
+I graduated with my MEng in Computer Science from Queen's in 2024, but most of my experience in computing and electronics have come from a series of self-led [projects](/projects/).
 
 I'm a trans woman, and I have an interest in the overlap between the queer and tech / maker communities.  
 
