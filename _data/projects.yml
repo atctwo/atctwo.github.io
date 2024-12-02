@@ -8,14 +8,14 @@
     updated: September 2024
     technologies: [arduino, cpp]
 
-  - name: Raspberry Pi CM4 Pinout
-    description: An interactive pinout for the Raspberry Pi Compute Module 4
-    image: /assets/images/projects/cm4.png
+  - name: Pinout Thingy
+    description: An interactive pinout viewer
+    image: /assets/images/projects/cm5.png
     image_alt: Screenshot of the pinout tool
-    link: /projects/pinout/index.html
+    link: /projects/pinout/
     github: https://github.com/atctwo/pinout
-    updated: March 2022
-    technologies: [javascript]
+    updated: December 2024
+    technologies: [javascript, bootstrap]
 
   - name: ESP32 Partition Editor
     description: A graphical editor for ESP32 flash partition files
