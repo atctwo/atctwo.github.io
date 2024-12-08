@@ -27,6 +27,11 @@
   # icon: <i class="bi bi-twitter"></i>
   icon: <img class="about-social-icon" src="/assets/images/socials/Logo_of_Twitter.svg" />
 
+- name: Internet Archive
+  account: "atctwo"
+  link: https://archive.org/details/@atctwo
+  icon: <img class="about-social-icon" src="/assets/images/socials/Internet Archive Light.svg" />
+
 # - name: Tumblr
 #   account: "atctwo"
 #   link: https://www.tumblr.com/blog/atctwo

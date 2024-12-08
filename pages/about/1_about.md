@@ -218,8 +218,8 @@ As I mentioned, I've been getting into photography.  I recently got a Panasonic 
 ### 🎵 Music
 I probably spend at least half of the time I'm awake listening to music.  Generally I'm into "indie stuff", plus or minus half a genre.  
 - My favourite bands ever are Radiohead, alt-J, Blonde Redhead, and Crumb
-- I often listen to Sufjan Stevens, C418, The Marias, Billie Marten, Mitski, Alvvays, and music from Portal (2), Tunic, and the Zelda series
-- More recently I've been listening to They Might Be Giants, Chappell Roan, Lemon Demon, KIKUO, Strawberry Switchblade, Kero Kero Bonito, Ivy, KNOWER, and music from the Splatoon series
+- I often listen to Sufjan Stevens, C418, The Marias, Billie Marten, Mitski, Alvvays, various Vocaloid artists, and music from Portal (2), Tunic, and the Zelda series
+- More recently I've been listening to They Might Be Giants, Chappell Roan, Strawberry Switchblade, Kero Kero Bonito, Ivy, KNOWER, Panchiko, and music from the Splatoon series
 
 ### 🕹️ Video Games
 One of my special interests is Nintendo.  Not only am I interested in their games, I'm interested in them as a company, in the same way football fans are interested in a club.

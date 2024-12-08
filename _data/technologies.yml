@@ -95,6 +95,18 @@ linux:
   name: Linux
   colour: "#FCC624"
 
+debian:
+  icon: Debian.svg
+  name: Debian
+  colour: "#A81D33"
+  url: https://www.debian.org/
+
+arch:
+  icon: Arch Linux.svg
+  name: Arch Linux
+  colour: "#1793D1"
+  url: https://archlinux.org/
+
 sysadmin:
   name: (Linux) Server Administration
 
@@ -106,6 +118,12 @@ docker:
   name: Docker
   colour: "#2496ED"
   url: https://www.docker.com/
+
+virtualbox:
+  icon: VirtualBox.svg
+  name: VirtualBox
+  colour: "#007489"
+  url: https://www.virtualbox.org/
 
 git:
   icon: Git.svg

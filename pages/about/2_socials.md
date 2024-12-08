@@ -65,7 +65,7 @@ Want to get in touch?  For now, my preferred method would be to send me an email
 {% for social in site.data.socials %}
 
 {% if social.name == "<break>" %} <div class="social-break"></div> {% else %}
-    <a href="{{social.link}}">
+    {% if social.link %} <a href="{{social.link}}"> {% endif %}
         <div class="card social-card {%if social.long%} social-card-long {%endif%}">
             {% if social.icon %}
                 {{social.icon}}
@@ -75,7 +75,7 @@ Want to get in touch?  For now, my preferred method would be to send me an email
                 <span class="social-site-account">{{social.account}}</span>
             </div>
         </div>
-    </a>
+    {% if social.link %} </a> {% endif %}
 {% endif %}
 
 {% endfor %}
