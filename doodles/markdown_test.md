@@ -119,3 +119,17 @@ IT DIDN'T WORK!!!!!!!!!!
 {% include admonition.html type="" %}
 nothing
 {% include admonition_end.html %}
+
+{% include admonition.html type="tip" title="**Markdown** is fun" %}
+This one has _markdown_ in it!  `walk in the rain` :3
+and it also has multiple paragraphs
+
+and another
+
+**and yet another**
+{% include admonition_end.html %}
+
+
+## $$\latex$$
+
+$$ \frac{1}{2} = 0.5 $$

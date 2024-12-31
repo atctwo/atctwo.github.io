@@ -1,0 +1,14 @@
+{
+    signal: [
+        {name: 'low', wave: 'x10..x'},
+        {name: 'high', wave: 'x1..0x'},
+        {name: 'preamble', wave: 'x10...|.x'},
+    ],
+      foot: {
+      tock: ["_ 1 2 3 4 5 _ 31 32 "]
+      },
+      config: {
+          hscale: 1
+    }
+  }
+  
