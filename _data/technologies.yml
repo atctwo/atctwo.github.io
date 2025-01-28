@@ -133,7 +133,7 @@ git:
 
 openscad:
   icon: Openscad.svg
-  name: Openscad
+  name: OpenSCAD
   colour: "#F9D72C"
   url: https://openscad.org/
 
