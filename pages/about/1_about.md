@@ -57,7 +57,7 @@ hide_title: true
         background-color: var(--bs-secondary-bg);
     }
     .skill-icon {
-        width: 29px;
+        /* width: 29px; */
         height: 29px;
         border-radius: 0px !important;
     }
@@ -218,8 +218,10 @@ As I mentioned, I've been getting into photography.  I recently got a Panasonic 
 ### 🎵 Music
 I probably spend at least half of the time I'm awake listening to music.  Generally I'm into "indie stuff", plus or minus half a genre.  
 - My favourite bands ever are Radiohead, alt-J, Blonde Redhead, and Crumb
-- I often listen to Sufjan Stevens, C418, The Marias, Billie Marten, Mitski, Alvvays, Flipturn, various Vocaloid artists, and music from Portal (2), Tunic, and the Zelda series
-- More recently I've been listening to They Might Be Giants, Chappell Roan, Strawberry Switchblade, Kero Kero Bonito, Ivy, KNOWER, Panchiko, the Cowboy Bebop soundtrack, and music from the Splatoon series
+- I often listen to Sufjan Stevens, Billie Marten, Mitski, Flipturn, The Marias, Panchiko, Alvvays, C418, various Vocaloid artists, They Might Be Giants
+- More recently I've been listening to Kero Kero Bonito, Ivy, KNOWER, Lemon Demon, and Djo
+
+Recently I set up a [Last.fm](https://www.last.fm/user/atctwo) account, so you can see what I'm currently listening to!
 
 ### 🕹️ Video Games
 One of my special interests is Nintendo.  Not only am I interested in their games, I'm interested in them as a company, in the same way football fans are interested in a club.
@@ -228,7 +230,7 @@ I'm a huge fan of the Legend of Zelda series; I really enjoy the gameplay and co
 
 I'm also into the Mario platformers.  I've 100% completed (almost) every mainline Super Mario game since *Super Mario 64*!  *Mario Kart 8 (Deluxe)* is also one of the only multiplayer games I'm actually any good at.
 
-That and *Tetris*.
+That and *Tetris*.  I've been playing a lot of [TETR.IO](https://ch.tetr.io/u/atctwo).
 
 Although I don't play them that often, I really enjoy games that have a huge emphasis on story, even if there isn't much gameplay.  The *Life is Strange* series has had an immeasurable effect on my life, and helped me realise what type of person I wanted to be.  On the other hand, I've had my sense of reality destroyed by the *Danganronpa* games, which showed me that there aren't practical limits to how off-the-rails a game's plot can be.
 

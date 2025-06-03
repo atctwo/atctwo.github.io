@@ -9,9 +9,10 @@ exp_lv4: [
 ]
 
 exp_lv3: [
-  rust, nodejs, electron, br,
+  rust, lua, nodejs, electron, br,
   sql, sqlite, br,
   sysadmin, docker, networks, virtualbox, br,
   rpi_mcu, stmicro, br,
-  radio, hamradio
+  radio, hamradio, br, gnuradio,
+  matlab, latex
 ]

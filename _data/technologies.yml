@@ -63,6 +63,12 @@ rust:
   colour: "#000000"
   url: https://www.rust-lang.org/
 
+lua:
+  icon: Lua.svg
+  name: Lua
+  colour: "#2C2D72"
+  url: https://www.lua.org/
+
 nodejs:
   icon: Node.svg
   name: NodeJS
@@ -131,6 +137,18 @@ git:
   colour: "#F05032"
   url: https://git-scm.com/
 
+matlab:
+  icon: Matlab_icon.png
+  name: MATLAB
+  colour: "#075F9D"
+  url: https://www.mathworks.com/products/matlab.html
+
+latex:
+  icon: LaTeX.svg
+  name: LaTeX
+  colour: "#008080"
+  url: https://www.latex-project.org/
+
 openscad:
   icon: Openscad.svg
   name: OpenSCAD
@@ -177,7 +195,15 @@ radio:
   name: Radio Communication
 
 hamradio:
+  icon: International_amateur_radio_symbol.svg
   name: Amateur Radio
+  colour: "#FEFF00"
+
+gnuradio:
+  icon: gnuradio_logo_icon.svg
+  name: GNU Radio
+  colour: "#FF6804"
+  url: https://www.gnuradio.org/
 
 soldering:
   name: Soldering

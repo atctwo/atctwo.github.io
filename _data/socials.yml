@@ -27,6 +27,15 @@
   # icon: <i class="bi bi-twitter"></i>
   icon: <img class="about-social-icon" src="/assets/images/socials/Logo_of_Twitter.svg" />
 
+- name: Amateur Radio
+  account: "MI7 LUA"
+  icon: <img class="about-social-icon" src="/assets/images/socials/International_amateur_radio_symbol.svg" />
+
+- name: Last.fm
+  account: "atctwo"
+  link: https://www.last.fm/user/atctwo
+  icon: <img class="about-social-icon" src="/assets/images/socials/lastfm.svg" />
+
 - name: Internet Archive
   account: "atctwo"
   link: https://archive.org/details/@atctwo
@@ -51,6 +60,11 @@
   account: "atctwo"
   link: https://www.backloggd.com/u/atctwo/
   icon: <img class="about-social-icon" src="/assets/images/socials/backloggd.webp" />
+
+- name: TETR.IO
+  account: "atctwo"
+  link: https://ch.tetr.io/u/atctwo
+  icon: <img class="about-social-icon" src="/assets/images/socials/tetrio-desktop.svg" />
 
 - name: Nintendo Switch Friend Code
   account: "SW-8472-9014-7814"

@@ -39,7 +39,7 @@ hide_title: true
         flex-basis: 100%;
     }
     .about-social-icon {
-        width: 28px;
+        /* width: 28px; */
         height: 28px;
         margin-right: 5px;
         border-radius: 0px !important;
