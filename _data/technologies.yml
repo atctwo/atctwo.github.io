@@ -87,6 +87,12 @@ threejs:
   colour: "#000000"
   url: https://threejs.org/
 
+pixijs:
+  icon: pixijs.png
+  name: PixiJS
+  colour: "#FC0061"
+  url: https://pixijs.com/
+
 sql:
   name: SQL
 

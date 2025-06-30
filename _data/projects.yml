@@ -106,6 +106,15 @@
 
 - section_name: Games
   projects:
+  - name: Dodge The Spiked Balls
+    description: A clone of the Dodge The Spiked Balls minigame from Nintendo Switch 2 Welcome Tour 
+    image: /assets/images/projects/dodgeball.png
+    image_alt: Screenshot of the game; a small UFO travels around spiked balls falling from the top of the screen
+    link: https://dodgeball.atctwo.net
+    github: https://github.com/atctwo/dodgeball
+    updated: June 2025
+    technologies: [javascript, pixijs]
+
   - name: Quiz Game
     description: A simple quiz game.  Questions taken from the <a href="https://opentdb.com/">Open Trivia Database</a>
     image: /assets/images/projects/quiz_game2.png
