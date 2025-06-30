@@ -60,7 +60,7 @@
     image_alt: Picture of the front of the clock
     github: https://github.com/atctwo/clock25
     updated: May 2024
-    technologies: [arduino, cpp, kicad, openscad]
+    technologies: [arduino, cpp, esp32, kicad, openscad]
 
   - name: watch2
     description: A custom ESP32-based smartwatch
