@@ -152,27 +152,30 @@ A little mini PC I use as my home server.
 
 ### Operating Systems
 - [EndeavourOS](https://endeavouros.com/) is an Arch-based Linux distro that I use as my main OS.  I like it because it has the minimality of Arch but makes sure everything's installed correctly
-  - [KDE Plasma](https://kde.org/plasma-desktop/) as my desktop environment
+  - [KDE Plasma](https://kde.org/plasma-desktop/) as my main desktop environment
+  - I've been trying [Hyprland](https://github.com/hyprwm/Hyprland) and so far I really like the tiling behaviour!  Although I'm thinking of trying out [niri](https://github.com/YaLTeR/niri) for a bit, since it seems better equipped to handle my multiple concurrent thought processes
 - [Debian](https://www.debian.org/) for my servers, since it's really stable especially when running system updates
+- [LineageOS](https://lineageos.org/) on my phone.  I tried to de-google as much as I could I couldn't get stuff like notifications working. 
 
 ### Productivity
 - [Joplin](https://joplinapp.org/) for cloud-synced notes
-- [Zotero](https://www.zotero.org/) for managing my academic research
+- [Zotero](https://www.zotero.org/) for managing citations for my research
 - [Qalculate!](https://qalculate.github.io/) to calculate stuff.  It has some pretty nifty features like unit conversion, built-in constants and functions.
+- [Thunderbird](https://www.thunderbird.net/en-GB/) for managing my multiple email accounts in one place
+- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) as my web browser, since unlike the normal version of Firefox extensions loaded from a file system don't remove themselves on restart :/
 
 ### Development
-- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) as my web browser, since extensions loaded from a file system don't remove themselves on restart unlike the normal version of Firefox :/
 - [Visual Studio Code](https://code.visualstudio.com/) as my code editor, along with a bunch of extensions:
   - [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) lets you open a VSCode workspace *on another computer* over SSH!  it's really useful for working on servers
-  - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for managing running containers and bringing up Docker Compose files (very very useful in remote sessions!)
-  - [rust-analyser](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) for analysing rust code
-  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for writing Python
-  - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for writing C and C++
+  - [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) for managing running containers and bringing up Docker Compose files (very very useful in remote sessions!)
+  - [rust-analyser](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), and [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for working on my usual languages
   - [PlatformIO](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide) My Beloved, a build system for several different embedded software SDKs including Arduino.  (seriously this is one of my favourite pieces of software ever)
+  - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for authoring all my LaTeX documents
+  - [OpenSCAD](https://marketplace.visualstudio.com/items?itemName=Antyos.openscad) for working on OpenSCAD files
   - [Markdown All In One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) for quality of life improvements for writing in Markdown
   - [Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks) for keeping track of where specific lines of code are in huge source files
   - [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) adds a panel at the side showing anywhere you have `TODO` written in your code
-  - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) because spelling is hard
+  - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) because speling is dificullt
   - [Eva Theme](https://marketplace.visualstudio.com/items?itemName=fisheva.eva-theme) for making my VSCode look like it's covered in sprinkles
   - [Catppuccin Icons](https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc-icons) for making my files look really cool
   - and a lot more!
@@ -187,7 +190,8 @@ A little mini PC I use as my home server.
 
 ### Homelab Software
 - [Pihole](https://pi-hole.net/) as an ad and tracker blocker, and also as a DNS server for my LAN
-- [Nextcloud](https://nextcloud.com/athome/) for personal file and calendar synchronisation
+- [Nextcloud](https://nextcloud.com/athome/) for personal file, calendar, task, and contact synchronisation
 - [Jellyfin](https://jellyfin.org/) as a home media server
 - [Home Assistant](https://www.home-assistant.io/) to operate a single Wifi lightbulb I own
+- [SearxNG](https://github.com/searxng/searxng) search engine aggregator
 - [InvenTree](https://inventree.org/) to keep track of my electronic component inventory (not that I ever keep it up to date...)
