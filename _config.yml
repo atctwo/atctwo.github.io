@@ -30,6 +30,8 @@ url: "https://atctwo.net/" # the base hostname & protocol for your site, e.g. ht
 bsky_username: atctwo.net
 github_username:  atctwo
 
+include: [".well-known/"]
+
 # Build settings
 # theme: atctheme
 plugins:
