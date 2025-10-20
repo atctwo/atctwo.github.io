@@ -166,45 +166,65 @@ function write_pin(pin, state) {
     let cmd = `:w${pin}${state}`;
     let cmd_bytes = utf8encoder.encode(cmd);
 
-    ble_char_nrf_uart_rx.writeValueWithoutResponse(cmd_bytes);
+    return ble_char_nrf_uart_rx.writeValueWithoutResponse(cmd_bytes);
 }
 
 function drive_stop() {
     console.log("stopping");
-    write_pin(esp_pin_left_a, 0);
-    write_pin(esp_pin_left_b, 0);
-    write_pin(esp_pin_right_a, 0);
-    write_pin(esp_pin_right_b, 0);
+        write_pin(esp_pin_left_a, 0)
+    .then(_ => {
+        write_pin(esp_pin_left_b, 0);
+    }).then(_ => {
+        write_pin(esp_pin_right_a, 0);
+    }).then(_ => {
+        write_pin(esp_pin_right_b, 0);
+    })
 }
 
 function drive_forward() {
     console.log("driving forward");
-    write_pin(esp_pin_left_a, 1);
-    write_pin(esp_pin_left_b, 0);
-    write_pin(esp_pin_right_a, 1);
-    write_pin(esp_pin_right_b, 0);
+    write_pin(esp_pin_left_a, 1)
+    .then(_ => {
+        write_pin(esp_pin_left_b, 0);
+    }).then(_ => {
+        write_pin(esp_pin_right_a, 1);
+    }).then(_ => {
+        write_pin(esp_pin_right_b, 0);
+    })
 }
 
 function drive_backward() {
     console.log("driving backward");
-    write_pin(esp_pin_left_a, 0);
-    write_pin(esp_pin_left_b, 1);
-    write_pin(esp_pin_right_a, 0);
-    write_pin(esp_pin_right_b, 1);
+    write_pin(esp_pin_left_a, 0)
+    .then(_ => {
+        write_pin(esp_pin_left_b, 1);
+    }).then(_ => {
+        write_pin(esp_pin_right_a, 0);
+    }).then(_ => {
+        write_pin(esp_pin_right_b, 1);
+    })
 }
 
 function drive_rot_right() {
     console.log("driving right");
-    write_pin(esp_pin_left_a, 0);
-    write_pin(esp_pin_left_b, 1);
-    write_pin(esp_pin_right_a, 1);
-    write_pin(esp_pin_right_b, 0);
+    write_pin(esp_pin_left_a, 0)
+    .then(_ => {
+        write_pin(esp_pin_left_b, 1);
+    }).then(_ => {
+        write_pin(esp_pin_right_a, 1);
+    }).then(_ => {
+        write_pin(esp_pin_right_b, 0);
+    })
 }
 
 function drive_rot_left() {
     console.log("driving left");
-    write_pin(esp_pin_left_a, 1);
-    write_pin(esp_pin_left_b, 0);
-    write_pin(esp_pin_right_a, 0);
-    write_pin(esp_pin_right_b, 1);
+    write_pin(esp_pin_left_a, 1)
+    .then(_ => {
+        write_pin(esp_pin_left_b, 0);
+    }).then(_ => {
+        write_pin(esp_pin_right_a, 0);
+    }).then(_ => {
+        write_pin(esp_pin_right_b, 1);
+    })
 }
