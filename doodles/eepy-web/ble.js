@@ -158,6 +158,16 @@ function ble_device_disconnect() {
 // esp32 functions
 //===========================================
 
+function generate_cmd(pin, state) {
+    return `:w${pin}${state}`;
+}
+
+function send_cmd(cmd) {
+    const utf8encoder = new TextEncoder();
+    let cmd_bytes = utf8encoder.encode(cmd);
+    return ble_char_nrf_uart_rx.writeValueWithoutResponse(cmd_bytes);
+}
+
 function write_pin(pin, state) {
 
     console.log("setting pin " + pin + " to " + state);
@@ -171,60 +181,50 @@ function write_pin(pin, state) {
 
 function drive_stop() {
     console.log("stopping");
-        write_pin(esp_pin_left_a, 0)
-    .then(_ => {
-        write_pin(esp_pin_left_b, 0);
-    }).then(_ => {
-        write_pin(esp_pin_right_a, 0);
-    }).then(_ => {
-        write_pin(esp_pin_right_b, 0);
-    })
+    send_cmd(([
+        generate_cmd(esp_pin_left_a,  0),
+        generate_cmd(esp_pin_left_b,  0),
+        generate_cmd(esp_pin_right_a, 0),
+        generate_cmd(esp_pin_right_b, 0),
+    ]).join(";"))
 }
 
 function drive_forward() {
     console.log("driving forward");
-    write_pin(esp_pin_left_a, 1)
-    .then(_ => {
-        write_pin(esp_pin_left_b, 0);
-    }).then(_ => {
-        write_pin(esp_pin_right_a, 1);
-    }).then(_ => {
-        write_pin(esp_pin_right_b, 0);
-    })
+    send_cmd(([
+        generate_cmd(esp_pin_left_a,  1),
+        generate_cmd(esp_pin_left_b,  0),
+        generate_cmd(esp_pin_right_a, 1),
+        generate_cmd(esp_pin_right_b, 0),
+    ]).join(";"))
 }
 
 function drive_backward() {
     console.log("driving backward");
-    write_pin(esp_pin_left_a, 0)
-    .then(_ => {
-        write_pin(esp_pin_left_b, 1);
-    }).then(_ => {
-        write_pin(esp_pin_right_a, 0);
-    }).then(_ => {
-        write_pin(esp_pin_right_b, 1);
-    })
+    send_cmd(([
+        generate_cmd(esp_pin_left_a,  0),
+        generate_cmd(esp_pin_left_b,  1),
+        generate_cmd(esp_pin_right_a, 0),
+        generate_cmd(esp_pin_right_b, 1),
+    ]).join(";"))
 }
 
 function drive_rot_right() {
     console.log("driving right");
-    write_pin(esp_pin_left_a, 0)
-    .then(_ => {
-        write_pin(esp_pin_left_b, 1);
-    }).then(_ => {
-        write_pin(esp_pin_right_a, 1);
-    }).then(_ => {
-        write_pin(esp_pin_right_b, 0);
-    })
+    send_cmd(([
+        generate_cmd(esp_pin_left_a,  0),
+        generate_cmd(esp_pin_left_b,  1),
+        generate_cmd(esp_pin_right_a, 1),
+        generate_cmd(esp_pin_right_b, 0),
+    ]).join(";"))
 }
 
 function drive_rot_left() {
     console.log("driving left");
-    write_pin(esp_pin_left_a, 1)
-    .then(_ => {
-        write_pin(esp_pin_left_b, 0);
-    }).then(_ => {
-        write_pin(esp_pin_right_a, 0);
-    }).then(_ => {
-        write_pin(esp_pin_right_b, 1);
-    })
+    send_cmd(([
+        generate_cmd(esp_pin_left_a,  1),
+        generate_cmd(esp_pin_left_b,  0),
+        generate_cmd(esp_pin_right_a, 0),
+        generate_cmd(esp_pin_right_b, 1),
+    ]).join(";"))
 }
