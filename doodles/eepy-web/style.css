@@ -1,0 +1,37 @@
+
+body, html {
+    height: 100%;
+}
+
+#container-main {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#btn-grid {
+    width: 500px;
+    height: 500px;
+}
+
+.btn-dpad {
+    /* max-width: 200px; */
+    /* max-height: 200px; */
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    #btn-grid {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+.btn-dpad-icon {
+    font-size: 100px;
+}
