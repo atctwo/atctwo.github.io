@@ -19,6 +19,8 @@ let esp_pin_left_b =  16;  // m1b
 let esp_pin_right_a = 23;  // m2a
 let esp_pin_right_b = 22;  // m2b
 
+let queued_ble_write = null;
+
 //===========================================
 // get handles to elements
 //===========================================
@@ -162,10 +164,31 @@ function generate_cmd(pin, state) {
     return `:w${pin}${state}`;
 }
 
-function send_cmd(cmd) {
+function queue_cmd(cmd) {
+    queued_ble_write = cmd;
+}
+
+function send_cmd() {
+
+    // if no command is queued then return
+    if (queued_ble_write == null) return
+
+    console.log("sending queued command: " + queued_ble_write);
+    
+    // otherwise, send queued command
     const utf8encoder = new TextEncoder();
-    let cmd_bytes = utf8encoder.encode(cmd);
-    return ble_char_nrf_uart_rx.writeValueWithoutResponse(cmd_bytes);
+    let cmd_bytes = utf8encoder.encode(queued_ble_write);
+
+    // command is about to be sent, clear queue
+    queued_ble_write = null;
+
+    // send command
+    ble_char_nrf_uart_rx.writeValueWithoutResponse(cmd_bytes).then(_ => {
+
+        // once command has written, write next command
+        send_cmd();
+
+    })
 }
 
 function write_pin(pin, state) {
@@ -181,50 +204,55 @@ function write_pin(pin, state) {
 
 function drive_stop() {
     console.log("stopping");
-    send_cmd(([
+    queue_cmd(([
         generate_cmd(esp_pin_left_a,  0),
         generate_cmd(esp_pin_left_b,  0),
         generate_cmd(esp_pin_right_a, 0),
         generate_cmd(esp_pin_right_b, 0),
     ]).join(";"))
+    send_cmd();
 }
 
 function drive_forward() {
     console.log("driving forward");
-    send_cmd(([
+    queue_cmd(([
         generate_cmd(esp_pin_left_a,  1),
         generate_cmd(esp_pin_left_b,  0),
         generate_cmd(esp_pin_right_a, 1),
         generate_cmd(esp_pin_right_b, 0),
     ]).join(";"))
+    send_cmd();
 }
 
 function drive_backward() {
     console.log("driving backward");
-    send_cmd(([
+    queue_cmd(([
         generate_cmd(esp_pin_left_a,  0),
         generate_cmd(esp_pin_left_b,  1),
         generate_cmd(esp_pin_right_a, 0),
         generate_cmd(esp_pin_right_b, 1),
     ]).join(";"))
+    send_cmd();
 }
 
 function drive_rot_right() {
     console.log("driving right");
-    send_cmd(([
+    queue_cmd(([
         generate_cmd(esp_pin_left_a,  0),
         generate_cmd(esp_pin_left_b,  1),
         generate_cmd(esp_pin_right_a, 1),
         generate_cmd(esp_pin_right_b, 0),
     ]).join(";"))
+    send_cmd();
 }
 
 function drive_rot_left() {
     console.log("driving left");
-    send_cmd(([
+    queue_cmd(([
         generate_cmd(esp_pin_left_a,  1),
         generate_cmd(esp_pin_left_b,  0),
         generate_cmd(esp_pin_right_a, 0),
         generate_cmd(esp_pin_right_b, 1),
     ]).join(";"))
+    send_cmd();
 }
