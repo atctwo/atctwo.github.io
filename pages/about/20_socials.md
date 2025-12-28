@@ -1,13 +1,13 @@
 ---
 layout: page
 permalink: /about/socials
-title: Contact and Socials
+title: Contact, Socials, and Links
 hide_title: true
 ---
 
 {% include about_nav.html %}
 
-<h1>{{page.title}}</h1>
+# Contact and Socials
 
 <style>
     #social-card-container {
@@ -57,6 +57,27 @@ hide_title: true
     .social-site-account {
         font-size: large;
     }
+
+
+    .badge-88x31{
+        width: 88px;
+        height: 31px;
+        border-radius: 0px !important;
+
+        /* from https://88x31.kate.pet/ */
+        image-rendering: auto;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: -webkit-optimize-contrast;
+    }
+
+    .badge-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
 </style>
 
 Want to get in touch?  For now, my preferred method would be to send me an email at <a href='&#109;ail&#116;o&#58;%61&#37;6C%6&#53;&#120;&#64;&#97;&#116;&#99;tw%&#54;F&#46;&#37;6Eet'>ale&#120;&#64;atct&#119;o&#46;&#110;et</a>.  If you just want to know me better, check out my social media below!
@@ -81,3 +102,28 @@ Want to get in touch?  For now, my preferred method would be to send me an email
 {% endfor %}
 </div>
 <br>
+
+
+# Badges
+
+<img class="badge-88x31" src="/assets/images/badges/88x31.gif" alt="88x31 badge for this website.  it has the website name overlayed on a scrolling rainbow background">
+
+### Cool People
+<div class="badge-container">
+    {% for badge in site.data.badges.people %}
+        {% if badge.href %} <a href="{{badge.href}}"> {% endif %}
+        <img class="badge-88x31" {% if badge.alt %} alt="{{badge.alt}}" {% endif %} src="{% unless badge.external %}{{site.data.badges.src_root}}/{%endunless%}{{badge.src}}">
+        {% if badge.href %} </a> {% endif %}
+    {% endfor %}
+</div>
+
+<br>
+
+### Cool Things
+<div class="badge-container">
+    {% for badge in site.data.badges.misc %}
+        {% if badge.href %} <a href="{{badge.href}}"> {% endif %}
+        <img class="badge-88x31" {% if badge.alt %} alt="{{badge.alt}}" {% endif %} src="{% unless badge.external %}{{site.data.badges.src_root}}/{%endunless%}{{badge.src}}">
+        {% if badge.href %} </a> {% endif %}
+    {% endfor %}
+</div>

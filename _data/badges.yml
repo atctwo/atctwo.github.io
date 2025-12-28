@@ -1,0 +1,71 @@
+src_root: /assets/images/badges
+
+misc:
+
+####################################
+# trans gedner
+####################################
+
+- src: e2v2.gif
+  href: https://twitter.com/npc_alyx/status/1522679980127227905
+
+- src: trans_button.gif
+
+- src: trans-rights.2641059019.png
+
+- src: autism.gif
+  href: https://futurefishy.tumblr.com/post/720764128087638016/autism-creature-88x31-button-thingy-feel-free-to
+
+####################################
+# cool websites
+####################################
+
+- src: internet-archive.gif
+  href: https://archive.org/
+
+- src: eightyeightthirtyone.png
+  href: https://eightyeightthirty.one/
+
+- src: https://88x31.click/badge.png
+  href: https://88x31.click/
+  external: true
+
+- src: catppuccin.gif
+  href: https://catppuccin.com/
+
+# - src: netcup.gif
+# href: https://www.netcup.com/en
+
+####################################
+# cool software
+####################################
+
+- src: kde1.gif
+  href: https://kde.org/
+
+- src: kde2.gif
+  href: https://kde.org/
+
+- src: linux.2229754719.png
+- src: xenia.gif
+
+####################################
+# other cool things
+####################################
+- src: right2repair.png
+- src: ppl.png
+
+- src: iso.1707930409.png
+  href: https://www.w3.org/QA/Tips/iso-date
+
+- src: catboys.2410179343.webp
+- src: twopaws.png
+- src: glados_girl.gif
+
+- src: spamton.gif
+  href: https://maggyoutthere.tumblr.com/post/763157072751771648/made-these-for-my-toyhouse-page-but-yall-can-have
+
+people:
+- name: lightwo
+  src: lightwo.gif
+  href: https://lightwo.net/
