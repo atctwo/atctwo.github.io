@@ -15,7 +15,7 @@ I hope you find this entertaining or useful in some way!
 
 # My Computers
 ## Lucy
-My main PC, a custom build I made in 2022.
+A custom build I made in 2022.  Mostly used these for compute- and graphics- intensive workloads like gaming and CAD.
 
 <div class="row align-items-start">
     <div class="col-lg-6">
@@ -30,7 +30,7 @@ My main PC, a custom build I made in 2022.
             </tr>
             <tr>
                 <td>GPU</td>
-                <td><b>Nvidia GeForce 1080 Ti</b> (with broken video ports)<br><b>AMD Radeon RX550</b> (with working video ports)</td>
+                <td><b>Nvidia GeForce RTX 2080 Ti</b></td>
             </tr>
             <tr>
                 <td>Storage</td>
@@ -64,27 +64,39 @@ My main PC, a custom build I made in 2022.
 </div>
 <br>
 
-## atc-xps
-My current laptop, a Dell XPS 13 going strong since 2017.
+## abbie
+Abbie is my current daily driver, and the machine I used for most of my work these days.
 
 <div class="row align-items-start">
     <div class="col-lg-6">
         <table class="table">
             <tr>
                 <td>Model</td>
-                <td><b>Dell XPS 13 9360</b></td>
+                <td><b>Framework Laptop 13 (AMD Ryzen 7040 Series)</b></td>
             </tr>
             <tr>
                 <td>CPU</td>
-                <td><b>Intel i7-7500U</b></td>
+                <td><b>AMD Ryzen 7 7840U</b></td>
             </tr>
             <tr>
                 <td>RAM</td>
-                <td><b>16GB DDR4</b></td>
+                <td><b>32GB DDR5</b></td>
             </tr>
             <tr>
                 <td>Storage</td>
-                <td><b>500GB SSD</b> boot drive</td>
+                <td><b>1TB SSD</b> boot drive</td>
+            </tr>
+            <tr>
+                <td>Ports</td>
+                <td>
+                    <table class="table">
+                        <tr><td>Top Left</td><td>USB-C</td></tr>
+                        <tr><td>Top Right</td><td>USB-C</td></tr>
+                        <tr><td>Bottom Left</td><td>USB-A</td></tr>
+                        <tr><td>Bottom Right</td><td>USB-A</td></tr>
+                        <tr><td>Carry</td><td>HDMI, Ethernet</td></tr>
+                    </table>
+                </td>
             </tr>
             <tr>
                 <td>Software</td>
@@ -93,7 +105,7 @@ My current laptop, a Dell XPS 13 going strong since 2017.
         </table>
     </div>
     <div class="col-lg-6">
-        <img src="../../assets/images/about/atc-xps.jpg" alt="A picture of my laptop, specifically the laptop lid when open.  It's almost completely covered in stickers, some development and programming stickers, but mostly queer-themed and video game stickers.">
+        <img src="../../assets/images/about/abbie.jpg" alt="A picture of my laptop from the back, with the lid half-closed over.  There's a purple skin on the lid, which you can barely see under all the stickers.">
     </div>
 </div>
 <br>
@@ -132,6 +144,54 @@ A little mini PC I use as my home server.
 </div>
 <br>
 
+## Retired Machines
+As what I use my computers for changes over time, new machines enter my life and old ones stop being used.  That doesn't mean that the old machines are forgotten though!  This section documents the computers that I don't use that much anymore, but still mean a great deal to me.
+
+<div class="accordion" id="accordion-retired-machines">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-item-atc-xps" aria-expanded="false" aria-controls="accordion-item-atc-xps">
+                atc-xps
+            </button>
+        </h2>
+    <div id="accordion-item-atc-xps" class="accordion-collapse collapse" data-bs-parent="#accordion-retired-machines">
+        <div class="accordion-body">
+                <p>My old XPS 13!  I ran this as my main computer from 2017 until 2022, then as a secondary machine from 2022 until 2024.</p>
+                <div class="row align-items-start">
+                    <div class="col-lg-6">
+                        <table class="table">
+                            <tr>
+                                <td>Model</td>
+                                <td><b>Dell XPS 13 9360</b></td>
+                            </tr>
+                            <tr>
+                                <td>CPU</td>
+                                <td><b>Intel i7-7500U</b></td>
+                            </tr>
+                            <tr>
+                                <td>RAM</td>
+                                <td><b>16GB DDR4</b></td>
+                            </tr>
+                            <tr>
+                                <td>Storage</td>
+                                <td><b>500GB SSD</b> boot drive</td>
+                            </tr>
+                            <tr>
+                                <td>Software</td>
+                                <td>EndeavourOS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="../../assets/images/about/atc-xps.jpg" alt="A picture of my laptop, specifically the laptop lid when open.  It's almost completely covered in stickers, some development and programming stickers, but mostly queer-themed and video game stickers.">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
 # My Equipment
 ### Engineering Equipment
 - Rigol DS1054Z Oscilliscope, naturally [hacked](https://gotroot.ca/rigol/riglol/) to unlock extra bandwidth
@@ -155,7 +215,7 @@ A little mini PC I use as my home server.
   - [KDE Plasma](https://kde.org/plasma-desktop/) as my main desktop environment
   - I've been trying [Hyprland](https://github.com/hyprwm/Hyprland) and so far I really like the tiling behaviour!  Although I'm thinking of trying out [niri](https://github.com/YaLTeR/niri) for a bit, since it seems better equipped to handle my multiple concurrent thought processes
 - [Debian](https://www.debian.org/) for my servers, since it's really stable especially when running system updates
-- [LineageOS](https://lineageos.org/) on my phone.  I tried to de-google as much as I could I couldn't get stuff like notifications working. 
+- [GrapheneOS](https://grapheneos.org/) on my phone.  With my first custom ROM, [LineageOS](https://lineageos.org/), I tried to de-google as much as I could but ran into issues with stuff like notifications.  Having learned what needs Google Services Framework and what doesn't, I've got a mostly de-googled OS which works pretty well!
 
 ### Productivity
 - [Joplin](https://joplinapp.org/) for cloud-synced notes
