@@ -11,6 +11,7 @@ hide_title: true
             height: 300px;
             float: right;
             margin-left: 20px;
+            border: 3px solid #00ced1;
         }
         .skills-container {
             flex-direction: row;
@@ -82,6 +83,51 @@ hide_title: true
             width: 80%;
         }
     } */
+    .game-card-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .game-card {
+        align-items: center;
+        width: 14rem;
+        /* height: 400px; */
+        border: 4px solid #00ced1;
+        border-radius: 10px;
+    }
+    .game-card > div {
+        text-align: center;
+    }
+    @media (max-width: 992px) {
+        .game-card {
+            width: 45%;
+            border-width: 3px;
+        }
+    }
+    .game-img {
+        border-radius: 6px 6px 0px 0px !important;
+    }
+    .game-img-container {
+        position: relative;
+    }
+    .game-img-credit {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        background-color: #00000080;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+    .game-img-credit i {
+        color:rgb(200, 200, 200);
+    }
 </style>
 
 {% include about_nav.html %}
@@ -89,7 +135,7 @@ hide_title: true
 <!-- <h1>{{page.title}}</h1> -->
 <p class="h1">Hello, I'm Alex! <span class="h3 text-body-secondary">(she/her)</span></p>
 
-<img src="/assets/images/me.jpg" id="me-img">
+<img src="/assets/images/me.jpg" id="me-img" class="rainbow-border">
 
 <!-- This website is dedicated to cataloging the various projects I have worked on.  These range from small software utilities to electronic devices.  Most of what I've done is purely because it sounded fun, but I think that if I share my projects, someone might find something useful in them!  The website also hosts a blog where I talk about these topics.
 
@@ -224,17 +270,54 @@ I probably spend at least half of the time I'm awake listening to music.  Genera
 Recently I set up a [Last.fm](https://www.last.fm/user/atctwo) account, so you can see what I'm currently listening to!
 
 ### 🕹️ Video Games
-One of my special interests is Nintendo.  Not only am I interested in their games, I'm interested in them as a company, in the same way football fans are interested in a club.
+While I'm not a hardcore gamer, I do enjoy it from time to time!
 
-I'm a huge fan of the Legend of Zelda series; I really enjoy the gameplay and combat, and *Breath of the Wild* / *Tears of the Kingdom* just made it better.  (Also I *love* the cross-game lore so *Echoes of Wisdom* was a great time)
-
-I'm also into the Mario platformers.  I've 100% completed (almost) every mainline Super Mario game since *Super Mario 64*!  *Mario Kart 8 (Deluxe)* is also one of the only multiplayer games I'm actually any good at.
-
-That and *Tetris*.  I've been playing a lot of [TETR.IO](https://ch.tetr.io/u/atctwo).
+One of my special interests is Nintendo.  Not only am I interested in their games, I'm interested in them as a company, in the same way football fans are interested in a club.  I'm a huge fan of the Legend of Zelda series and I've 100% completed (almost) every mainline Super Mario game since *Super Mario 64*!  I don't really play much online, with the main exceptions being *Mario Kart 8* (and now *Mario Kart World*), as well as *Tetris* (usually *TETRIS 99* and [*TETR.IO*](https://ch.tetr.io/u/atctwo)).
 
 Although I don't play them that often, I really enjoy games that have a huge emphasis on story, even if there isn't much gameplay.  The *Life is Strange* series has had an immeasurable effect on my life, and helped me realise what type of person I wanted to be.  On the other hand, I've had my sense of reality destroyed by the *Danganronpa* games, which showed me that there aren't practical limits to how off-the-rails a game's plot can be.
+
+I have a <a href="https://backloggd.com/u/atctwo/">Backloggd</a> page where I keep track of what games I've played, but here's a quick look at what I've been playing recently:
+
+<div class="game-card-container">
+
+{% for game in site.data.games %}
+
+    <div class="card game-card rainbow-border">
+
+        {% if game.img_url %}
+            <div class="card-img-top game-img-container">
+                <img class="game-img" src="/assets/images/games/{{game.img_url}}" alt="{{game.img_alt}}">
+                {% if game.img_credit %}
+                <span class="game-img-credit" data-bs-toggle="tooltip" data-bs-title="{{game.img_credit}}">
+                    {% if game.img_credit_href %} <a href="{{game.img_credit_href}}"> {% endif %}
+                        <i class="bi bi-person-circle"></i>
+                    {% if game.img_credit_href %} </a> {% endif %}
+                </span>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <div class="card-body project-card-body">
+            <h5 class="card-title">{{game.name}}</h5>
+        </div>
+    </div>
+
+{% endfor %}
+
+</div>
 
 ## How do you pronounce "atctwo"?
 It's "a-t-c-2" (*eɪˈtiˈsiˈtu*).  
 
 "atc" was a stupid nickname I made for myself when I was a kid, but it was too short to use on most websites.  I didn't want to have a digit in my username so I just spelt it out, making atctwo!
+
+
+
+
+<!-- enable tooltips -->
+<script>
+    window.onload = () => {
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    }
+</script>
