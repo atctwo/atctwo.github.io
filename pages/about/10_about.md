@@ -264,8 +264,8 @@ As I mentioned, I've been getting into photography.  I recently got a Panasonic 
 ### 🎵 Music
 I probably spend at least half of the time I'm awake listening to music.  Generally I'm into "indie stuff", plus or minus half a genre.  
 - My favourite bands ever are Radiohead, alt-J, Blonde Redhead, and Crumb
-- I often listen to Sufjan Stevens, Billie Marten, Mitski, Flipturn, The Marias, Panchiko, Alvvays, C418, various Vocaloid artists, They Might Be Giants
-- More recently I've been listening to Kero Kero Bonito, Ivy, KNOWER, Lemon Demon, and Djo
+- I often listen to Sufjan Stevens, Billie Marten, Mitski, Flipturn, The Marias, Panchiko, Alvvays, C418, various Vocaloid artists, Lemon Demon, They Might Be Giants
+- More recently I've been listening to the Mountain Goats, Blood Orange, and the DELTARUNE soundtrack
 
 Recently I set up a [Last.fm](https://www.last.fm/user/atctwo) account, so you can see what I'm currently listening to!
 
