@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MediaSession Bones</title>
+    </head>
+
+    <body>
+        <h2>MediaSession Bones</h2>
+        <audio id="audio" controls src="./media/start.wma.flac"></audio>
+        <br>
+        <button onclick="play_audio();">Play</button>
+        <button onclick="pause_audio();">Pause</button>
+    </body>
+
+    <script>
+        async function play_audio() {
+            let el_audio = document.getElementById("audio");
+            await el_audio.play();
+        }
+
+        async function pause_audio() {
+            let el_audio = document.getElementById("audio");
+            await el_audio.pause();
+        }
+    </script>
+
+</html>

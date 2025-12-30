@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MediaSession Bones</title>
+    </head>
+
+    <body>
+        <h2>MediaSession Bones</h2>
+        <audio id="audio" controls src="./media/start.wma.flac"></audio>
+        <br>
+        <button onclick="play_audio();">Play</button>
+        <button onclick="pause_audio();">Pause</button>
+    </body>
+
+    <script>
+
+        // register action handlers for media session events
+        if ("mediaSession" in navigator) {
+
+            // play music
+            navigator.mediaSession.setActionHandler("play", () => {
+                play_audio();
+            })
+
+            // pause music
+            navigator.mediaSession.setActionHandler("pause", () => {
+                pause_audio();
+            })
+
+        }
+
+        async function play_audio() {
+            let el_audio = document.getElementById("audio");
+            await el_audio.play();
+
+            // now that <audio> is playing, set media session metadata
+            if ("mediaSession" in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: "Velkommen",
+                    artist: "Stan LePard",
+                    album: "Windows XP"
+                });
+            }
+        }
+
+        async function pause_audio() {
+            let el_audio = document.getElementById("audio");
+            await el_audio.pause();
+        }
+    </script>
+
+</html>

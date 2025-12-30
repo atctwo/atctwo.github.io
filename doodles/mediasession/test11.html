@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MediaSession Bones</title>
+    </head>
+
+    <body>
+        <h2>MediaSession Bones</h2>
+        <button onclick="play_audio();">Play</button>
+        <button onclick="pause_audio();">Pause</button>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+    <script>
+
+        // register action handlers for media session events
+        if ("mediaSession" in navigator) {
+
+            // play music
+            navigator.mediaSession.setActionHandler("play", () => {
+                play_audio();
+            })
+
+            // pause music
+            navigator.mediaSession.setActionHandler("pause", () => {
+                pause_audio();
+            })
+
+        }
+
+        // load audio with howler
+        let audio = new Howl({
+            src: ["./media/start.wma.flac"],
+            html5: true, // must be set for mediasession to show anything, since there needs to be an active html5 media element
+            onplay: () => {
+                    
+                console.log("setting mediasession metadata");
+                
+                // now that <audio> is playing, set media session metadata
+                if ("mediaSession" in navigator) {
+                    navigator.mediaSession.metadata = new MediaMetadata({
+                        title: "Velkommen",
+                        artist: "Stan LePard",
+                        album: "Windows XP",
+                        artwork: [{
+                            src: "./media/bliss.jpg",
+                            sizes: "512x512",
+                            type: "image/jpeg"
+                        }]
+                    });
+                }
+                
+                console.log("set mediasession metadata");
+            }
+        });
+
+        async function play_audio() {
+            audio.play();
+        }
+
+        async function pause_audio() {
+            audio.pause();
+        }
+    </script>
+
+</html>
