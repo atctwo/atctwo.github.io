@@ -439,14 +439,92 @@ title: MediaSession Test Results
             <td></td>
             <td></td>
         </tr>
+        <tr>
+            <td rowspan=2>Vanadium</td>
+            <td rowspan=2>[pixie]</td>
+            <td rowspan=2>143.0.7499.146</td>
+            <td rowspan=2><code>Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36</code></td>
+            <td>❌</td>
+            <td>&nbsp;</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <td>✅</td>
+            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=2>Firefox Nightly</td>
+            <td rowspan=2>[pixie]</td>
+            <td rowspan=2>145.0a1</td>
+            <td rowspan=2><code>Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36</code></td>
+            <td>❌</td>
+            <td>&nbsp;</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <td>✅</td>
+            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
-[**abbie**] -> `Linux abbie 6.17.9-arch1-1 #1 SMP PREEMPT_DYNAMIC Mon, 24 Nov 2025 15:21:09 +0000 x86_64 GNU/Linux` (endeavouros)
+[**abbie**]
+- `Linux abbie 6.17.9-arch1-1 #1 SMP PREEMPT_DYNAMIC Mon, 24 Nov 2025 15:21:09 +0000 x86_64 GNU/Linux` (endeavouros)
+- tested using [`playerctl -a metadata`](https://github.com/altdesktop/playerctl)
 
-[**win11**] -> Windows 11 25H2 (Build 26200.6584) running under QEMU/KVM version 10.1.2 on [abbie]
+[**win11**]
+- Windows 11 25H2 (Build 26200.6584) running under QEMU/KVM version 10.1.2 on [abbie]
+- tested using a modified version of [WindowsMediaController](https://github.com/DubyaDude/WindowsMediaController/tree/master?tab=readme-ov-file)'s Sample.CMD test program
 
-[**mac12**] -> macOS Monterey (version 12.7.4) running on [ultimate macOS KVM](https://github.com/Coopydood/ultimate-macOS-KVM) on [abbie]
+[**mac12**]
+- macOS Monterey (version 12.7.4) running on [ultimate macOS KVM](https://github.com/Coopydood/ultimate-macOS-KVM) on [abbie]
+- tested using [nowplaying-cli](github.com/kirtan-shah/nowplaying-cli)
+
+[**pixie**]
+- Pixel 8 running GrapheneOS (Android 16)
+- tested by looking at the media notification and seeing if it has album artwork :p
 
 (1): tested with another media session running (paused) in another tab (to force album artwork changes between tests)
 
