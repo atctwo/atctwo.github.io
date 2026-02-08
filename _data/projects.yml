@@ -26,14 +26,6 @@
     updated: August 2022
     technologies: [javascript, bootstrap]
 
-  - name: Authenticator
-    description: A chrome extension to generate TOTP codes and automatically insert them into websites
-    image: /assets/images/projects/authenticator.png
-    image_alt: Screenshot of the authenticator
-    github: https://github.com/atctwo/authenticator
-    updated: January 2024
-    technologies: [javascript, web_extension]
-
   - name: lstty
     description: A simple terminal tool to list serial ports
     image: /assets/images/projects/lstty.png
@@ -42,6 +34,14 @@
     crates: https://crates.io/crates/lstty
     updated: February 2026
     technologies: [rust]
+
+  - name: Authenticator
+    description: A chrome extension to generate TOTP codes and automatically insert them into websites
+    image: /assets/images/projects/authenticator.png
+    image_alt: Screenshot of the authenticator
+    github: https://github.com/atctwo/authenticator
+    updated: January 2024
+    technologies: [javascript, web_extension]
 
   - name: Media Streamer
     description: A thingy for streaming media from devices and displays in a web browser
