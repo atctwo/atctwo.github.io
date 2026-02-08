@@ -40,7 +40,7 @@
     image_alt: A screenshot of the output of lstty, showing the serial ports at the time of writing
     github: https://github.com/atctwo/lstty
     crates: https://crates.io/crates/lstty
-    updated: December 2023
+    updated: February 2026
     technologies: [rust]
 
   - name: Media Streamer
