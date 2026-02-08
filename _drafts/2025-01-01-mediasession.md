@@ -488,7 +488,7 @@ When some MediaSession code is executed, PBI will communicate the updated info t
 
 An interesting implementation detail is that the native host will only register itself as a D-Bus client (and therefore will only provide MPRIS data) *when the `playing` event is received*.  This ultimately means that when PBI is installed, setting `metadata` on its own won't do anything - **you must specifically set `playbackState` to `playing`** (and as I've found, after `metadata` has already been set).
 
-There's no harm in doing that anyway, but without PBI the browser should provide MRPIS data irrespective of `playbackState`.
+There's no harm in doing that anyway, but without PBI browsers typically provide MRPIS data irrespective of `playbackState`.
 
 This behaviour stops tests 4 and 5 from working.  test6 still works, since of the three it's the only one that sets `playbackState` after setting `metadata`.
 
