@@ -54,6 +54,14 @@
 
 - section_name: Electronics Projects
   projects:
+  - name: Cat Bot, or Scratch
+    description: A friend-shaped antweight battlebot
+    image: /assets/images/projects/catbot1.jpg
+    image_alt: A picture of the cat shaped bot sitting in a clearing on a very messy wooden desk
+    github: https://github.com/atctwo/catbot
+    updated: February 2026
+    technologies: [openscad]
+
   - name: clock25
     description: A funky digital clock based on an ESP32 and an RGB LED matrix
     image: /assets/images/projects/clock25.png
