@@ -5,7 +5,7 @@
     image: /assets/images/projects/bbrx.png
     image_alt: diagram showing multiple bluetooth controllers sending data to bbrx, which then sends data to an electronic speed controller, which is driving a motor
     github: https://github.com/atctwo/bbrx
-    updated: September 2024
+    updated: December 2025
     technologies: [arduino, cpp]
 
   - name: Pinout Thingy
