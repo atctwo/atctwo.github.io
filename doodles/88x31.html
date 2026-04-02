@@ -25,16 +25,23 @@ hide_title: true
     .badge-words {
         position: relative;
         top: -6px;
-        left: -4px;
+        left: -2px;
     }
 
     @keyframes hello {
         0%{background-position:0% 50%}
         100%{background-position:100% 50%}
     }
+
+    #badge2 {
+        transform: scale(3) translate(50px, 50px);
+    }
 </style>
 
-<div class="badge">
+<div class="badge" id="badge1">
+    <span class="badge-words">atctwo</span>
+</div><br><br><br>
+<div class="badge" id="badge2">
     <span class="badge-words">atctwo</span>
 </div>
 
