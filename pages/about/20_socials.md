@@ -101,9 +101,9 @@ Want to get in touch?  For now, my preferred method would be to send me an email
 
 {% endfor %}
 </div>
-<br>
 
 
+<!--
 # Badges
 
 <img class="badge-88x31" src="/assets/images/badges/88x31.gif" alt="88x31 badge for this website.  it has the website name overlayed on a scrolling rainbow background">
@@ -127,3 +127,4 @@ Want to get in touch?  For now, my preferred method would be to send me an email
         {% if badge.href %} </a> {% endif %}
     {% endfor %}
 </div>
+-->
