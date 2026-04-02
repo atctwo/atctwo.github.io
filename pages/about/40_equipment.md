@@ -196,6 +196,8 @@ As what I use my computers for changes over time, new machines enter my life and
 ### Engineering Equipment
 - Rigol DS1054Z Oscilliscope, naturally [hacked](https://gotroot.ca/rigol/riglol/) to unlock extra bandwidth
 - Tenma 72-10505 Bench Power Supply
+- An [RTL-SDR v4](https://www.rtl-sdr.com/about-rtl-sdr/) software-defined radio
+- A [Flipper Zero](https://flipper.net/) wireless hacking tool
 - Generic Desoldering Gun
 - TS80 Soldering Iron, its tiny and baby
 - Ender 3 V2 3D printer
@@ -203,6 +205,8 @@ As what I use my computers for changes over time, new machines enter my life and
 
 ### Audio Visual Equipment
 - [Panasonic GX80](https://www.panasonic.com/uk/consumer/cameras-camcorders/lumix-mirrorless-cameras/lumix-g-cameras/dmc-gx80eb.html) camera, I actually talked about it in my [post about the Photos section](/posts/2024/10/29/photography-section.html#the-new-camera)
+  - [Panasonic 12-32mm f/3.5-5.6](https://www.panasonic.com/uk/consumer/cameras-camcorders/lumix-camera-lenses/lumix-g-lenses/h-fs12032e.html) pancake lens.  This is the lens I usually keep on the camera since its so tiny, and it's pretty good for impromptu street photography
+  - [OM M.Zuiko Digital ED 40-150mm F4.0-5.6 R](https://explore.omsystem.com/gb/en/m-zuiko-ed-40-150mm-f4-0-5-6-r) longer lens which I use for telephoto shots
 - [Sennheiser HT 450BT](https://www.sennheiser-hearing.com/en-UK/p/hd-450bt/) Headphones, I only recently got them so I can't say how they are in the long term, but they are pretty good so far!
 - Two cheap 24" Acer monitors.  One of them only has VGA in
 - an [Extron DXP 44 HDMI](https://www.extron.com/product/dxphdmi) matrix switcher which I use for routing video from Lucy and other inputs, to my monitors and capture card.  I got it on eBay for £15!
