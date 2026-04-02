@@ -49,6 +49,8 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.1", :platforms => [:jruby]
 
 gem "webrick", "~> 1.8"
+gem "csv"
+gem "base64"
 
 # gem for custom theme - used for local development
 # gem "atctheme", :path => "/home/alice/gdrive/programming/web4/atctheme/"
