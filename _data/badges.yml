@@ -3,6 +3,18 @@ src_root: /assets/images/badges
 misc:
 
 ####################################
+# people
+####################################
+
+- name: atctwo
+  src: 88x31_2.gif
+  href: https://atctwo.net
+
+- name: lightwo
+  src: lightwo.gif
+  href: https://lightwo.net/
+
+####################################
 # trans gedner
 ####################################
 
@@ -12,6 +24,8 @@ misc:
 - src: trans_button.gif
 
 - src: trans-rights.2641059019.png
+
+- src: queercode.png
 
 - src: autism.gif
   href: https://futurefishy.tumblr.com/post/720764128087638016/autism-creature-88x31-button-thingy-feel-free-to
@@ -26,15 +40,24 @@ misc:
 - src: eightyeightthirtyone.png
   href: https://eightyeightthirty.one/
 
-- src: https://88x31.click/badge.png
-  href: https://88x31.click/
-  external: true
+# - src: https://88x31.click/badge.png
+  # href: https://88x31.click/
+  # external: true
+
+- src: ao3gif.gif
+  href: https://archiveofourown.org/
 
 - src: catppuccin.gif
   href: https://catppuccin.com/
 
-# - src: netcup.gif
-# href: https://www.netcup.com/en
+- src: glauca-88x31-1.gif
+  href: https://glauca.digital/
+
+- src: netcup.gif
+  href: https://www.netcup.com/en
+
+- src: mullvad.png
+  href: https://mullvad.net/
 
 ####################################
 # cool software
@@ -52,6 +75,9 @@ misc:
 ####################################
 # other cool things
 ####################################
+- src: CC_BY-SA_3_icon_88x31.png
+  href: https://creativecommons.org/licenses/by/4.0/deed.en
+
 - src: right2repair.png
 - src: ppl.png
 
@@ -65,7 +91,4 @@ misc:
 - src: spamton.gif
   href: https://maggyoutthere.tumblr.com/post/763157072751771648/made-these-for-my-toyhouse-page-but-yall-can-have
 
-people:
-- name: lightwo
-  src: lightwo.gif
-  href: https://lightwo.net/
+# people:
