@@ -34,6 +34,9 @@ misc:
 # cool websites
 ####################################
 
+- src: farset.png
+  href: https://www.farsetlabs.org.uk/
+
 - src: internet-archive.gif
   href: https://archive.org/
 
@@ -75,6 +78,8 @@ misc:
 ####################################
 # other cool things
 ####################################
+- src: miku.gif
+
 - src: CC_BY-SA_3_icon_88x31.png
   href: https://creativecommons.org/licenses/by/4.0/deed.en
 
