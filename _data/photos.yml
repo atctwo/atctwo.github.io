@@ -2,6 +2,8 @@ album_urls:
 # - https://static.atctwo.net/photos/test/album.json
 - https://static.atctwo.net/photos/belfast/album.json
 - https://static.atctwo.net/photos/belfast_harbour/album.json
+- https://static.atctwo.net/photos/belfast_stickers/album.json
+- https://static.atctwo.net/photos/paris2026/album.json
 - https://static.atctwo.net/photos/north_coast/album.json
 - https://static.atctwo.net/photos/great_victoria_street_may_25/album.json
 - https://static.atctwo.net/photos/signs/album.json
