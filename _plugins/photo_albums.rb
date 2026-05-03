@@ -86,6 +86,10 @@ module PhotoAlbums
                     # store album data for making index
                     album_data.append(response)
 
+                    Jekyll.logger.info "a"
+                    Jekyll.logger.info response["images"].first[1]["sizes"]
+                    Jekyll.logger.info "b"
+
                     # create page, setting page variables
                     site.pages << Jekyll::PageWithoutAFile.new(site, site.source, page_dir, page_name).tap do |file|
                         file.content = page_content
@@ -93,6 +97,8 @@ module PhotoAlbums
                             "layout"        => "album",
                             "sitemap"       => false,
                             "title"         => page_title,
+                            "description"   => response["description"],
+                            "image"         => response["images"][response["images"].keys[-1]]["sizes"]["1080"],
                             "album_title"   => response["title"],
                             "album_desc"    => response["description"],
                             "sorting"       => response["sorting"] || "date",
