@@ -401,12 +401,13 @@ window.addEventListener("load", () => {
         lightbox_linkbtn.dataset.link = location.protocol + '//' + location.host + location.pathname + '#' + image.filename;
 
         // hide info columns
-        lightbox_col_info.classList.add("hidden");
-        lightbox_col_exif.classList.add("hidden");
+        // lightbox_col_info.classList.add("hidden");
+        // lightbox_col_exif.classList.add("hidden");
 
-        // hide image title and comment
+        // hide image title, comment, and map
         lightbox_img_title.classList.add("hidden");
         lightbox_img_comment.classList.add("hidden");
+        lightbox_map_div_container.classList.add("hidden");
 
         // set previous and next images
         prev_image_id = image.prev;
