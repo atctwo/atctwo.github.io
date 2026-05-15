@@ -121,7 +121,7 @@ excerpt_separator: <!-- excerpt-end -->
 
 <!-- excerpt-start --> 
 
-Over the Christmas holidays, to take a break from all the engineering I do for university, I'm relaxing by doing a bunch of engineering for a personal project - a music player app, designed from the ground up to fix all the issues I have with other music apps.
+Over the holidays last Christmas, I took a break from all the engineering I do for my PhD by doing a bunch of engineering for a totally unrelated project - a music player app, designed from the ground up to fix all the issues I have with other music apps.
 
 It was intended to be a quick holiday project so I didn't really want to learn a whole new app framework.  So I stuck to what I knew, and started making it as a web app.  But I very quickly started having to work around the limitations of the browser's Web APIs.  I decided to document what I've learned in my fight against one particular API - **The MediaSession API**.
 
@@ -149,6 +149,9 @@ I manually ran each test on a number of different web browsers, on a few differe
 {% include admonition.html type="info" %}
 <div class="no_toc_section" markdown="1">
 
+<p><em>All tests were run in December 2025 / January 2026</em></p>
+<p></p>
+
 ### On <i class="bi bi-tux"></i> Linux
 - `chromium` 143.0.7499.40
 - `google-chrome` 143.0.7499.169
@@ -157,7 +160,7 @@ I manually ran each test on a number of different web browsers, on a few differe
 - `waterfox` 6.6.6 (firefox 140.6.0) with [Natsumi Browser](https://github.com/greeeen-dev/natsumi-browser) 6.0.1
 - `zen-browser` 1.17.15b
 - each browser was tested separately with and without the [Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) extension
-- because of [edge case 2](#edge-case-2-firefox-doesnt-update-arturl-if-the-art-hasnt-changed) (which will be explained later), all the testing with Firefox (and Firefox forks) on Linux was done with some (paused) music in another tab, to force artwork reloads between tests
+- because of [edge case 3](#edge-case-3-firefox-doesnt-update-arturl-if-the-art-hasnt-changed), all the testing with Firefox (and Firefox forks) on Linux was done with some (paused) music in another tab, to force artwork reloads between tests
 - tested on EndeavourOS (kernel 6.17.9)
 
 ### On <i class="bi bi-windows"></i> Windows
@@ -245,7 +248,7 @@ function audio_onplay() {
 
 {% include admonition.html type="tip" %}
 
-This code checks if `mediaSession` exists as a property of `navigator`, to prevent errors when running in a [browser that doesn't support MediaSession](https://caniuse.com/mdn-api_mediasession)!
+This code checks if `mediaSession` exists as a property of `navigator`, to prevent errors when running in a [browser that doesn't support MediaSession](https://caniuse.com/mdn-api_mediasession)!  This will be important later.
 
 {% include admonition_end.html %}
 
@@ -297,9 +300,27 @@ First is the `playbackState`.  Normally the browser will try to infer whether th
 
 Another thing to be aware of (that isn't really documented very well) is that **there needs to be an actively playing media element for MediaSession work**!  Without one, the API won't send any of the provided metadata to the OS.
 
-# Edge Case 1: Artwork with data / blob URLs
+# Edge Case 1: MediaSession in Android WebViews
+The first edge case I found is a little unrelated to the others, but it's worth taking a quick look anyway!
 
-In the last section, the album artwork provided to MediaSession was specified as a file path - in reality this was a relative HTTP(S) URL, pointing to the location of the artwork on the server.  We can actually observe the browser fetching the artwork if we look at the Network tab of the browser's Developer Tools.
+The last section pointed out that you shouldn't assume `navigator.mediaSession` exists, since some browsers don't support MediaSession.  This isn't *usually* a problem - at time of writing [~94% of global internet users](https://caniuse.com/?search=mediasession) use a browser that supports it.  That last 6% is probably old and unsupported versions of browsers, right?
+
+There is one significant browser which doesn't support MediaSession - the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview&hl=en_GB).  This is the embeddable browser that a lot of apps use to show web pages without having to send the user to the device's main web browser.  Normally the user is only in the webview for a few minutes so it's typically not a problem that this API is unsupported.
+
+However, web-to-native app frameworks like [Capacitor](https://capacitorjs.com/) and [Tauri](https://v2.tauri.app/) work by bundling a web app and rendering it an a webview.  In these cases, the whole app runs in a webview - if that app needs to use MediaSession (for example, a music player), then it simply can't.
+
+{% include admonition.html type="info" %}
+
+This is only a problem on Android, since the iOS webview *does* support MediaSession.
+
+{% include admonition_end.html %}
+
+
+So what can you do?  If you're using a webview in a native app, you can still use Android's confusingly-named native [MediaSession API](https://developer.android.com/media/legacy/mediasession).  If you're using a web-to-native framework, check if there is a media session plugin (for example [capacitor-media-session](https://github.com/jofr/capacitor-media-session)).
+
+# Edge Case 2: Artwork with data / blob URLs
+
+In the intro to MediaSession, the album artwork provided to MediaSession was specified as a file path - in reality this was a relative HTTP(S) URL, pointing to the location of the artwork on the server.  We can actually observe the browser fetching the artwork if we look at the Network tab of the browser's Developer Tools.
 
 <figure class="cool-figure">
     <img src="/assets/images/posts/mediasession/audio-fetch-artwork.png" alt="Screenshot of Chrome's Developer Tools, open on the Network tab, showing a series of resources fetched from the network.  Selected is a file called bliss.jpg, which is shown in a preview pane on the right side of the image.">
@@ -454,8 +475,7 @@ Having said that, both data and blob URLs work absolutely fine on Firefox for An
 
 So, what can you do about this?  There's isn't a perfect workaround, but thankfully the `MediaMetadata.artwork` attribute is an array, and supports multiple artwork sources.  This means you can provide a fallback remote URL source as well as a data or blob URLs.  This is the workaround I've adopted for my music app, but it's not perfect since artwork for music stored locally on the device won't have a remote URL to fall back on.
 
-
-# Edge Case 2: Firefox doesn't update `artUrl` if the art hasn't changed
+# Edge Case 3: Firefox doesn't update `artUrl` if the art hasn't changed
 When I was running the test cases in each browser, I found that on Firefox on Linux some test cases which had worked during test development had stopped working - the artwork wasn't loading, even though there was no reason it shouldn't.  Somehow, running the same test twice in a row caused the artwork to not work the second time.
 
 After a bit of experimenting, I found that all the cases which had stopped working started working again *if there was music playing in another tab*.  My theory on why this works is that Firefox won't produce an MPRIS message *if the current artwork is the same as the last one* (or at least has the same `src`).  When running the same test twice, the artwork will be the same between them, so Firefox just doesn't produce an artwork message for the second run.  
@@ -466,7 +486,7 @@ I wondered if this would affect playlists which have the same song multiple time
 
 I tried to find any discussion of this problem online but I couldn't really find much.  It's a pretty obscure edge case, and despite the strange behaviour it's probably not something most people would really notice.  Even at that, I only observed this behaviour on Firefox, and then only on Linux.  Either way, I thought it would still be useful to have documented somewhere on the internet!
 
-# Edge Case 3: Plasma Browser Integration
+# Edge Case 4: Plasma Browser Integration
 
 <!-- 
 bugs to find or report
@@ -495,7 +515,7 @@ This behaviour stops tests 4 and 5 from working.  test6 still works, since of th
 Additionally, it seems that if you have some system where one song plays after another automatically (like a playlist), then you might need to set `playbackState` to `none`, and then back to `playing`, in between songs.
 
 ## Handling of artwork as data URLs in Firefox
-As well as the test cases that stop working due to the previous subsection, test7 doesn't work in Firefox - this is the test where artwork is provided as a data URL.  Edge Case 1 shows that these don't work for artwork in Firefox anyway, but PBI causes them to not work for different reasons.
+As well as the test cases that stop working due to the previous subsection, test7 doesn't work in Firefox - this is the test where artwork is provided as a data URL.  Edge Case 2 shows that these don't work for artwork in Firefox anyway, but PBI causes them to not work for different reasons.
 
 <!-- 
 extension-mpris.js before !151 -> https://invent.kde.org/plasma/plasma-browser-integration/-/blob/54a281348771536c38da2a9b174a9fd6862e2d7c/extension/extension-mpris.js
@@ -510,7 +530,7 @@ The extension caches artwork by calling `fetch()` on `metadata.artwork` `src`s d
     <figcaption>Extension inspector showing the extension's console, and the generated error</figcaption>
 </figure>
 
-This ultimately causes the extension not send any artwork, although other metadata is still sent.
+This ultimately causes the extension to not send any artwork, although other metadata is still sent.
 
 [^1]: Historically the extension would simply retrieve the artwork URL and forward that to the host, which would forward that directly to MPRIS.  It would be up to the OS to actually fetch the artwork from the URL, which is a bit of a security risk.  Since merge request [!151](https://invent.kde.org/plasma/plasma-browser-integration/-/merge_requests/151), the extension instead does the fetching, passing the cached artwork to MPRIS.
 
@@ -521,7 +541,7 @@ Normally this isn't something that would cause any issues[^2], except in the cas
 
 [^2]: The OS can still retrieve metadata since PBI is still providing it, but things which depend on *the browser's* media handling exclusively might struggle.  For instance, Chrome's media window no longer has a source of metadata, so it just shows the page title.
 
-[^3]: At the time of writing it seems like native messaging isn't working in Waterfox (but it looks like [they're working on it](https://invent.kde.org/plasma/plasma-browser-integration/-/merge_requests/180)).  A similar issue was previously [reported](https://bugs.kde.org/show_bug.cgi?id=476967) and [fixed](https://invent.kde.org/plasma/plasma-browser-integration/-/merge_requests/146) for Librewolf.
+[^3]: Even on Linux, native messaging might not work on some browsers.  From what I can tell it needs to be implemented on a per-browser basis (as was the case for [Librewolf](https://invent.kde.org/plasma/plasma-browser-integration/-/merge_requests/146) and [Waterfox](https://invent.kde.org/plasma/plasma-browser-integration/-/merge_requests/180), for examples).
 
 <figure class="cool-figure">
     <div class="smol-container">
@@ -531,7 +551,7 @@ Normally this isn't something that would cause any issues[^2], except in the cas
     <figcaption>PBI's popup window showing errors when failing to connect to the native host, and when running on an unsupported OS</figcaption>
 </figure>
 
-In these cases, neither the browser nor PBI will actually produce any metadata, which is a problem.   [??? bug report]
+In these cases, neither the browser nor PBI will actually produce any metadata, which is a problem.
 
 # Conclusionya~!!
 That's about it for all the dragons I've encountered in my short time with the MediaSession API.  Of course, if any of these change (or if I discover any new ones), I'll try to update this post with all the details.
@@ -544,7 +564,7 @@ Before I finish out this post, I want to draw your attention to the song I've us
 
 # Sources
 ## MediaSession API
-- [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/MediaSession)
+- MediaSession docs on [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MediaSession)
 - The [W3C standard](https://www.w3.org/TR/mediasession/) and it's [GitHub repo](https://github.com/w3c/mediasession/tree/main)
 - [web.dev article on MediaSession](https://web.dev/articles/media-session) by François Beaufort
 - [Can I use mediasession?](https://caniuse.com/?search=mediasession)
