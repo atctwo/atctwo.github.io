@@ -27,6 +27,11 @@
   # icon: <i class="bi bi-twitter"></i>
   # icon: <img class="about-social-icon" src="/assets/images/socials/Logo_of_Twitter.svg" />
 
+- name: Codeberg
+  account: "atctwo"
+  link: https://codeberg.org/atctwo
+  icon: <img class="about-social-icon" src="/assets/images/socials/Codeberg.svg" />
+
 - name: Amateur Radio
   account: "MI7 LUA"
   icon: <img class="about-social-icon" src="/assets/images/socials/International_amateur_radio_symbol.svg" />
