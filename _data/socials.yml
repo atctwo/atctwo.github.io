@@ -21,11 +21,11 @@
 
 - name: <break>
 
-- name: Twitter
-  account: "@atctwo"
-  link: https://twitter.com/atctwo
+# - name: Twitter
+  # account: "@atctwo"
+  # link: https://twitter.com/atctwo
   # icon: <i class="bi bi-twitter"></i>
-  icon: <img class="about-social-icon" src="/assets/images/socials/Logo_of_Twitter.svg" />
+  # icon: <img class="about-social-icon" src="/assets/images/socials/Logo_of_Twitter.svg" />
 
 - name: Amateur Radio
   account: "MI7 LUA"
