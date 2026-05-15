@@ -5,6 +5,12 @@ javascript:
   name: JavaScript
   colour: "#F7DF1E"
 
+typescript:
+  icon: TypeScript.svg
+  name: TypeScript
+  colour: "#3178C6"
+  url: "https://www.typescriptlang.org/"
+
 bootstrap:
   icon: Bootstrap.svg
   name: Bootstrap
@@ -74,6 +80,12 @@ nodejs:
   name: NodeJS
   colour: "#5FA04E"
   url: "https://nodejs.org/en"
+
+svelte:
+  icon: Svelte.svg
+  name: Svelte
+  colour: "#FF3E00"
+  url: https://svelte.dev/
 
 electron:
   icon: Electron.svg
