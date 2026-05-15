@@ -71,6 +71,15 @@
     updated: February 2026
     technologies: [rust]
 
+  - name: Bowl of Serial
+    description: A little web app for sending data to a serial port in batches
+    image: /assets/images/projects/serial.png
+    image_alt: A screenshot of the app.  The left pane shows an input field with some lines of data interspersed with delay commands.  The right pane shows the response from the serial device.
+    codeberg: https://codeberg.org/atctwo/bowlofserial
+    link: https://serial.atctwo.net/
+    updated: April 2026
+    technologies: [typescript, svelte, bootstrap]
+
   - name: Media Streamer
     description: A thingy for streaming media from devices and displays in a web browser
     image: /assets/images/projects/mediastream.png
