@@ -168,7 +168,7 @@ latex:
   url: https://www.latex-project.org/
 
 openscad:
-  icon: Openscad.svg
+  icon: OpenSCAD2.svg
   name: OpenSCAD
   colour: "#F9D72C"
   url: https://openscad.org/
