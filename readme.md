@@ -17,7 +17,6 @@ This website uses a number of assets created by other people.  Since most assets
 - Comments for blog posts are implemented using [Remark42](https://remark42.com/)
 - Favicons were generated using [Real Favicon Generator](https://realfavicongenerator.net/)
 - EXIF data for photos on the photography section is parsed using [exif-js](https://github.com/exif-js/exif-js)
-- Many technology icons on the About and Project pages were sourced from [Simple Icons](https://simpleicons.org/)
 
 The design of this website was inspired by a number of other websites, from personal blogs to organisation sites.  Here is a non-exhaustive list of sites that inspired this one:
 - [Stargirl Flowers](https://thea.codes/)
