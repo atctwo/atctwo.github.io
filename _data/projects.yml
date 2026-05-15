@@ -1,5 +1,14 @@
-- section_name: Software Projects
+- section_name: Electronics and Robotics Projects
+  description: Electrical engineering projects
   projects:
+  - name: Cat Bot, or Scratch
+    description: A friend-shaped antweight battlebot
+    image: /assets/images/projects/catbot1.jpg
+    image_alt: A picture of the cat shaped bot sitting in a clearing on a very messy wooden desk
+    github: https://github.com/atctwo/catbot
+    updated: February 2026
+    technologies: [openscad]
+
   - name: bbrx!
     description: RC receiver controlled using Bluetooth gamepads 
     image: /assets/images/projects/bbrx.png
@@ -8,6 +17,33 @@
     updated: December 2025
     technologies: [arduino, cpp]
 
+  - name: clock25
+    description: A funky digital clock based on an ESP32 and an RGB LED matrix
+    image: /assets/images/projects/clock25.png
+    image_alt: Picture of the front of the clock
+    github: https://github.com/atctwo/clock25
+    updated: May 2024
+    technologies: [arduino, cpp, esp32, kicad, openscad]
+
+  - name: watch2
+    description: A custom ESP32-based smartwatch
+    image: /assets/images/projects/watch2.jpeg
+    image_alt: Picture of the watch
+    github: https://github.com/atctwo/watch-II
+    updated: September 2021
+    technologies: [arduino, cpp, esp32, kicad, openscad]
+
+  - name: assorted-breakouts
+    description: An assortment of simple breakout boards made with KiCad
+    image: /assets/images/projects/assorted_breakouts.png
+    image_alt: Collage of 3D renders of some of the breakout boards
+    github: https://github.com/atctwo/assorted-breakouts
+    updated: February 2024
+    technologies: [kicad]
+
+- section_name: Developer Tools
+  description: Utilities for software and electronic engineering
+  projects:
   - name: Pinout Thingy
     description: An interactive pinout viewer
     image: /assets/images/projects/cm5.png
@@ -35,14 +71,6 @@
     updated: February 2026
     technologies: [rust]
 
-  - name: Authenticator
-    description: A chrome extension to generate TOTP codes and automatically insert them into websites
-    image: /assets/images/projects/authenticator.png
-    image_alt: Screenshot of the authenticator
-    github: https://github.com/atctwo/authenticator
-    updated: January 2024
-    technologies: [javascript, web_extension]
-
   - name: Media Streamer
     description: A thingy for streaming media from devices and displays in a web browser
     image: /assets/images/projects/mediastream.png
@@ -51,40 +79,6 @@
     link: /projects/mediastream/
     updated: June 2023
     technologies: [javascript, bootstrap]
-
-- section_name: Electronics Projects
-  projects:
-  - name: Cat Bot, or Scratch
-    description: A friend-shaped antweight battlebot
-    image: /assets/images/projects/catbot1.jpg
-    image_alt: A picture of the cat shaped bot sitting in a clearing on a very messy wooden desk
-    github: https://github.com/atctwo/catbot
-    updated: February 2026
-    technologies: [openscad]
-
-  - name: clock25
-    description: A funky digital clock based on an ESP32 and an RGB LED matrix
-    image: /assets/images/projects/clock25.png
-    image_alt: Picture of the front of the clock
-    github: https://github.com/atctwo/clock25
-    updated: May 2024
-    technologies: [arduino, cpp, esp32, kicad, openscad]
-
-  - name: watch2
-    description: A custom ESP32-based smartwatch
-    image: /assets/images/projects/watch2.jpeg
-    image_alt: Picture of the watch
-    github: https://github.com/atctwo/watch-II
-    updated: September 2021
-    technologies: [arduino, cpp, esp32, kicad, openscad]
-
-  - name: assorted-breakouts
-    description: An assortment of simple breakout boards made with KiCad
-    image: /assets/images/projects/assorted_breakouts.png
-    image_alt: Collage of 3D renders of some of the breakout boards
-    github: https://github.com/atctwo/assorted-breakouts
-    updated: February 2024
-    technologies: [kicad]
 
 - section_name: Code Libraries
   projects:
@@ -166,6 +160,24 @@
     updated: November 2024
     technologies: [javascript, bootstrap, jekyll]
 
+  - name: Doodles
+    description: A collection of small software sketches
+    image: /assets/images/projects/doodles.png
+    image_alt: A screenshot of the 'teapot' doodle - a grid of 3D teapots rendered using normal mapping
+    link: /doodles
+    updated: 2024
+    technologies: [javascript, threejs]
+
+- section_name: The Archive
+  projects:
+  - name: Authenticator
+    description: A chrome extension to generate TOTP codes and automatically insert them into websites
+    image: /assets/images/projects/authenticator.png
+    image_alt: Screenshot of the authenticator
+    github: https://github.com/atctwo/authenticator
+    updated: January 2024
+    technologies: [javascript, web_extension]
+
   - name: transterminal
     description: A <strong>proof of concept</strong> for an simultaneous multi-user remote terminal
     image: /assets/images/projects/transterminal.png
@@ -189,14 +201,6 @@
     link: /projects/colour-idk/index.html
     updated: 2019
     technologies: [javascript]
-
-  - name: Doodles
-    description: A collection of small software sketches
-    image: /assets/images/projects/doodles.png
-    image_alt: A screenshot of the 'teapot' doodle - a grid of 3D teapots rendered using normal mapping
-    link: /doodles
-    updated: 2024
-    technologies: [javascript, threejs]
 
   - name: Website Version 1
     description: An archive of the first version of this website
