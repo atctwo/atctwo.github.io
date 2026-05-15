@@ -131,6 +131,9 @@ hide_title: true
                                     {% if project.crates %}
                                         <a href="{{project.crates}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="Crates.io page for {{project.name}}"><i class="bi bi-box-seam"></i> Crates.io</a>
                                     {% endif %}
+                                    {% if project.codeberg %}
+                                        <a href="{{project.codeberg}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="codeberg repository for {{project.name}}"><img src="/assets/images/socials/Codeberg2.svg" style="height: 21.5px"> Codeberg</a>
+                                    {% endif %}
                                     {% if project.github %}
                                         <a href="{{project.github}}" class="btn btn-primary project-card-link-btn rainbow-background" aria-label="GitHub repository for {{project.name}}"><i class="bi bi-github"></i> GitHub</a>
                                     {% endif %}
