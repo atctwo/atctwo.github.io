@@ -94,7 +94,7 @@ module PhotoAlbums
                             "sitemap"       => false,
                             "title"         => page_title,
                             "description"   => response["description"],
-                            "image"         => response["images"][response["images"].keys[-1]]["sizes"]["1080"],
+                            "image"         => response["cover_image"] || response["images"][response["images"].keys[-1]]["sizes"]["1080"],
                             "album_title"   => response["title"],
                             "album_desc"    => response["description"],
                             "sorting"       => response["sorting"] || "date",
