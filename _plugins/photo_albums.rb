@@ -48,7 +48,7 @@ end
 # make a string friendly for use in a url
 # from https://stackoverflow.com/a/4308399
 def slugify(str)
-    return str.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    return str.downcase.strip.gsub(' - ', ' ').gsub(' ', '-').gsub(/[^\w-]/, '')
 end
 
 module PhotoAlbums
@@ -85,10 +85,6 @@ module PhotoAlbums
 
                     # store album data for making index
                     album_data.append(response)
-
-                    Jekyll.logger.info "a"
-                    Jekyll.logger.info response["images"].first[1]["sizes"]
-                    Jekyll.logger.info "b"
 
                     # create page, setting page variables
                     site.pages << Jekyll::PageWithoutAFile.new(site, site.source, page_dir, page_name).tap do |file|
