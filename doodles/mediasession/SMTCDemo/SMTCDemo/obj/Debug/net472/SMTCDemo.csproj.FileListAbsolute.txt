@@ -1,0 +1,15 @@
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.csproj.AssemblyReference.cache
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.exe.config
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.AssemblyInfoInputs.cache
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.AssemblyInfo.cs
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.csproj.CoreCompileInputs.cache
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net472\SMTCDemo.exe.config
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net472\SMTCDemo.exe
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net472\SMTCDemo.pdb
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net472\WindowsMediaController.dll
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net472\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.csproj.Up2Date
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.exe
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net472\SMTCDemo.pdb

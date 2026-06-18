@@ -1,0 +1,15 @@
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net10.0\SMTCDemo.exe
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net10.0\SMTCDemo.deps.json
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net10.0\SMTCDemo.runtimeconfig.json
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net10.0\SMTCDemo.dll
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\bin\Debug\net10.0\SMTCDemo.pdb
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.AssemblyInfoInputs.cache
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.AssemblyInfo.cs
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.csproj.CoreCompileInputs.cache
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.dll
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\refint\SMTCDemo.dll
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.pdb
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.genruntimeconfig.cache
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\ref\SMTCDemo.dll
+C:\Users\alice\source\repos\SMTCDemo\SMTCDemo\obj\Debug\net10.0\SMTCDemo.csproj.AssemblyReference.cache

@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\alice\\source\\repos\\SMTCDemo\\SMTCDemo\\SMTCDemo.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\alice\\source\\repos\\SMTCDemo\\SMTCDemo\\SMTCDemo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alice\\source\\repos\\SMTCDemo\\SMTCDemo\\SMTCDemo.csproj",
+        "projectName": "SMTCDemo",
+        "projectPath": "C:\\Users\\alice\\source\\repos\\SMTCDemo\\SMTCDemo\\SMTCDemo.csproj",
+        "packagesPath": "C:\\Users\\alice\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alice\\source\\repos\\SMTCDemo\\SMTCDemo\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alice\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Dubya.WindowsMediaController": {
+              "target": "Package",
+              "version": "[2.5.6, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "AWzFTqXE++M=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alice\\source\\repos\\SMTCDemo\\SMTCDemo\\SMTCDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alice\\.nuget\\packages\\dubya.windowsmediacontroller\\2.5.6\\dubya.windowsmediacontroller.2.5.6.nupkg.sha512",
+    "C:\\Users\\alice\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.22\\microsoft.extensions.logging.abstractions.3.1.22.nupkg.sha512",
+    "C:\\Users\\alice\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.17763.1000\\microsoft.windows.sdk.contracts.10.0.17763.1000.nupkg.sha512",
+    "C:\\Users\\alice\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
+    "C:\\Users\\alice\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.6.0\\system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
