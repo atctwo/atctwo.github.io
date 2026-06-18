@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MediaSession API Skeletons"
-date:   2026-01-01
+date:   2026-06-18
 categories: posts
 tags: [web, media]
 author: "atctwo"
@@ -303,7 +303,7 @@ Another thing to be aware of (that isn't really documented very well) is that **
 # Edge Case 1: MediaSession in Android WebViews
 The first edge case I found is a little unrelated to the others, but it's worth taking a quick look anyway!
 
-The last section pointed out that you shouldn't assume `navigator.mediaSession` exists, since some browsers don't support MediaSession.  This isn't *usually* a problem - at time of writing [~94% of global internet users](https://caniuse.com/?search=mediasession) use a browser that supports it.  That last 6% is probably old and unsupported versions of browsers, right?
+The last section pointed out that you should always make sure `navigator.mediaSession` actually exists, since some browsers don't support MediaSession.  This isn't *usually* a problem - at time of writing [~94% of global internet users](https://caniuse.com/?search=mediasession) use a browser that supports it.  That last 6% is probably old and unsupported versions of browsers, right?
 
 There is one significant browser which doesn't support MediaSession - the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview&hl=en_GB).  This is the embeddable browser that a lot of apps use to show web pages without having to send the user to the device's main web browser.  Normally the user is only in the webview for a few minutes so it's typically not a problem that this API is unsupported.
 
