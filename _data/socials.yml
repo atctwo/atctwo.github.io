@@ -1,15 +1,12 @@
-- name: GitHub
-  account: "@atctwo"
-  link: https://github.com/atctwo
-  # icon: <i class="bi bi-github"></i>
-  icon: >
-    <img class="about-social-icon about-social-light" src="/assets/images/socials/GitHub_Dark.svg" />
-    <img class="about-social-icon about-social-dark"  src="/assets/images/socials/GitHub_Light.svg" />
-
 - name: Bluesky
   account: "@atctwo.net"
   link: https://bsky.app/profile/atctwo.net
   icon: <img class="about-social-icon" src="/assets/images/socials/Bluesky.svg" />
+
+- name: Fediverse
+  account: "@alex@atctwo.net"
+  link: https://gts2.atctwo.net/@alex
+  icon: <img class="about-social-icon" src="/assets/images/socials/Fediverse_logo_proposal.svg" />
 
 - name: Email
   account: "ale&#120;&#64;atct&#119;o&#46;&#110;et"
@@ -26,6 +23,14 @@
   # link: https://twitter.com/atctwo
   # icon: <i class="bi bi-twitter"></i>
   # icon: <img class="about-social-icon" src="/assets/images/socials/Logo_of_Twitter.svg" />
+
+- name: GitHub
+  account: "@atctwo"
+  link: https://github.com/atctwo
+  # icon: <i class="bi bi-github"></i>
+  icon: >
+    <img class="about-social-icon about-social-light" src="/assets/images/socials/GitHub_Dark.svg" />
+    <img class="about-social-icon about-social-dark"  src="/assets/images/socials/GitHub_Light.svg" />
 
 - name: Codeberg
   account: "atctwo"
