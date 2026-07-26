@@ -185,6 +185,26 @@ hide_title: true
 
                 {% endfor %}
 
+            {% when "date-reversed" %}
+
+                {% for date in page.dates reversed %}
+
+                    <div class="thumb-container">
+                        <div class="date-thumb">
+                            <span>{{ date[0] | date: '%A,<br>%B %d %Y' }}</span>
+                        </div>
+                        {% for image in date[1] reversed %}
+                            <a id="{{image}}">
+                            <img class="thumb image photo" src="{{page.images[image].sizes.400}}" 
+                                data-image='{{image}}'
+                                onclick="reset_lightbox('{{image}}', true);"
+                            >
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                {% endfor %}
+
             {% else %}
 
                 <div class="thumb-container">
@@ -325,6 +345,9 @@ window.addEventListener("load", () => {
     let next_image_id = "";
     let reset_after_hide = null;
 
+    // is this a reversed album?  (set the first time the lightbox is summoned from a thumbnail)
+    let is_reversed = false;
+
     // thingy to reset the map's internal size when the map div is resized
     const map_resize_observer = new ResizeObserver(entries => {
 
@@ -380,9 +403,12 @@ window.addEventListener("load", () => {
     }
 
     // hide columns and setup image
-    function reset_lightbox(image_str) {
+    function reset_lightbox(image_str, reversed=false) {
 
         console.log("loading image", image_str);
+
+        // store reversed flag
+        if (reversed) is_reversed = true;
 
         // hide modal if it's open
         // console.log("hiding modal")
@@ -411,8 +437,13 @@ window.addEventListener("load", () => {
         lightbox_map_div_container.classList.add("hidden");
 
         // set previous and next images
-        prev_image_id = image.prev;
-        next_image_id = image.next;
+        if (reversed) {
+            prev_image_id = image.next;
+            next_image_id = image.prev;
+        } else {
+            prev_image_id = image.prev;
+            next_image_id = image.next;
+        }
 
         // if image title is available
         if (image.title != "") {
@@ -451,7 +482,7 @@ window.addEventListener("load", () => {
 
     modal_lightbox_div.addEventListener("hidden.bs.modal", event => {
         if (reset_after_hide != null) {
-            reset_lightbox(reset_after_hide);
+            reset_lightbox(reset_after_hide, is_reversed);
             reset_after_hide = null;
         }
     });
