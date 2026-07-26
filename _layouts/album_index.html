@@ -38,9 +38,12 @@ layout: page
 
 {% for album in page.albums %}
     <div class="card mb-3">
+        <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 3px 0px;">{{album["title"]}}</h3>
+            <div class="badge rainbow-background"><b>{{album.images.size}}</b> image{% if album.images.size != 1 %}s{% endif %}</div>
+        </div>
         <div class="card-body">
-            <h3 class="card-title">{{album["title"]}}</h3>
-            <p  class="card-text">{{album["description"]}}</p>
+            <p  class="card-text mb-0">{{album["description"]}}</p>
             <a href="/photos/{{album['title'] | slugify}}" class="stretched-link"></a>
         </div>
 
