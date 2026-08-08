@@ -11,7 +11,7 @@ hide_title: true
             height: 300px;
             float: right;
             margin-left: 20px;
-            border: 3px solid #00ced1;
+            border: 4px solid #00ced1;
         }
         .skills-container {
             flex-direction: row;
