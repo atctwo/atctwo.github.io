@@ -95,6 +95,8 @@ This approach has a lot of problems, a lot of funny edge cases, and weird hacks 
 
 My router is a [tiny little baby Mikrotik hAP ac](https://mikrotik.com/product/RB962UiGS-5HacT2HnT) running RouterOS 7, which means that this approach is highly specific to Mikrotik stuff.  Also, the particular public VPN I'm using is [Mullvad](https://mullvad.net/); there will be some Mullvad specific stuff here but hopefully the approach will be fairly VPN-agnostic.
 
+??? oops well this is awkward, mullvad isn't woke?
+
 This approach is **highly** based on [this post by Simo R](https://www.netdaily.org/route-traffic-to-vpn-on-mikrotik/); in fact it's mostly exactly the same, except with extra tinkering I had to do for some network-specific cases, as well as some tips from [this post](https://littlefool.de/posts/mullvad-wireguard-with-routeros-7/ by LittleFool).
 
 [^1]: I guess my situation is strange because I'm kinda forced to use OpenVPN for my private VPN because of certain network restrictions which are out of my control.  I'd rather use Wireguard, but I guess if I could use Wireguard I would more likely be using something like Tailscale
@@ -198,6 +200,8 @@ There are four firewall mangle rules which are responsible for determining which
 
 The first three rules are "exceptions", which prevent certain traffic from being routed to the VPN tunnel by immediately `accept`ing the packet.  The last rule is the one that actually sends packets that make it through to the tunnel (well, the *routing table* for the tunnel).
 
+??? keep in mind that order matters
+
 {% include admonition.html type="info" %}
 
 <div class="no_toc_section" markdown="1">
@@ -207,6 +211,9 @@ to prevent sending traffic for bypassed IPs to the VPN tunnel, packets with a so
 
 ### 2. don't tunnel LAN traffic
 to prevent traffic to other devices on the LAN getting tunnelled, packets with a source address in `vpn` and a destination address in `lan` get `accept`ed
+
+### (2/3)/2. don't tunnel traffic that would already be tunelled
+??? don't tunnel traffic going to the VPN from a VPNed client
 
 ### 3. don't tunnel traffic for forwarded ports
 this one is really only important if you have port-forwarded a device on your LAN which happens to be in the `vpn` list.  
@@ -252,6 +259,8 @@ If the device you're using to edit the config is on `vpn`, make sure the last ru
 
 ## Firewall NAT rules
 If you have regular NAT rules set up on your network, you might need to set up an extra rule to make sure traffic to the VPN tunnel (on the `wgmullvad` routing table) gets NATted too.
+
+??? maybe the vpn nat rule needs to be first?
 
 ```conf
 > ip firewall nat print detail
