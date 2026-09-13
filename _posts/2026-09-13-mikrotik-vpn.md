@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mikrotik Router as a VPN client"
-date:   2026-06-18
+date:   2026-09-13
 categories: posts
 tags: [infra]
 author: "atctwo"
