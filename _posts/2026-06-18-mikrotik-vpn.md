@@ -282,6 +282,20 @@ note that this doesn't actually send the traffic through the tunnel, it simply p
 ```
 <br>
 
+### 5. change MSS
+a secret fifth rule that took me weeks to figure out!
+
+after switching to IVPN and AirVPN i found that certain websites like GitHub would never load, unless the page was reloaded mid-loading.  (ie: only the second connection attempt would work).  it turned out that it was the TLS handshake that was failing.  this would only happen when rule 4 was enabled.
+
+after scouring the internet for some lead on why this was happening, I found [this GitHub Gist](https://gist.github.com/N0xFF/f6ee51a3b04b5f373ac2372e943195a0) with the description "MikroTik stuck on `TLS handshake, Client hello (1)`".  the gist suggests adding a `forward` chain rule to change the MSS of TCP-SYN packets, such that values of 1381 and higher get "clamped" to 1380.  i'm not totally sure why but this worked!
+
+```conf
+4  ;;; [vpn] tls silly thingy??? https://gist.github.com/N0xFF/f6ee51a3b04b5f373ac2372e943195a0
+   chain=forward action=change-mss new-mss=1380 passthrough=yes tcp-flags=syn protocol=tcp out-interface-list=vpns tcp-mss=1381-65535 log=no log-prefix=""
+```
+
+<br>
+
 </div>
 
 {% include admonition_end.html %}
